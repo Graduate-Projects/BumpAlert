@@ -18,7 +18,7 @@ namespace Bump
         private void Button_Clicked(object sender, EventArgs e)
         {
             count++;
-            ((Button)sender).Text = $"your clicked {count} items";
+            ((Button)sender).Text = $"your clicked {count} items in jordan";
         }
     }
 }
