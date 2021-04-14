@@ -23,6 +23,7 @@ namespace Bump.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            Xamarin.FormsGoogleMaps.Init("AIzaSyAWbDvFVAFfMDKePkR2H8KCdL_NT7SGljA");
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

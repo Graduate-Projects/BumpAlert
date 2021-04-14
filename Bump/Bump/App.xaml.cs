@@ -10,7 +10,7 @@ namespace Bump
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new Bump.Views.MainPageView.MainPage();
         }
 
         protected override void OnStart()
