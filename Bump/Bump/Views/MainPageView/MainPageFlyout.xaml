@@ -3,7 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Bump.Views.MainPageView.MainPageFlyout"
              Title="Flyout">
-  <StackLayout>
+    <StackLayout Margin="0" Padding="10" Spacing="30" BackgroundColor="#B44C5A">
+        <Image Source="undraw_dropdown_menu"/>
+        <StackLayout Orientation="Horizontal" Margin="10,0" Padding="0" Spacing="0"
+                     HorizontalOptions="FillAndExpand">
+            <Button Text="English" TextTransform="None" TextColor="#FFFFFF"
+                    FontAttributes="Bold" HorizontalOptions="FillAndExpand" 
+                    CornerRadius="5" BackgroundColor="#DC384D"/>
+            <Button Text="عربي" TextColor="#DC384D" BackgroundColor="#FFFFFF"
+                    FontAttributes="Bold"
+                    CornerRadius="5" HorizontalOptions="FillAndExpand" />            
+        </StackLayout>
 
-  </StackLayout>
+        <StackLayout Margin="0" Padding="0" Spacing="10">
+            <Button ImageSource="customer_service" Text="Trust User" TextTransform="None"
+                    TextColor="White" FontAttributes="Bold"
+                    ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
+                    BackgroundColor="Transparent" Padding="0"/>
+            <Button ImageSource="customer_service" Text="Contact Us" TextTransform="None"
+                    TextColor="White" FontAttributes="Bold"
+                    ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
+                    BackgroundColor="Transparent" Padding="0"/>
+            <Button ImageSource="suggestions" Text="Suggestions" TextTransform="None"
+                    TextColor="White" FontAttributes="Bold"
+                    ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
+                    BackgroundColor="Transparent" Padding="0"/>
+            <Button ImageSource="invite" Text="Invite a friend" TextTransform="None"
+                    TextColor="White" FontAttributes="Bold"
+                    ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
+                    BackgroundColor="Transparent" Padding="0"/>
+            <Button ImageSource="help" Text="About" TextTransform="None"
+                    TextColor="White" FontAttributes="Bold"
+                    ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
+                    BackgroundColor="Transparent" Padding="0"/>
+        </StackLayout>
+    </StackLayout>
 </ContentPage>
