@@ -3,4 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Bump.Views.MainPageView.MainPageDetail"
              xmlns:XamainMap="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
-             Title="Detail"/>
+             Title="Detail">
+    <ContentPage.Content>
+        <StackLayout Margin="0" Padding="0" Spacing="0">
+            <XamainMap:Map x:Name="GoogleMap"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

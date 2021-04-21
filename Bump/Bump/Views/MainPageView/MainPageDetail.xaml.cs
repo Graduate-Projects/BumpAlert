@@ -22,12 +22,8 @@ namespace Bump.Views.MainPageView
             var LocationWhenInUsePermission = await Xamarin.Essentials.Permissions.RequestAsync<Xamarin.Essentials.Permissions.LocationWhenInUse>();
             if(LocationWhenInUsePermission == Xamarin.Essentials.PermissionStatus.Granted)
             {
-                var GoogleMap = new Xamarin.Forms.GoogleMaps.Map()
-                {
-                    MyLocationEnabled = true,
-                };
+                GoogleMap.MyLocationEnabled = true;
                 GoogleMap.UiSettings.MyLocationButtonEnabled = true;
-                this.Content = GoogleMap;
             }
         }
     }
