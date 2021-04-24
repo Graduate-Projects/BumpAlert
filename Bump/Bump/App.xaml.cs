@@ -9,8 +9,8 @@ namespace Bump
         public App()
         {
             InitializeComponent();
-
-            MainPage = new Bump.Views.MainPageView.MainPage();
+            MainPage = new Bump.Views.SignIn();
+            //MainPage = new Bump.Views.MainPageView.MainPage();
         }
 
         protected override void OnStart()

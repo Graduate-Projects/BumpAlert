@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Bump.Views.SignIn">
+
+    <ContentPage.Content>
+        <StackLayout  Margin="0" Padding="22" Spacing="22" BackgroundColor="#FFFFFF">
+
+            <Label Text="Login at Trust User"  TextTransform="None" HorizontalOptions="StartAndExpand"
+                   TextColor="#DC384D" FontAttributes="Bold" FontSize="20" />
+
+            <Image Source="undraw_navigator" HorizontalOptions="StartAndExpand"/>
+
+            <Label Text="If you would like to be a builder of our unique team, please do sign up." 
+                   TextTransform="None" HorizontalOptions="StartAndExpand"
+                   TextColor="Gray" FontAttributes="Bold" FontSize="15" />
+
+            <StackLayout Margin="0,20" Padding="0" Spacing="22">
+                <Entry x:Name="Email"  Text="{Binding Email}" Placeholder="Email" PlaceholderColor="Gray"   
+                     HeightRequest="40"  BackgroundColor="#EAEAEA" Keyboard="Email">
+                  </Entry>
+
+                <Entry x:Name="Password"  Text="{Binding Password}" Placeholder="Password" PlaceholderColor="Gray"   
+                     HeightRequest="40"  BackgroundColor="#EAEAEA" IsPassword="True" >
+
+                </Entry>
+ 
+                
+                <ImageButton  VerticalOptions="Center" HeightRequest="20" HorizontalOptions="End" Source="eye_pass" Grid.Column="1" Margin="0,-55"/>
+               
+                <StackLayout Orientation="Horizontal" Margin="0,55" Padding="0" Spacing="0">
+                    <CheckBox HorizontalOptions="Start" />
+                    <Label  Text="Remember me" Padding="15" FontSize="12" HorizontalOptions="StartAndExpand"
+                            TextColor="#DC384D" FontAttributes="Bold" />
+                    
+                    <Button Text="Forgit Password?" TextColor="#DC384D" BackgroundColor="Transparent" 
+                            FontSize="12" TextTransform="None" HorizontalOptions="EndAndExpand" FontAttributes="Bold"/>
+                </StackLayout>
+
+                <StackLayout Margin="0" Padding="0" Spacing="0" >
+
+                    <Button Text="Sign In" TextTransform="None" TextColor="White" FontAttributes="Bold" 
+                            BackgroundColor="#DC384D" HorizontalOptions="FillAndExpand" CornerRadius="5" FontSize="23" Padding="12" Margin="10"/>
+                </StackLayout>
+                
+                <StackLayout Margin="0" Padding="0" Spacing="0" Orientation="Horizontal">
+
+                        <Label Text="Dont have an account?" FontSize="12" Margin="13,0" FontAttributes="Bold"/>
+                    <Button Text="Join Us" BackgroundColor="Transparent" FontSize="12" TextColor="#DC384D"
+                            TextTransform="None" Margin="-27" Font="Bold" />
+                </StackLayout>
+                
+                <StackLayout Margin="0" Padding="0" Spacing="0" >
+                    <Label Text="_______________________Social media__________________________" HorizontalOptions="CenterAndExpand"
+                           TextColor="#DC384D"/>
+                </StackLayout>
+                
+                    <StackLayout Margin="0" Padding="0" Spacing="0"  Orientation="Horizontal">
+                        
+                    <Frame HasShadow="False" Margin="0" Padding="0" >
+                        <ImageButton Source="facebook" BackgroundColor="#3C5A9A" CornerRadius="5" 
+                                 Padding="70,10,70,10" Margin="10,0"/>
+                    </Frame>
+                        
+                    <Frame HasShadow="True" Margin="0" Padding="0">
+                        <ImageButton Source="google" BackgroundColor="white"  CornerRadius="5" 
+                                 Padding="70,10,70,10" Margin="10,0"/>
+                    </Frame>
+
+
+
+                </StackLayout>
+                
+
+            </StackLayout>
+
+            
+
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
