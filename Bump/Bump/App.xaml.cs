@@ -9,7 +9,8 @@ namespace Bump
         public App()
         {
             InitializeComponent();
-            MainPage = new Bump.Views.SignIn();
+            MainPage = new Bump.Views.About_2();
+            // MainPage = new Bump.Views.SignIn();
             //MainPage = new Bump.Views.MainPageView.MainPage();
         }
 

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Bump.Views.About_2">
+    <ContentPage.Content>
+        <StackLayout Margin="20,30,30,0" Padding="0" Spacing="15">
+            <Label Text="About"  TextTransform="None" HorizontalOptions="StartAndExpand"
+                   TextColor="#DC384D" FontAttributes="Bold" FontSize="30"  />
+
+            <Label Text="Through the application, you can determine what matters most to you as a driver on the road, such as a nearby bump,speed radar, or new pits, locating the nearest gas station to avoid running out of fuel at any time, you can call any car repairman near your location if you had any urgent problem."
+                HorizontalOptions="StartAndExpand"  TextTransform="None" TextColor="Gray" FontAttributes="Bold" FontSize="22" Margin="20,20,10,0" VerticalOptions="Start" />
+
+            <Label Text="The application gives a distance notice that allows you to take an appropriate measure to protect yourself and your car as well."
+                    HorizontalOptions="StartAndExpand"  TextTransform="None" TextColor="Gray" FontAttributes="Bold" FontSize="22"  Margin="20,40,10,0" VerticalOptions="FillAndExpand" />
+
+           
+
+            <StackLayout Orientation="Horizontal" Margin="0">
+                <Button HorizontalOptions="StartAndExpand" Text="Skip" TextColor="#DC384D" BackgroundColor="Transparent" Opacity="0.5" FontSize="19" VerticalOptions="EndAndExpand"/>
+                <Button HorizontalOptions="EndAndExpand" Text="Next" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="19" VerticalOptions="EndAndExpand"/>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
