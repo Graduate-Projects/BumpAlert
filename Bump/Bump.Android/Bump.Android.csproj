@@ -59,6 +59,9 @@
     <PackageReference Include="Xamarin.Forms.GoogleMaps">
       <Version>4.0.0-BETA1</Version>
     </PackageReference>
+    <PackageReference Include="XF.Material">
+      <Version>1.7.8</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -86,9 +89,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\drawable\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Bump\Bump.csproj">
       <Project>{079ABA88-53CF-47FB-BADF-EC3F87B6CA05}</Project>
@@ -508,6 +509,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\undraw_warning_cyit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\way_4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

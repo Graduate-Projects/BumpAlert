@@ -22,5 +22,14 @@ namespace Bump.Views.MainPageView
             InitializeComponent();
         }
 
+        private void OpenSignInPage(object sender, EventArgs e)
+        {
+            App.Current.MainPage.Navigation.PushAsync(new Views.SignIn());
+        }
+
+        private void OpenAboutPage(object sender, EventArgs e)
+        {
+            App.Current.MainPage.Navigation.PushAsync(new Views.About());
+        }
     }
 }
