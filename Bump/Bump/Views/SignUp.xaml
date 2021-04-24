@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Bump.Views.SignUp">
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="20,0,20,0">
+            <Label Text="Sign Up" TextColor="#DC384D"  TextTransform="None" FontAttributes="Bold" Margin="15,20" FontSize="Title" ></Label>
+            <Entry Placeholder="First Name"  ></Entry>
+            <Entry Placeholder="Last Name" ></Entry>
+            <Entry Placeholder="Mobile Number"  ></Entry>
+            <Entry Placeholder="Email"  ></Entry>
+            <Entry Placeholder="Password" ></Entry>
+            <Entry Placeholder="Confirm Password"  ></Entry>
+            <Button Text="Sign Up" TextColor="#FFFFFF" BackgroundColor="#DC384D"></Button>
+            <Label HorizontalOptions="Center">
+                <Label.FormattedText >
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="Already have account?"/>
+                        </FormattedString.Spans>
+                    </FormattedString>
+                    
+                </Label.FormattedText>
+                   </Label>
+           <Button Text="  Sign in" FontAttributes="Bold " TextColor="#DC384D" />
+        </StackLayout>
+        
+        
+     
+    </ContentPage.Content>
+</ContentPage>

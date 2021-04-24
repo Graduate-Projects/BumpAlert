@@ -2,8 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Bump.Views.MainPageView.MainPageFlyout"
-             Title="Flyout">
-  <StackLayout>
+             Title="Flyout" BackgroundImage="way_4">
+
+    <StackLayout Margin="0"  Padding="10" Spacing="30"  BackgroundColor="#4AB44C5A" >
+        <Image Source ="undraw_dropdown_menu"></Image>
+        <StackLayout Orientation="Horizontal" Margin="0"  Padding="0" Spacing="0" HorizontalOptions="CenterAndExpand" >
+            <Button Text="English" TextColor="#FFFFFF" TextTransform="None" FontAttributes="Bold" BackgroundColor="#DC384D"/>
+            <Button Text="عربي" TextColor="#DC384D" FontAttributes="Bold" BackgroundColor="#FFFFFF"/>
+        </StackLayout>
+        <StackLayout Margin="0" Padding="0" Spacing="20" >
+            <Button ImageSource="asset1" Text=" Contibute" TextColor="#FFFFFF" TextTransform="None" FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
+            <Button ImageSource="customer_service" Text=" Contact Us" TextColor="#FFFFFF" TextTransform="None" FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
+            <Button ImageSource="suggestions" Text=" Suggestions" TextColor="#FFFFFF" TextTransform="None" FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
+            <Button ImageSource="invite" Text=" Invite a Friend" TextColor="#FFFFFF" TextTransform="None" FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
+            <Button ImageSource="help" Text=" About" TextColor="#FFFFFF" TextTransform="None" FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
+        </StackLayout>
 
   </StackLayout>
 </ContentPage>

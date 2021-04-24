@@ -9,7 +9,7 @@ namespace Bump
         public App()
         {
             InitializeComponent();
-
+           // MainPage = new Bump.Views.SignUp();
             MainPage = new Bump.Views.MainPageView.MainPage();
         }
 
