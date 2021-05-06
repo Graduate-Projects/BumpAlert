@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Bump.Views.AboutProgram">
+    <ContentPage.Content>
+        <StackLayout Margin="10" Padding="10" Spacing="10">
+            <Label Text="Our Program"  TextTransform="None" HorizontalOptions="StartAndExpand"
+                   TextColor="#DC384D" FontAttributes="Bold" FontSize="Title"  />
+            <Image Source="undraw_warning_cyit" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="The goal is  preserving your safety and the safety of the car on the highway." Margin="20,40,10,0" FontSize="Medium"
+                   FontAttributes="Bold"/>
+            <Label Text="Through the application, you can determine what matters most to you as a driver on the road, such as a nearby bump, speed radar, or new pits, locating the nearest gas station to avoid running out of fuel at any time."
+                   Margin="20,15,10,0" FontSize="Medium" FontAttributes="Bold"/>
+
+            <StackLayout Orientation="Horizontal" Margin="0,80">
+                <Button HorizontalOptions="StartAndExpand" Text="Skip" Opacity="0.6" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="StartAndExpand"/>
+                <Button HorizontalOptions="EndAndExpand" Text="Next" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="EndAndExpand"/>
+                
+            </StackLayout>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -10,14 +10,18 @@
                 <Image Source="undraw_meet_the_team" HorizontalOptions="CenterAndExpand"/>
 
                 <Label Text="Alone we can do so little; together we can do so much."
-                    HorizontalOptions="StartAndExpand"  TextTransform="None" TextColor="#DC384D" FontAttributes="Bold" FontSize="Medium"  Margin="20,40,10,0" VerticalOptions="FillAndExpand" />
+                    HorizontalOptions="StartAndExpand"  TextTransform="None" TextColor="#DC384D" FontAttributes="Bold" 
+                       FontSize="Medium"  Margin="20,40,10,0" VerticalOptions="FillAndExpand" />
 
             <StackLayout Margin="0" Padding="0" Spacing="5" >
                 <Button ImageSource="email" Text=" Joud  AL-dhadleh" TextColor="Gray" TextTransform="None"  FontSize="Medium"
                         FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
-                <Button ImageSource="email" Text=" Heba  AL-ahmad" TextColor="Gray" TextTransform="None" FontSize="Medium" FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
-                <Button ImageSource="email" Text=" Saja  dahadha" TextColor="Gray" TextTransform="None" FontSize="Medium" FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
-                <Button ImageSource="email" Text=" Raghad  AL-khateeb" TextColor="Gray" TextTransform="None" FontSize="Medium" FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
+                <Button ImageSource="email" Text=" Heba  AL-ahmad" TextColor="Gray" TextTransform="None" FontSize="Medium" 
+                        FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
+                <Button ImageSource="email" Text=" Saja  dahadha" TextColor="Gray" TextTransform="None" FontSize="Medium" 
+                        FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
+                <Button ImageSource="email" Text=" Raghad  AL-khateeb" TextColor="Gray" TextTransform="None" FontSize="Medium" 
+                        FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
             </StackLayout>
 
 

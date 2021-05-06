@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Bump.Views.AboutUse">
+    <ContentPage.Content>
+        <StackLayout Margin="10" Padding="10" Spacing="10">
+            <Label Text="How to Use"  TextTransform="None" HorizontalOptions="StartAndExpand"
+                   TextColor="#DC384D" FontAttributes="Bold" FontSize="Title"  />
+            <Image Source="undraw_My_location_re_r52x" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="The application gives a distance notice that allows you to take an appropriate measure to protect yourself and your car as well, to do this you should allow the application to access your location and select what you like to detection in your way."
+                    Margin="20,15,10,0" FontSize="Medium" FontAttributes="Bold" />
+            <Label Text="You can help us and be contribute to search and enter the location of every thing in the way, you should sign up to do this."
+                   Margin="20,15,10,0" FontSize="Medium" FontAttributes="Bold"/>
+
+            <StackLayout Orientation="Horizontal" Margin="0,50">
+                <Button HorizontalOptions="StartAndExpand" Text="Skip" TextTransform="None" Opacity="0.6" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="StartAndExpand"/>
+                <Button HorizontalOptions="EndAndExpand" Text="Next" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="EndAndExpand"/>
+                
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

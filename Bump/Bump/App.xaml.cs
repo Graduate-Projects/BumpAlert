@@ -10,8 +10,10 @@ namespace Bump
         {
             InitializeComponent();
             XF.Material.Forms.Material.Init(this);
+            MainPage = new Bump.Views.AboutUse();
+            //MainPage = new Bump.Views.AboutProgram();
             //MainPage = new Bump.Views.SignUp();
-            MainPage = new Bump.Views.About();
+            //MainPage = new Bump.Views.About();
             //MainPage = new Bump.Views.MainPageView.MainPage();
             //MainPage = new Views.SignIn();
         }
