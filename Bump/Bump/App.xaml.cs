@@ -9,8 +9,10 @@ namespace Bump
         public App()
         {
             InitializeComponent();
-           // MainPage = new Bump.Views.SignUp();
-            MainPage = new Bump.Views.MainPageView.MainPage();
+            XF.Material.Forms.Material.Init(this);
+             MainPage = new Bump.Views.SignUp();
+            //MainPage = new Bump.Views.MainPageView.MainPage();
+            //MainPage = new Views.SignIn();
         }
 
         protected override void OnStart()

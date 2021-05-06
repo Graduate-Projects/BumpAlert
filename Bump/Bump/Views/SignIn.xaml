@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:XFMaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             x:Class="Bump.Views.SignIn"
+             NavigationPage.HasNavigationBar="False"
+             XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
+
+    <ContentPage.Content>
+        <StackLayout  Margin="0" Padding="20" Spacing="20" BackgroundColor="#FFFFFF">
+
+            <StackLayout Margin="0" Padding="0" Spacing="20">
+                <Label Text="Login at Trust User"  TextTransform="None" HorizontalOptions="StartAndExpand"
+                   TextColor="#DC384D" FontAttributes="Bold" FontSize="20" />
+                <Image Source="undraw_navigator" HorizontalOptions="StartAndExpand"/>
+                <Label Text="If you would like to be a builder of our unique team, please do sign up." 
+                   TextTransform="None" HorizontalOptions="StartAndExpand"
+                   TextColor="Gray" FontAttributes="Bold" FontSize="15" />
+            </StackLayout>
+
+            <StackLayout Margin="0" Padding="0" Spacing="22">
+                <StackLayout Margin="0" Padding="0" Spacing="30">
+                    <XFMaterial:MaterialTextField 
+                       Text="{Binding Email}" 
+                       UnderlineColor="#B00020" TintColor="#B00020"
+                       Placeholder="Email/Username" PlaceholderColor="Gray"                       
+                       HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Email"/>
+
+                    <XFMaterial:MaterialTextField  
+                       
+                       Text="{Binding Password}" Placeholder="Password"
+                       ErrorIcon="eye_pass" HasError="False"
+                       PlaceholderColor="Gray" UnderlineColor="#B00020" TintColor="#B00020"
+                       HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Password" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0" Padding="0" Spacing="0">
+                    <StackLayout Orientation="Horizontal" Margin="0" Padding="0" Spacing="5">
+                        <CheckBox />
+                        <Label Text="Remember me" FontSize="Small" VerticalTextAlignment="Center"
+                            TextColor="#DC384D" FontAttributes="Bold" />
+                    </StackLayout>
+                    <Button Text="Forgit Password?" FontSize="Small"
+                            BackgroundColor="Transparent" TextColor="#DC384D"                                               
+                            TextTransform="None" FontAttributes="Bold"
+                            HorizontalOptions="EndAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Margin="0" Padding="0" Spacing="10">
+                <Button Text="Sign In" TextTransform="None" 
+                        TextColor="White" FontAttributes="Bold" 
+                        BackgroundColor="#DC384D" CornerRadius="5" 
+                        FontSize="Medium" Margin="10,0"/>
+
+                <Label FontSize="Small" FontAttributes="Bold" HorizontalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span  Text="Dont have an account?" />
+                                <Span Text=" "/>
+                                <Span Text="Join Us" TextColor="#DC384D"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                    
+                </Label>
+            </StackLayout>
+
+            <StackLayout Margin="0" Padding="0" Spacing="20">
+                <Grid Margin="0" Padding="0">
+                    <BoxView HeightRequest="1" Color="Gray"
+                             VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                    <Grid Margin="0" Padding="0" HorizontalOptions="Center">
+                        <BoxView HeightRequest="1" Color="White"
+                                 VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                        <Label Text="     Social Sing in     "
+                               TextColor="#DC384D" FontSize="Small" FontAttributes="Bold"/>
+                    </Grid>
+                </Grid>
+                <StackLayout Margin="0" Padding="0" Spacing="0" Orientation="Horizontal">
+                    <ImageButton Source="facebook" BackgroundColor="#3C5A9A" CornerRadius="5" 
+                                 Padding="70,10,70,10" Margin="10,0"/>
+                    <ImageButton Source="google" BackgroundColor="white" CornerRadius="5" 
+                                 Padding="70,10,70,10" Margin="10,0"
+                                 BorderColor="#5FC4C4C4" BorderWidth="1"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
