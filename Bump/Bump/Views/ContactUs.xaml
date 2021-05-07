@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:XFMaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             x:Class="Bump.Views.ContactUs"
+             NavigationPage.HasNavigationBar="False"
+             XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
+    <ContentPage.Content>
+        <StackLayout Margin="10" Spacing="10" Padding="10">
+            <StackLayout Margin="0" Spacing="10">
+                <Label Text="Contact Us"  TextTransform="None" HorizontalOptions="StartAndExpand"
+                   TextColor="#DC384D" FontAttributes="Bold" FontSize="Title"  />
+                <Image Source="undraw_contact_us" HorizontalOptions="CenterAndExpand"/>
+                <Label Text="You can contact us:"
+                   Margin="20,15,10,0" FontSize="Large" FontAttributes="Bold"/>
+            </StackLayout>
+
+            <StackLayout Margin="10" Padding="0" Spacing="15" >
+                <Button ImageSource="email" Text="  info@bump.com" TextColor="Gray" TextTransform="None"  FontSize="Medium"
+                         FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
+                <Button ImageSource="call" Text="  +962 785 000 000" TextColor="Gray" TextTransform="None" FontSize="Medium" 
+                        FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
+                <Button ImageSource="fax_machine" Text="  +962 2 724 9429" TextColor="Gray" TextTransform="None" FontSize="Medium" 
+                        FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
+               
+            </StackLayout>
+
+            <StackLayout Spacing="5" Margin="0"  Padding="10">
+                <Label Text="You can follow us:"
+                   FontSize="Large" FontAttributes="Bold"/>
+                <StackLayout Orientation="Horizontal" Spacing="30" HorizontalOptions="CenterAndExpand" Padding="20">
+
+                    <ImageButton Source="facebook" BackgroundColor="#DC384D" CornerRadius="50" 
+                                 Padding="21,15,21,15" Margin="10,0"/>
+                    <ImageButton Source="twitter" BackgroundColor="#DC384D" CornerRadius="50" 
+                                 Padding="15,15,15,15" Margin="10,0"/>
+
+                    <ImageButton Source="linkedin" BackgroundColor="#DC384D" CornerRadius="50" 
+                                 Padding="17,17,17,17" Margin="10,0"/>
+
+
+                </StackLayout>
+            </StackLayout>
+            
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
