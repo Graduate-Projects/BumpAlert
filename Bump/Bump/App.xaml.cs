@@ -10,7 +10,7 @@ namespace Bump
         {
             InitializeComponent();
             XF.Material.Forms.Material.Init(this);
-            MainPage = new Bump.Views.MainPageContribute.Contribute();
+            //MainPage = new Bump.Views.MainPageContribute.Contribute();
             //MainPage = new Bump.Views.ContactUs();
             // MainPage = new Bump.Views.ForgetPassword();
             //MainPage = new Bump.Views.Suggestions();
@@ -18,7 +18,7 @@ namespace Bump
             //MainPage = new Bump.Views.AboutProgram();
             //MainPage = new Bump.Views.SignUp();
             //MainPage = new Bump.Views.About();
-            //MainPage = new Bump.Views.MainPageView.MainPage();
+            MainPage = new Bump.Views.MainPageView.MainPage();
             //MainPage = new Views.SignIn();
 
         }
