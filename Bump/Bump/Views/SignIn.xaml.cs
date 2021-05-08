@@ -16,23 +16,5 @@ namespace Bump.Views
         {
             InitializeComponent();
         }
-
-        private void OpenForgetPasswordPage(object sender, EventArgs e)
-        {
-            App.Current.MainPage.Navigation.PushAsync(new Views.ForgetPassword());
-
-        }
-
-        private void OpenContributePage(object sender, EventArgs e)
-        {
-            App.Current.MainPage.Navigation.PushAsync(new Views.MainPageContribute.Contribute());
-
-        }
-
-        private void OpenSginUpPage(object sender, EventArgs e)
-        {
-
-            App.Current.MainPage.Navigation.PushAsync(new Views.SignUp());
-        }
     }
 }

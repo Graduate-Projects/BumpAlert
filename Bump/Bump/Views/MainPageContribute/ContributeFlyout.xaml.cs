@@ -26,10 +26,8 @@ namespace Bump.Views.MainPageContribute
 
         private void OpenAboutPage(object sender, EventArgs e)
         {
-            App.Current.MainPage.Navigation.PushAsync(new Views.AboutProgram());
-        }
-
-   
+            App.Current.MainPage.Navigation.PushAsync(new Views.About());
+        }   
 
         private void OpenContactUsPage(object sender, EventArgs e)
         {

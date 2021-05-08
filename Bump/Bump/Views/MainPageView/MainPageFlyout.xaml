@@ -2,7 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Bump.Views.MainPageView.MainPageFlyout"
+             xmlns:ViewModels="clr-namespace:Bump.ViewModels"
              Title="Flyout">
+    <ContentPage.BindingContext>
+        <ViewModels:MainPageFlyoutViewModel/>
+    </ContentPage.BindingContext>
     <Grid Margin="0" Padding="0">
         <Image Source="way_4" Aspect="AspectFill"/>
         <StackLayout Margin="0" Padding="10" Spacing="30" BackgroundColor="#CAB44C5A">
@@ -19,28 +23,30 @@
 
             <StackLayout Margin="0" Padding="0" Spacing="10">
                 <Button ImageSource="puzzle" Text="Contribute" TextTransform="None"
-                    TextColor="White" FontAttributes="Bold"
-                    ContentLayout="Left,40" HorizontalOptions="StartAndExpand"
-                    BackgroundColor="Transparent" Padding="0"
-                    Clicked="OpenSignInPage"/>
+                        TextColor="White" FontAttributes="Bold"
+                        ContentLayout="Left,40" HorizontalOptions="StartAndExpand"
+                        BackgroundColor="Transparent" Padding="0"
+                        Command="{Binding OpenSignInPageCommand}"/>
                 <Button ImageSource="customer_service" Text="Contact Us" TextTransform="None"
-                    TextColor="White" FontAttributes="Bold"
-                    ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
-                    BackgroundColor="Transparent" Padding="0"
-                    Clicked="OpenContactUsPage" />
+                        TextColor="White" FontAttributes="Bold"
+                        ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
+                        BackgroundColor="Transparent" Padding="0"
+                        Command="{Binding OpenContactUsPageCommand}" />
                 <Button ImageSource="suggestions" Text="Suggestions" TextTransform="None"
-                    TextColor="White" FontAttributes="Bold"
-                    ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
-                    BackgroundColor="Transparent" Padding="0" Clicked="OpenSuggestionPage"/>
+                        TextColor="White" FontAttributes="Bold"
+                        ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
+                        BackgroundColor="Transparent" Padding="0" 
+                        Command="{Binding OpenSuggestionPageCommand}"/>
                 <Button ImageSource="invite" Text="Invite a friend" TextTransform="None"
-                    TextColor="White" FontAttributes="Bold"
-                    ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
-                    BackgroundColor="Transparent" Padding="0" /> 
+                        TextColor="White" FontAttributes="Bold"
+                        ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
+                        BackgroundColor="Transparent" Padding="0" 
+                        Command="{Binding InviteOtherPeopleCommand}"/> 
                 <Button ImageSource="help" Text="About" TextTransform="None"
-                    TextColor="White" FontAttributes="Bold"
-                    ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
-                    BackgroundColor="Transparent" Padding="0"
-                    Clicked="OpenAboutPage"/>
+                        TextColor="White" FontAttributes="Bold"
+                        ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
+                        BackgroundColor="Transparent" Padding="0"
+                        Command="{Binding OpenAboutPageCommand}"/>
             </StackLayout>
         </StackLayout>
     </Grid>

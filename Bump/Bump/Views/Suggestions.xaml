@@ -6,32 +6,33 @@
              NavigationPage.HasNavigationBar="False"
              XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
     <ContentPage.Content>
-        <StackLayout Margin="10" Spacing="10" Padding="10">
-            <StackLayout Margin="0" Spacing="10">
+        <StackLayout Margin="20,10" Padding="0" Spacing="10">
+            <StackLayout Margin="0" Padding="0" Spacing="10">
                 <Label Text="Suggestions"  TextTransform="None" HorizontalOptions="StartAndExpand"
-                   TextColor="#DC384D" FontAttributes="Bold" FontSize="Title"  />
+                        TextColor="#DC384D" FontAttributes="Bold" FontSize="Title"  />
                 <Image Source="undraw_good_team" HorizontalOptions="CenterAndExpand"/>
                 <Label Text="You can send any suggestions or feedback to help us begin better."
-                   Margin="20,15,10,0" FontSize="Large" FontAttributes="Bold"/>
+                        Margin="20,15,10,0" FontSize="Large" FontAttributes="Bold"/>
             </StackLayout>
-            
-            <StackLayout Margin="20,20,20,20" Padding="0" Spacing="35">
+
+            <StackLayout Margin="0" Padding="0" Spacing="10" VerticalOptions="FillAndExpand">
+                <StackLayout Margin="0" Padding="0" Spacing="35">
                     <XFMaterial:MaterialTextField 
                        Text="{Binding Subject}" 
                        UnderlineColor="#B00020" TintColor="#B00020"
                        Placeholder="Subject" PlaceholderColor="Gray"                       
                        HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Text"/>
-                  
-                <XFMaterial:MaterialTextField 
-                       Text="{Binding Description}" 
-                       UnderlineColor="#B00020" TintColor="#B00020"
-                       Placeholder="Description" PlaceholderColor="Gray"                    
-                       HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Text"/>
+                    
+                    <Editor Text="{Binding Description}"
+                            HeightRequest="180" VerticalOptions="Start"                            
+                            Placeholder="Description" PlaceholderColor="Gray" 
+                            BackgroundColor="#EAEAEA"/>
+                </StackLayout>
                 
                 <Button Text="Send Suggestions" TextTransform="None" 
                         TextColor="White" FontAttributes="Bold" 
                         BackgroundColor="#DC384D" CornerRadius="5" 
-                        FontSize="Medium" VerticalOptions="EndAndExpand" Margin="0,60" />
+                        FontSize="Medium" VerticalOptions="EndAndExpand" />
 
             </StackLayout>
         </StackLayout>
