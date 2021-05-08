@@ -1,6 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+
+    <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Bump.Views.MainPageContribute.ContributeDetail"
              xmlns:XamainMap="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
-             Title="Detail"/>
+             Title="Detail"
+             xmlns:XFMaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             NavigationPage.HasNavigationBar="False"
+             XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
+    <Grid BackgroundColor="Transparent">
+        <Grid.RowDefinitions BackgroundColor="Transparent" >
+            <RowDefinition />
+            <RowDefinition Height="Auto"  />
+        </Grid.RowDefinitions>
+        <XamainMap:Map  />
+
+        <Grid     
+                 VerticalOptions="Center" 
+                 HorizontalOptions="End"
+                  
+                  BackgroundColor="Transparent"
+                  
+                  >
+            <ImageButton   Grid.Row="0" BackgroundColor="White" Padding="23,20,23,20" Margin="10,10"  CornerRadius="30"
+                        Source="speed_radar"  />
+            <ImageButton Grid.Row="1" BackgroundColor="White" Padding="23,20,23,20" Margin="10,10" CornerRadius="30"
+                        Source="bump1" />
+            <ImageButton Grid.Row="2" BackgroundColor="White" Padding="23,20,23,20" Margin="10,10" CornerRadius="30"
+                        Source="digger" />
+        </Grid>
+
+    </Grid>
+
+
+</ContentPage>
+
+    

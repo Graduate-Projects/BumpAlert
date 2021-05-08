@@ -21,8 +21,8 @@ namespace Bump
             //MainPage = new Bump.Views.MainPageView.MainPage();
             //MainPage = new Views.SignIn();
 
-            MainPage = new NavigationPage(new Views.MainPageContribute.Contribute());
-           // MainPage = new NavigationPage(new Views.MainPageView.MainPage());
+            //MainPage = new NavigationPage(new Views.MainPageContribute.Contribute());
+            MainPage = new NavigationPage(new Views.MainPageView.MainPage());
 
         }
 

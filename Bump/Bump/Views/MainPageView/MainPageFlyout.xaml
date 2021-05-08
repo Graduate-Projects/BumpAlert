@@ -18,23 +18,24 @@
             </StackLayout>
 
             <StackLayout Margin="0" Padding="0" Spacing="10">
-                <Button ImageSource="customer_service" Text="Trust User" TextTransform="None"
+                <Button ImageSource="puzzle" Text="Contribute" TextTransform="None"
                     TextColor="White" FontAttributes="Bold"
-                    ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
+                    ContentLayout="Left,40" HorizontalOptions="StartAndExpand"
                     BackgroundColor="Transparent" Padding="0"
                     Clicked="OpenSignInPage"/>
                 <Button ImageSource="customer_service" Text="Contact Us" TextTransform="None"
                     TextColor="White" FontAttributes="Bold"
                     ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
-                    BackgroundColor="Transparent" Padding="0"/>
+                    BackgroundColor="Transparent" Padding="0"
+                    Clicked="OpenContactUsPage" />
                 <Button ImageSource="suggestions" Text="Suggestions" TextTransform="None"
                     TextColor="White" FontAttributes="Bold"
                     ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
-                    BackgroundColor="Transparent" Padding="0"/>
+                    BackgroundColor="Transparent" Padding="0" Clicked="OpenSuggestionPage"/>
                 <Button ImageSource="invite" Text="Invite a friend" TextTransform="None"
                     TextColor="White" FontAttributes="Bold"
                     ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
-                    BackgroundColor="Transparent" Padding="0"/>
+                    BackgroundColor="Transparent" Padding="0" /> 
                 <Button ImageSource="help" Text="About" TextTransform="None"
                     TextColor="White" FontAttributes="Bold"
                     ContentLayout="Left,60" HorizontalOptions="StartAndExpand"

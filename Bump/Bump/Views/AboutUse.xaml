@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Bump.Views.AboutUse">
+             x:Class="Bump.Views.AboutUse"
+             xmlns:XFMaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             NavigationPage.HasNavigationBar="False"
+             XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
     <ContentPage.Content>
         <StackLayout Margin="10" Padding="10" Spacing="10">
             <Label Text="How to Use"  TextTransform="None" HorizontalOptions="StartAndExpand"
@@ -13,8 +16,8 @@
                    Margin="20,15,10,0" FontSize="Medium" FontAttributes="Bold"/>
 
             <StackLayout Orientation="Horizontal" Margin="0,50">
-                <Button HorizontalOptions="StartAndExpand" Text="Skip" TextTransform="None" Opacity="0.6" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="StartAndExpand"/>
-                <Button HorizontalOptions="EndAndExpand" Text="Next" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="EndAndExpand"/>
+                <Button HorizontalOptions="StartAndExpand" Text="Skip" Clicked="OpenMainPage" TextTransform="None" Opacity="0.6" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="StartAndExpand"/>
+                <Button HorizontalOptions="EndAndExpand" Text="Next" Clicked="OpenAbouTeamtPage" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="EndAndExpand"/>
                 
             </StackLayout>
 

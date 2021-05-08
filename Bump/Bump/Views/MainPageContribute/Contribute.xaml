@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            x:Class="Bump.Views.MainPageContribute.Contribute"/>
+            x:Class="Bump.Views.MainPageContribute.Contribute"
+            xmlns:XFMaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             NavigationPage.HasNavigationBar="False"
+             XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D"/>
 

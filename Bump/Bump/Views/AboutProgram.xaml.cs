@@ -16,5 +16,17 @@ namespace Bump.Views
         {
             InitializeComponent();
         }
+
+        private void OpenMainPage(object sender, EventArgs e)
+        {
+            App.Current.MainPage.Navigation.PushAsync(new Views.MainPageView.MainPage());
+
+        }
+
+        private void OpenAboutPage(object sender, EventArgs e)
+        {
+            App.Current.MainPage.Navigation.PushAsync(new Views.AboutUse());
+
+        }
     }
 }

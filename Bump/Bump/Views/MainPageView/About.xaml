@@ -30,7 +30,7 @@
 
 
             <StackLayout Orientation="Horizontal" Margin="10">
-                <Button HorizontalOptions="EndAndExpand" Text="Back to Home" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="19" VerticalOptions="EndAndExpand"/>
+                <Button HorizontalOptions="EndAndExpand" Clicked="OpenMainPage" Text="Back to Home" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="19" VerticalOptions="EndAndExpand"/>
 
             </StackLayout>
         </StackLayout>

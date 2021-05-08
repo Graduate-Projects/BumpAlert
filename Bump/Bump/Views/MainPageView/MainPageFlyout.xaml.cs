@@ -24,12 +24,23 @@ namespace Bump.Views.MainPageView
 
         private void OpenAboutPage(object sender, EventArgs e)
         {
-            App.Current.MainPage.Navigation.PushAsync(new Views.About());
+            App.Current.MainPage.Navigation.PushAsync(new Views.AboutProgram());
         }
 
         private void OpenSignInPage(object sender, EventArgs e)
         {
             App.Current.MainPage.Navigation.PushAsync(new Views.SignIn());
+        }
+
+        private void OpenContactUsPage(object sender, EventArgs e)
+        {
+            App.Current.MainPage.Navigation.PushAsync(new Views.ContactUs());
+        }
+
+        private void OpenSuggestionPage(object sender, EventArgs e)
+        {
+            App.Current.MainPage.Navigation.PushAsync(new Views.Suggestions());
+
         }
     }
 }

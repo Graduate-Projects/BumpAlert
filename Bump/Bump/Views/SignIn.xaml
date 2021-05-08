@@ -39,10 +39,10 @@
                         <Label Text="Remember me" FontSize="Small" VerticalTextAlignment="Center"
                             TextColor="#DC384D" FontAttributes="Bold" />
                     </StackLayout>
-                    <Button Text="Forgit Password?" FontSize="Small"
+                    <Button Text="Forget Password?" FontSize="Small"
                             BackgroundColor="Transparent" TextColor="#DC384D"                                               
                             TextTransform="None" FontAttributes="Bold"
-                            HorizontalOptions="EndAndExpand"/>
+                            HorizontalOptions="EndAndExpand" Clicked="OpenForgetPasswordPage"/>
                 </StackLayout>
             </StackLayout>
 
@@ -50,7 +50,7 @@
                 <Button Text="Sign In" TextTransform="None" 
                         TextColor="White" FontAttributes="Bold" 
                         BackgroundColor="#DC384D" CornerRadius="5" 
-                        FontSize="Medium" Margin="10,0"/>
+                        FontSize="Medium" Margin="10,0" Clicked="OpenContributePage"/>
 
                 <Label FontSize="Small" FontAttributes="Bold" HorizontalTextAlignment="Center">
                     <Label.FormattedText>
@@ -61,8 +61,11 @@
                                 <Span Text="Join Us" TextColor="#DC384D"/>
                             </FormattedString.Spans>
                         </FormattedString>
+                        
                     </Label.FormattedText>
-                    
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OpenSginUpPage"/>
+                    </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
 

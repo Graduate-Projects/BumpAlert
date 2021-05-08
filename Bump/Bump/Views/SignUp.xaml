@@ -61,7 +61,8 @@
                     <Button Text="Sign Up" TextTransform="None" 
                         TextColor="White" FontAttributes="Bold" 
                         BackgroundColor="#DC384D" CornerRadius="5" 
-                        FontSize="Medium" Margin="10,0"/>
+                        FontSize="Medium" Margin="10,0"
+                            Clicked="OpenContributePage"/>
                     <Label Text="___________________________________________________ " HorizontalOptions="CenterAndExpand"></Label>
                     <Label FontSize="Small" FontAttributes="Bold" HorizontalTextAlignment="Center">
                         <Label.FormattedText>
@@ -69,11 +70,16 @@
                                 <FormattedString.Spans>
                                     <Span  Text="Already have account?" />
                                     <Span Text=" "/>
-                                    <Span Text="Sign Up" TextColor="#DC384D"/>
+                                    <Span Text="Sign In" TextColor="#DC384D"/>
                                 </FormattedString.Spans>
+                                
                             </FormattedString>
+                            
+                            
                         </Label.FormattedText>
-
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OpenSginInPage"/>
+                        </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
 
