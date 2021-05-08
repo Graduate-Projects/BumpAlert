@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:XFMaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             x:Class="Bump.Views.SignUp"
+             NavigationPage.HasNavigationBar="False"
+             XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
+    <ContentPage.Content>
+        <StackLayout Margin="10" Padding="0" Spacing="50">
+            <StackLayout Margin="0" Padding="0" Spacing="20">
+                <Label Text="Sign Up"  TextTransform="None" HorizontalOptions="StartAndExpand"
+                   TextColor="#DC384D" FontAttributes="Bold" FontSize="Title" />
+            </StackLayout>
+            <StackLayout Margin="10" Padding="0" Spacing="10" VerticalOptions="FillAndExpand">
+                <StackLayout Margin="0" Padding="0" Spacing="30">
+                    <StackLayout Margin="0" Padding="0" Spacing="10" Orientation="Horizontal">
+                        <XFMaterial:MaterialTextField 
+                            Text="{Binding FirstName}" 
+                            UnderlineColor="#B00020" TintColor="#B00020" 
+                            Placeholder="First Name" PlaceholderColor="Gray" HeightRequest="40"                      
+                            BackgroundColor="#EAEAEA" InputType="Text" HorizontalOptions="FillAndExpand" />
+
+                        <XFMaterial:MaterialTextField  
+                            Text="{Binding LastName}" Placeholder="Last Name"    
+                            PlaceholderColor="Gray" UnderlineColor="#B00020" TintColor="#B00020"
+                            BackgroundColor="#EAEAEA" InputType="Text" HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+                    <StackLayout Margin="0" Padding="0" Spacing="50">
+                        <XFMaterial:MaterialTextField 
+                        Text="{Binding MobileNumber}" 
+                        UnderlineColor="#B00020" TintColor="#B00020"
+                        Placeholder="Mobile Number" PlaceholderColor="Gray"                       
+                        HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Telephone"/>
+                        <XFMaterial:MaterialTextField 
+                        Text="{Binding Email}" 
+                        UnderlineColor="#B00020" TintColor="#B00020"
+                        Placeholder="Email" PlaceholderColor="Gray"                       
+                        HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Email"/>
+                        <XFMaterial:MaterialTextField  
+                        Text="{Binding Password}" Placeholder="Password"
+                        ErrorIcon="eye_pass" HasError="False"
+                        PlaceholderColor="Gray" UnderlineColor="#B00020" TintColor="#B00020"
+                        HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Password" />
+                        <XFMaterial:MaterialTextField  
+                        Text="{Binding PasswordConfirm}" Placeholder="Confirm Password"
+                        ErrorIcon="eye_pass" HasError="False"
+                        PlaceholderColor="Gray" UnderlineColor="#B00020" TintColor="#B00020"
+                        HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Password" />
+                    </StackLayout>
+                    <Button Text="Sign Up" TextTransform="None" 
+                        TextColor="White" FontAttributes="Bold" 
+                        BackgroundColor="#DC384D" CornerRadius="5" 
+                        FontSize="Medium" Margin="10,0"
+                        Clicked="OpenContributePage"/>
+                </StackLayout>
+                <StackLayout Margin="10,0" Padding="0" Spacing="20" VerticalOptions="End">
+                    <BoxView Color="Gray" HeightRequest="0.5" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
+                    <Label FontSize="Small" FontAttributes="Bold" HorizontalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span  Text="Already have account?" />
+                                    <Span Text=" "/>
+                                    <Span Text="Sign In" TextColor="#DC384D"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OpenSignInPage"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

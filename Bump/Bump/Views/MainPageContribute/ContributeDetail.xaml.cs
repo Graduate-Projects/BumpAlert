@@ -7,20 +7,21 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Bump.Views.MainPageView
+namespace Bump.Views.MainPageContribute
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainPageDetail : ContentPage
+    public partial class ContributeDetail : ContentPage
     {
-        public MainPageDetail()
+        public ContributeDetail()
         {
             InitializeComponent();
             PrepareGoogleMap().ConfigureAwait(false);
         }
+
         private async Task PrepareGoogleMap()
         {
             var LocationWhenInUsePermission = await Xamarin.Essentials.Permissions.RequestAsync<Xamarin.Essentials.Permissions.LocationWhenInUse>();
-            if(LocationWhenInUsePermission == Xamarin.Essentials.PermissionStatus.Granted)
+            if (LocationWhenInUsePermission == Xamarin.Essentials.PermissionStatus.Granted)
             {
                 var GoogleMap = new Xamarin.Forms.GoogleMaps.Map()
                 {
@@ -30,5 +31,6 @@ namespace Bump.Views.MainPageView
                 this.Content = GoogleMap;
             }
         }
+
     }
 }

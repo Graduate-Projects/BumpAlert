@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Bump.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SignIn : ContentPage
+    public partial class Suggestions : ContentPage
     {
-        public SignIn()
+        public Suggestions()
         {
             InitializeComponent();
         }

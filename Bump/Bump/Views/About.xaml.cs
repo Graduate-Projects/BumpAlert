@@ -10,12 +10,27 @@ using Xamarin.Forms.Xaml;
 namespace Bump.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class About : ContentPage
+    public partial class About : CarouselPage
     {
         public About()
         {
             InitializeComponent();
-            
+        }
+
+        private void SkipMove(object sender, EventArgs e)
+        {
+            this.CurrentPage = this.Children.Last();
+        }
+
+        private void NextMove(object sender, EventArgs e)
+        {
+            var indexCurrentPageSelected = GetIndex(this.CurrentPage);
+            this.CurrentPage = GetPageByIndex(indexCurrentPageSelected + 1);
+        }
+
+        private void CloseAboutPage(object sender, EventArgs e)
+        {
+            App.Current.MainPage.Navigation.PopToRootAsync();
         }
     }
 }

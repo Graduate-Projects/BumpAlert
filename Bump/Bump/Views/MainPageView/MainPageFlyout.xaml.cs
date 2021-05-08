@@ -15,21 +15,9 @@ namespace Bump.Views.MainPageView
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPageFlyout : ContentPage
     {
-        public ListView ListView;
-
         public MainPageFlyout()
         {
             InitializeComponent();
-        }
-
-        private void OpenSignInPage(object sender, EventArgs e)
-        {
-            App.Current.MainPage.Navigation.PushAsync(new Views.SignIn());
-        }
-
-        private void OpenAboutPage(object sender, EventArgs e)
-        {
-            App.Current.MainPage.Navigation.PushAsync(new Views.About());
         }
     }
 }

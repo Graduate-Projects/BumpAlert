@@ -3,9 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:XFMaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              x:Class="Bump.Views.SignIn"
+             xmlns:ViewModels="clr-namespace:Bump.ViewModels"
              NavigationPage.HasNavigationBar="False"
              XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
-
+    <ContentPage.BindingContext>
+        <ViewModels:SignInViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout  Margin="0" Padding="20" Spacing="20" BackgroundColor="#FFFFFF">
 
@@ -20,37 +23,37 @@
 
             <StackLayout Margin="0" Padding="0" Spacing="22">
                 <StackLayout Margin="0" Padding="0" Spacing="30">
-                    <XFMaterial:MaterialTextField 
-                       Text="{Binding Email}" 
+                    <XFMaterial:MaterialTextField
+                       Text="{Binding LoginRequest.Email}"
                        UnderlineColor="#B00020" TintColor="#B00020"
                        Placeholder="Email/Username" PlaceholderColor="Gray"                       
                        HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Email"/>
 
-                    <XFMaterial:MaterialTextField  
-                       Text="{Binding Password}" Placeholder="Password"
+                    <XFMaterial:MaterialTextField                       
+                       Text="{Binding LoginRequest.Password}" Placeholder="Password"
                        ErrorIcon="eye_pass" HasError="False"
                        PlaceholderColor="Gray" UnderlineColor="#B00020" TintColor="#B00020"
                        HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Password" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" Margin="0" Padding="0" Spacing="0">
                     <StackLayout Orientation="Horizontal" Margin="0" Padding="0" Spacing="5">
-                        <CheckBox />
+                        <CheckBox IsChecked="{Binding LoginRequest.IsRememberMe}" />
                         <Label Text="Remember me" FontSize="Small" VerticalTextAlignment="Center"
                             TextColor="#DC384D" FontAttributes="Bold" />
-                    </StackLayout>                  
-                    <Button Text="Forgit Password?" FontSize="Small"
+                    </StackLayout>
+                    <Button Text="Forget Password?" FontSize="Small"
                             BackgroundColor="Transparent" TextColor="#DC384D"                                               
                             TextTransform="None" FontAttributes="Bold"
-                            HorizontalOptions="EndAndExpand"/>
-                </StackLayout>                
+                            HorizontalOptions="EndAndExpand" Clicked="OpenForgetPasswordPage"/>
+                </StackLayout>
             </StackLayout>
 
             <StackLayout Margin="0" Padding="0" Spacing="10">
                 <Button Text="Sign In" TextTransform="None" 
                         TextColor="White" FontAttributes="Bold" 
                         BackgroundColor="#DC384D" CornerRadius="5" 
-                        FontSize="Medium" Margin="10,0"/>
-                
+                        FontSize="Medium" Margin="10,0" Clicked="OpenContributePage"/>
+
                 <Label FontSize="Small" FontAttributes="Bold" HorizontalTextAlignment="Center">
                     <Label.FormattedText>
                         <FormattedString>
@@ -60,9 +63,10 @@
                                 <Span Text="Join Us" TextColor="#DC384D"/>
                             </FormattedString.Spans>
                         </FormattedString>
+                        
                     </Label.FormattedText>
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OpenSignUpPage"/>
+                        <TapGestureRecognizer Tapped="OpenSginUpPage"/>
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
