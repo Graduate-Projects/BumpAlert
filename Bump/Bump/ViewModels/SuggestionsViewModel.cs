@@ -6,7 +6,7 @@ namespace Bump.ViewModels
 {
     public class SuggestionsViewModel
     {
-        public Models.Suggestion Suggestion { get; set; }
+        public BLL.Models.Suggestion Suggestion { get; set; }
 
     }
 }

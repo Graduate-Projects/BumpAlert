@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Bump.Models
+namespace BLL.Models
 {
     public class Suggestion
     {

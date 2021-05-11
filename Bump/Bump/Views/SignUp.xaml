@@ -31,7 +31,7 @@
                     </StackLayout>
                     <StackLayout Margin="0" Padding="0" Spacing="50">
                         <XFMaterial:MaterialTextField 
-                        Text="{Binding User.MobileNumber}" 
+                        Text="{Binding User.PhoneNumber}" 
                         UnderlineColor="#B00020" TintColor="#B00020"
                         Placeholder="Mobile Number" PlaceholderColor="Gray"                       
                         HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Telephone"/>
@@ -46,7 +46,7 @@
                         PlaceholderColor="Gray" UnderlineColor="#B00020" TintColor="#B00020"
                         HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Password" />
                         <XFMaterial:MaterialTextField  
-                        Text="{Binding User.PasswordConfirm}" Placeholder="Confirm Password"
+                        Text="{Binding PasswordConfirm}" Placeholder="Confirm Password"
                         ErrorIcon="eye_pass" HasError="False"
                         PlaceholderColor="Gray" UnderlineColor="#B00020" TintColor="#B00020"
                         HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Password" />
@@ -55,7 +55,7 @@
                         TextColor="White" FontAttributes="Bold" 
                         BackgroundColor="#DC384D" CornerRadius="5" 
                         FontSize="Medium" Margin="10,0"
-                        Command="{Binding OpenContributePageCommand}"/>
+                        Command="{Binding OpenSignUpPageCommand}"/>
                 </StackLayout>
                 <StackLayout Margin="10,0" Padding="0" Spacing="20" VerticalOptions="End">
                     <BoxView Color="Gray" HeightRequest="0.5" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>

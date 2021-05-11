@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Bump.Models
+namespace BLL.Models
 {
-   public class ForgetPass
+    public class ForgetPass
     {
         public string Email { get; set; }
     }

@@ -8,7 +8,7 @@ namespace Bump.ViewModels
 {
     public class SignInViewModel
     {
-        public Models.LoginRequest LoginRequest { get; set; }
+        public BLL.Models.LoginRequest LoginRequest { get; set; }
 
         public ICommand OpenForgetPasswordPageCommand { get; set; }
         public ICommand OpenContributePageCommand { get; set; }

@@ -6,6 +6,6 @@ namespace Bump.ViewModels
 {
     public class ForgetPasswordViewModel
     {
-        public Models.ForgetPass ForgetPass { get; set; }
+        public BLL.Models.ForgetPass ForgetPass { get; set; }
     }
 }
