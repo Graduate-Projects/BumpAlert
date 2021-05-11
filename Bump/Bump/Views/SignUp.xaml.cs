@@ -16,14 +16,6 @@ namespace Bump.Views
         {
             InitializeComponent();
         }
-        private void OpenSignInPage(object sender, EventArgs e)
-        {
-            App.Current.MainPage.Navigation.PopAsync();
-        }
-
-        private void OpenContributePage(object sender, EventArgs e)
-        {
-            App.Current.MainPage.Navigation.PushAsync(new Views.MainPageContribute.Contribute());
-        }
+        
     }
 }

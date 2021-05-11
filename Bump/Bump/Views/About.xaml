@@ -3,8 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:XFMaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              x:Class="Bump.Views.About"
+              xmlns:ViewModels="clr-namespace:Bump.ViewModels"
              NavigationPage.HasNavigationBar="False"
              XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
+    <CarouselPage.BindingContext>
+        <ViewModels:AboutViewModel/>
+    </CarouselPage.BindingContext>
     <ContentPage>
         <StackLayout Margin="10" Padding="10" Spacing="10">
             <Label Text="Our Program"  TextTransform="None" HorizontalOptions="StartAndExpand"
@@ -16,8 +20,8 @@
                    Margin="20,15,10,0" FontSize="Medium" FontAttributes="Bold"/>
 
             <StackLayout Orientation="Horizontal" Margin="0,80">
-                <Button HorizontalOptions="StartAndExpand" Clicked="SkipMove" Text="Skip" Opacity="0.6" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="StartAndExpand"/>
-                <Button HorizontalOptions="EndAndExpand" Text="Next"  Clicked="NextMove" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="EndAndExpand"/>
+                <Button HorizontalOptions="StartAndExpand" Command="{Binding SkipMoveCommand}"  Text="Skip" Opacity="0.6" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="StartAndExpand"/>
+                <Button HorizontalOptions="EndAndExpand" Text="Next" Command="{Binding NextMoveCommand}"  TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="EndAndExpand"/>
             </StackLayout>
         </StackLayout>
     </ContentPage>
@@ -32,8 +36,8 @@
                    Margin="20,15,10,0" FontSize="Medium" FontAttributes="Bold"/>
 
             <StackLayout Orientation="Horizontal" Margin="0,50">
-                <Button HorizontalOptions="StartAndExpand" Text="Skip" Clicked="SkipMove" TextTransform="None" Opacity="0.6" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="StartAndExpand"/>
-                <Button HorizontalOptions="EndAndExpand" Text="Next" Clicked="NextMove" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="EndAndExpand"/>
+                <Button HorizontalOptions="StartAndExpand" Text="Skip" Command="{Binding SkipMoveCommand}"  TextTransform="None" Opacity="0.6" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="StartAndExpand"/>
+                <Button HorizontalOptions="EndAndExpand" Text="Next" Command="{Binding NextMoveCommand}" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="EndAndExpand"/>
 
             </StackLayout>
 
@@ -62,7 +66,7 @@
                         FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
             </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="10">
-                <Button HorizontalOptions="EndAndExpand" Clicked="CloseAboutPage" Text="Back to Home" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="19" VerticalOptions="EndAndExpand"/>
+                <Button HorizontalOptions="EndAndExpand" Command="{Binding CloseAboutPageCommand}"  Text="Back to Home" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="19" VerticalOptions="EndAndExpand"/>
 
             </StackLayout>
         </StackLayout>

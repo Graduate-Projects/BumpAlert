@@ -3,8 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:XFMaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              x:Class="Bump.Views.Suggestions"
+             xmlns:ViewModels="clr-namespace:Bump.ViewModels"
              NavigationPage.HasNavigationBar="False"
              XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
+    <ContentPage.BindingContext>
+        <ViewModels:SuggestionsViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout Margin="20,10" Padding="0" Spacing="10">
             <StackLayout Margin="0" Padding="0" Spacing="10">
@@ -18,12 +22,12 @@
             <StackLayout Margin="0" Padding="0" Spacing="10" VerticalOptions="FillAndExpand">
                 <StackLayout Margin="0" Padding="0" Spacing="35">
                     <XFMaterial:MaterialTextField 
-                       Text="{Binding Subject}" 
+                       Text="{Binding Suggestion.Subject}" 
                        UnderlineColor="#B00020" TintColor="#B00020"
                        Placeholder="Subject" PlaceholderColor="Gray"                       
                        HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Text"/>
-                    
-                    <Editor Text="{Binding Description}"
+
+                    <Editor Text="{Binding Suggestion.Description}"
                             HeightRequest="180" VerticalOptions="Start"                            
                             Placeholder="Description" PlaceholderColor="Gray" 
                             BackgroundColor="#EAEAEA"/>

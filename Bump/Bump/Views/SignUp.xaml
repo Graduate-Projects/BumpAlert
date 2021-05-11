@@ -3,8 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:XFMaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              x:Class="Bump.Views.SignUp"
+             xmlns:ViewModels="clr-namespace:Bump.ViewModels"
              NavigationPage.HasNavigationBar="False"
              XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
+    <ContentPage.BindingContext>
+        <ViewModels:SignUpViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout Margin="10" Padding="0" Spacing="50">
             <StackLayout Margin="0" Padding="0" Spacing="20">
@@ -15,34 +19,34 @@
                 <StackLayout Margin="0" Padding="0" Spacing="30">
                     <StackLayout Margin="0" Padding="0" Spacing="10" Orientation="Horizontal">
                         <XFMaterial:MaterialTextField 
-                            Text="{Binding FirstName}" 
+                            Text="{Binding User.FirstName}" 
                             UnderlineColor="#B00020" TintColor="#B00020" 
                             Placeholder="First Name" PlaceholderColor="Gray" HeightRequest="40"                      
                             BackgroundColor="#EAEAEA" InputType="Text" HorizontalOptions="FillAndExpand" />
 
                         <XFMaterial:MaterialTextField  
-                            Text="{Binding LastName}" Placeholder="Last Name"    
+                            Text="{Binding User.LastName}" Placeholder="Last Name"    
                             PlaceholderColor="Gray" UnderlineColor="#B00020" TintColor="#B00020"
                             BackgroundColor="#EAEAEA" InputType="Text" HorizontalOptions="FillAndExpand" />
                     </StackLayout>
                     <StackLayout Margin="0" Padding="0" Spacing="50">
                         <XFMaterial:MaterialTextField 
-                        Text="{Binding MobileNumber}" 
+                        Text="{Binding User.MobileNumber}" 
                         UnderlineColor="#B00020" TintColor="#B00020"
                         Placeholder="Mobile Number" PlaceholderColor="Gray"                       
                         HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Telephone"/>
                         <XFMaterial:MaterialTextField 
-                        Text="{Binding Email}" 
+                        Text="{Binding User.Email}" 
                         UnderlineColor="#B00020" TintColor="#B00020"
                         Placeholder="Email" PlaceholderColor="Gray"                       
                         HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Email"/>
                         <XFMaterial:MaterialTextField  
-                        Text="{Binding Password}" Placeholder="Password"
+                        Text="{Binding User.Password}" Placeholder="Password"
                         ErrorIcon="eye_pass" HasError="False"
                         PlaceholderColor="Gray" UnderlineColor="#B00020" TintColor="#B00020"
                         HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Password" />
                         <XFMaterial:MaterialTextField  
-                        Text="{Binding PasswordConfirm}" Placeholder="Confirm Password"
+                        Text="{Binding User.PasswordConfirm}" Placeholder="Confirm Password"
                         ErrorIcon="eye_pass" HasError="False"
                         PlaceholderColor="Gray" UnderlineColor="#B00020" TintColor="#B00020"
                         HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Password" />
@@ -51,7 +55,7 @@
                         TextColor="White" FontAttributes="Bold" 
                         BackgroundColor="#DC384D" CornerRadius="5" 
                         FontSize="Medium" Margin="10,0"
-                        Clicked="OpenContributePage"/>
+                        Command="{Binding OpenContributePageCommand}"/>
                 </StackLayout>
                 <StackLayout Margin="10,0" Padding="0" Spacing="20" VerticalOptions="End">
                     <BoxView Color="Gray" HeightRequest="0.5" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
@@ -66,7 +70,7 @@
                             </FormattedString>
                         </Label.FormattedText>
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OpenSignInPage"/>
+                            <TapGestureRecognizer  Command="{Binding OpenSignInPageCommand}"/>
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
