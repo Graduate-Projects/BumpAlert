@@ -8,6 +8,9 @@ namespace BLL.Enums
     {
         Local,
         Jood,
+        Raghad,
+        Heba,
+        Saja,
 
     }
 }

@@ -14,7 +14,13 @@ namespace BLL.Settings
                 case Enums.DevServer.Local:
                     return "http://192.168.0.100:52600";
                 case Enums.DevServer.Jood:
-                    return "http://192.168.0.199:52600";
+                    return "http://192.168.1.15:52600";
+                case Enums.DevServer.Raghad:
+                    return "http://192.168.8.200:52600";
+                case Enums.DevServer.Saja:
+                    return "http://192.168.1.250:52600";
+                case Enums.DevServer.Heba:
+                    return "http://192.168.1.254:52600";
                 default:
                     throw new NotImplementedException();
             }
