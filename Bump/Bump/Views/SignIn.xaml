@@ -13,7 +13,7 @@
         <StackLayout  Margin="0" Padding="20" Spacing="20" BackgroundColor="#FFFFFF">
 
             <StackLayout Margin="0" Padding="0" Spacing="20">
-                <Label Text="Login at Trust User"  TextTransform="None" HorizontalOptions="StartAndExpand"
+                <Label Text="Log In"  TextTransform="None" HorizontalOptions="StartAndExpand"
                    TextColor="#DC384D" FontAttributes="Bold" FontSize="20" />
                 <Image Source="undraw_navigator" HorizontalOptions="StartAndExpand"/>
                 <Label Text="If you would like to be a builder of our unique team, please do sign up." 
@@ -44,7 +44,7 @@
                     <Button Text="Forget Password?" FontSize="Small"
                             BackgroundColor="Transparent" TextColor="#DC384D"                                               
                             TextTransform="None" FontAttributes="Bold"
-                            HorizontalOptions="EndAndExpand" Clicked="OpenForgetPasswordPage"/>
+                            HorizontalOptions="EndAndExpand" Command="{Binding OpenForgetPasswordPageCommand}"/>
                 </StackLayout>
             </StackLayout>
 
@@ -52,7 +52,7 @@
                 <Button Text="Sign In" TextTransform="None" 
                         TextColor="White" FontAttributes="Bold" 
                         BackgroundColor="#DC384D" CornerRadius="5" 
-                        FontSize="Medium" Margin="10,0" Clicked="OpenContributePage"/>
+                        FontSize="Medium" Margin="10,0" Command="{Binding OpenContributePageCommand}"/>
 
                 <Label FontSize="Small" FontAttributes="Bold" HorizontalTextAlignment="Center">
                     <Label.FormattedText>
@@ -66,7 +66,7 @@
                         
                     </Label.FormattedText>
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OpenSginUpPage"/>
+                        <TapGestureRecognizer  Command="{Binding OpenSignUpPageCommand}" />
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>

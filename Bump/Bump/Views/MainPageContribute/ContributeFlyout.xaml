@@ -39,9 +39,9 @@
                     ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
                     BackgroundColor="Transparent" Padding="0"
                     Clicked="OpenAboutPage"/>
-                <Button ImageSource="logout" Text="Log Out" TextColor="#FFFFFF" TextTransform="None" 
-                        FontAttributes="Bold" ContentLayout="left,30" HorizontalOptions="StartAndExpand"
-                        BackgroundColor="Transparent" Clicked="OpenMainPage" Padding="0" />
+                <Button ImageSource="out" Text="Log Out" TextColor="#FFFFFF" TextTransform="None" 
+                        FontAttributes="Bold" ContentLayout="left,50" HorizontalOptions="StartAndExpand"
+                        BackgroundColor="Transparent" Clicked="OpenMainPage" Padding="5,0" />
             </StackLayout>
         </StackLayout>
     </Grid>
