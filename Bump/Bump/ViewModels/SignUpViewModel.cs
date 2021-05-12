@@ -9,8 +9,7 @@ using Xamarin.Forms;
 
 namespace Bump.ViewModels
 {
-
-    public class SignUpViewModel
+    public class SignUpViewModel : BaseViewModel
     {
         public BLL.Models.User User { get; set; }
         public string PasswordConfirm { get; set; }
@@ -20,6 +19,7 @@ namespace Bump.ViewModels
 
         public SignUpViewModel()
         {
+            User = new BLL.Models.User();
             OpenSignInPageCommand = new Command(OpenSignInPage);
             OpenSignUpPageCommand = new Command(() => OpenSignUpPage().ConfigureAwait(false));
         }
@@ -27,18 +27,25 @@ namespace Bump.ViewModels
         {
             if (IsValidUser(User))
             {
-                using (var httpClient = new HttpClient())
+                try
                 {
-                    var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/account/register", User);
-                    if (response.IsSuccessStatusCode)
+                    using (var httpClient = new HttpClient())
                     {
-                        Application.Current.MainPage.Navigation.PushAsync(new Views.MainPageContribute.Contribute());
+                        var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/account/register", User);
+                        if (response.IsSuccessStatusCode)
+                        {
+                            OpenPage(new Views.MainPageContribute.Contribute());
+                        }
+                        else
+                        {
+                            var result = await response.Content.ReadAsStringAsync();
+                            DisplayAlert("Can't SignUp", result, "Okay");
+                        }
                     }
-                    else
-                    {
-                        var result = await response.Content.ReadAsStringAsync();
-                        Application.Current.MainPage.DisplayAlert("Can't Login", result, "Okay");
-                    }
+                }
+                catch (Exception ex)
+                {
+                    DisplayAlert("Occurred an error", ex.ToString(), "Okay"); ;
                 }
             }
         }
@@ -51,7 +58,7 @@ namespace Bump.ViewModels
         }
         private void OpenSignInPage()
         {
-            App.Current.MainPage.Navigation.PopAsync();
+            BackPage();
         }
     }
 }

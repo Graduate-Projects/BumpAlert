@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace Bump.ViewModels
 {
-    public class MainPageFlyoutViewModel
+    public class MainPageFlyoutViewModel : BaseViewModel
     {
         public ICommand OpenAboutPageCommand { get; set; }
         public ICommand OpenSignInPageCommand { get; set; }

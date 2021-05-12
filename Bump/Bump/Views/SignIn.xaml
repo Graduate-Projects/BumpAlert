@@ -52,7 +52,7 @@
                 <Button Text="Sign In" TextTransform="None" 
                         TextColor="White" FontAttributes="Bold" 
                         BackgroundColor="#DC384D" CornerRadius="5" 
-                        FontSize="Medium" Margin="10,0" Command="{Binding OpenContributePageCommand}"/>
+                        FontSize="Medium" Margin="10,0" Command="{Binding SignInCommand}"/>
 
                 <Label FontSize="Small" FontAttributes="Bold" HorizontalTextAlignment="Center">
                     <Label.FormattedText>

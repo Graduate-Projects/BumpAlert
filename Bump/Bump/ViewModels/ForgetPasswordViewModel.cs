@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Bump.ViewModels
 {
-    public class ForgetPasswordViewModel
+    public class ForgetPasswordViewModel : BaseViewModel
     {
         public BLL.Models.ForgetPass ForgetPass { get; set; }
     }

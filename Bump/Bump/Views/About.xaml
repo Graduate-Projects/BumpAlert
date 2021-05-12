@@ -6,9 +6,6 @@
               xmlns:ViewModels="clr-namespace:Bump.ViewModels"
              NavigationPage.HasNavigationBar="False"
              XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
-    <CarouselPage.BindingContext>
-        <ViewModels:AboutViewModel/>
-    </CarouselPage.BindingContext>
     <ContentPage>
         <StackLayout Margin="10" Padding="10" Spacing="10">
             <Label Text="Our Program"  TextTransform="None" HorizontalOptions="StartAndExpand"

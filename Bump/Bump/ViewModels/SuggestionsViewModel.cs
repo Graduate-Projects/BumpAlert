@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Bump.ViewModels
 {
-    public class SuggestionsViewModel
+    public class SuggestionsViewModel : BaseViewModel
     {
         public BLL.Models.Suggestion Suggestion { get; set; }
 
