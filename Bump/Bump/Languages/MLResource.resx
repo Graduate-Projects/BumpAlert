@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Back_ Home" xml:space="preserve">
+    <value>Back to Home</value>
+  </data>
+  <data name="BUMP" xml:space="preserve">
+    <value>BUMP</value>
+  </data>
+  <data name="Confirm_Password" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="contact_describe" xml:space="preserve">
+    <value>you can contact us:</value>
+  </data>
+  <data name="Contact_Us" xml:space="preserve">
+    <value>Contact Us</value>
+  </data>
+  <data name="Contribute" xml:space="preserve">
+    <value>Contribute</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Email_ Username" xml:space="preserve">
+    <value>Email /Username</value>
+  </data>
+  <data name="First_Name" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="Forget_Password" xml:space="preserve">
+    <value>Forget Password ?</value>
+  </data>
+  <data name="Have_account" xml:space="preserve">
+    <value>Already have account?</value>
+  </data>
+  <data name="Heba" xml:space="preserve">
+    <value>Heba AL-ahmad</value>
+  </data>
+  <data name="How_Use" xml:space="preserve">
+    <value>How to Use</value>
+  </data>
+  <data name="Invite_friend" xml:space="preserve">
+    <value>Invite a friend</value>
+  </data>
+  <data name="Join_us" xml:space="preserve">
+    <value>Join us</value>
+  </data>
+  <data name="Joud" xml:space="preserve">
+    <value>Joud AL-dhadleh </value>
+  </data>
+  <data name="Last_Name" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="login_describe" xml:space="preserve">
+    <value>If you would like to be a builder of our unique team, please do sign up.</value>
+  </data>
+  <data name="Log_out" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="Mobile_Number" xml:space="preserve">
+    <value>Mobile Number</value>
+  </data>
+  <data name="new_account" xml:space="preserve">
+    <value>Don't have an account?  </value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="notification" xml:space="preserve">
+    <value>the bump is 50m from where you are standing</value>
+  </data>
+  <data name="Our_ Program" xml:space="preserve">
+    <value>Our_Program</value>
+  </data>
+  <data name="Our_Team" xml:space="preserve">
+    <value>Our Team</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="password_describe" xml:space="preserve">
+    <value>Enter the email associated with your account and we'll send an email with instruction to reset your password.</value>
+  </data>
+  <data name="prog_A" xml:space="preserve">
+    <value>The goal is  preserving your safety and the safety of the car on the highway.</value>
+  </data>
+  <data name="prog_B" xml:space="preserve">
+    <value>Through the application, you can determine what matters most to you as a driver on the road, such as a nearby bump, speed radar, or new pits, locating the nearest gas station to avoid running out of fuel at any time.</value>
+  </data>
+  <data name="Raghad" xml:space="preserve">
+    <value>Raghad AL-khateeb</value>
+  </data>
+  <data name="Remember_me" xml:space="preserve">
+    <value>Remember me</value>
+  </data>
+  <data name="Reset_Password" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="Saja" xml:space="preserve">
+    <value>Saja AL-dahadha</value>
+  </data>
+  <data name="Send_Email" xml:space="preserve">
+    <value>Send Email</value>
+  </data>
+  <data name="Send_Suggestions" xml:space="preserve">
+    <value>Send Suggestions</value>
+  </data>
+  <data name="Sign_Up" xml:space="preserve">
+    <value>Sign Up</value>
+  </data>
+  <data name="Sing_in" xml:space="preserve">
+    <value>Sing  in</value>
+  </data>
+  <data name="Skip" xml:space="preserve">
+    <value>Skip</value>
+  </data>
+  <data name="Social_Singin" xml:space="preserve">
+    <value>Social Sing in</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="Suggestions" xml:space="preserve">
+    <value>Suggestions</value>
+  </data>
+  <data name="suggestions_describe" xml:space="preserve">
+    <value>you can send any suggestions or feedback to help us begin better</value>
+  </data>
+  <data name="use_A" xml:space="preserve">
+    <value>The application gives a distance notice that allows you to take an appropriate measure to protect yourself and your car as well, to do this you should allow the application to access your location and select what you like to detection in your way.</value>
+  </data>
+  <data name="use_B" xml:space="preserve">
+    <value>You can help us and be contribute to search and enter the location of every thing in the way, you should sign up to do this.</value>
+  </data>
+</root>

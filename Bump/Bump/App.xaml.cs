@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using localizer = Bump.Utils.LocalizationResourceManager;
 
 namespace Bump
 {
@@ -10,20 +11,11 @@ namespace Bump
         {
             InitializeComponent();
             XF.Material.Forms.Material.Init(this);
-            //MainPage = new Bump.Views.MainPageContribute.Contribute();
-            //MainPage = new Bump.Views.ContactUs();
-            // MainPage = new Bump.Views.ForgetPassword();
-            //MainPage = new Bump.Views.Suggestions();
-            //MainPage = new Bump.Views.AboutUse();
-            //MainPage = new Bump.Views.AboutProgram();
-            //MainPage = new Bump.Views.SignUp();
-            //MainPage = new Bump.Views.About();
-            //MainPage = new Bump.Views.MainPageView.MainPage();
-            //MainPage = new Views.SignIn();
+            localizer.Initialization();
 
-            //MainPage = new NavigationPage(new Views.MainPageContribute.Contribute());
-            MainPage = new NavigationPage(new Views.MainPageView.MainPage());
-
+            var page = new Views.MainPageView.MainPage();
+            page.SetBinding(VisualElement.FlowDirectionProperty, new Binding(nameof(localizer.FlowDirection), source: localizer.Instance));
+            MainPage = new NavigationPage(page);
         }
 
         protected override void OnStart()
