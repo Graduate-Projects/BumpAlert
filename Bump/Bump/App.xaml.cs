@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XF.Material.Forms.UI;
 using localizer = Bump.Utils.LocalizationResourceManager;
 
 namespace Bump

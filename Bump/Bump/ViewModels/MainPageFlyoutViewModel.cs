@@ -23,19 +23,19 @@ namespace Bump.ViewModels
         }
         private void OpenAboutPage()
         {
-            App.Current.MainPage.Navigation.PushAsync(new Views.About());
+            OpenPage(new Views.About());
         }
         private void OpenSignInPage()
         {
-            App.Current.MainPage.Navigation.PushAsync(new Views.SignIn());
+            OpenPage(new Views.SignIn());
         }
         private void OpenContactUsPage()
         {
-            App.Current.MainPage.Navigation.PushAsync(new Views.ContactUs());
+            OpenPage(new Views.ContactUs());
         }
         private void OpenSuggestionPage()
         {
-            App.Current.MainPage.Navigation.PushAsync(new Views.Suggestions());
+            OpenPage(new Views.Suggestions());
 
         }
         private void InviteOtherPeople()

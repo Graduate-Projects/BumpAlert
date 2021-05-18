@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XF.Material.Forms;
+using XF.Material.Forms.UI;
 
 namespace Bump.Views.MainPageView
 {
@@ -16,7 +18,7 @@ namespace Bump.Views.MainPageView
         {
             InitializeComponent();
             this.Flyout = new MainPageFlyout();
-            this.Detail = new MainPageDetail();
+            this.Detail = new MaterialNavigationPage(new MainPageDetail());
         }
     }
 }

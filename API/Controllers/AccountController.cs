@@ -10,7 +10,6 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //localhost:52600/api/account/
     public class AccountController : ControllerBase
     {
         private readonly SignInManager<BLL.Models.User> signInManager;
@@ -21,7 +20,6 @@ namespace API.Controllers
             this.userManager = _userManager;
         }
         [HttpPost("Login")]
-        //localhost:52600/api/account/login
         public async Task<IActionResult> Login([FromBody] BLL.Models.LoginRequest loginRequest)
         {
             var result = await signInManager.PasswordSignInAsync(loginRequest.Email, loginRequest.Password, false,false);
@@ -38,7 +36,6 @@ namespace API.Controllers
             }
         }
         [HttpPost("Register")]
-        //localhost:52600/api/account/login
         public async Task<IActionResult> Register([FromBody] BLL.Models.User user)
         {
             user.UserName = user.Email;

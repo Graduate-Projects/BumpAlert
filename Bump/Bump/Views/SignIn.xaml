@@ -12,7 +12,6 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout  Margin="0" Padding="20" Spacing="20" BackgroundColor="#FFFFFF">
-
             <StackLayout Margin="0" Padding="0" Spacing="20">
                 <Label Text="{Utils:Translate Login }"   TextTransform="None"
                    TextColor="#DC384D" FontAttributes="Bold" FontSize="20" />

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XF.Material.Forms.UI;
 using localizer = Bump.Utils.LocalizationResourceManager;
 namespace Bump.ViewModels
 {
@@ -20,7 +21,7 @@ namespace Bump.ViewModels
         public void OpenPageAsMainPage(Page page)
         {
             page.SetBinding(VisualElement.FlowDirectionProperty, new Binding(nameof(localizer.FlowDirection), source: localizer.Instance));
-            App.Current.MainPage = new NavigationPage(page);
+            App.Current.MainPage = new MaterialNavigationPage(page);
         }
         public void OpenPage(Page page)
         {

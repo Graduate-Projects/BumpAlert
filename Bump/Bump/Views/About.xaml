@@ -4,21 +4,21 @@
              xmlns:XFMaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
                xmlns:Utils="clr-namespace:Bump.Utils"
              x:Class="Bump.Views.About"
-              xmlns:ViewModels="clr-namespace:Bump.ViewModels"
-          
+              xmlns:ViewModels="clr-namespace:Bump.ViewModels"          
              NavigationPage.HasNavigationBar="False"
              XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
     <ContentPage>
         <StackLayout Margin="10" Padding="10" Spacing="10">
-            <Label     Text="{Utils:Translate Our_Program}"   TextTransform="None"
+            <StackLayout Margin="0" Padding="0" Spacing="10">
+                <Label     Text="{Utils:Translate Our_Program}"   TextTransform="None"
                    TextColor="#DC384D" FontAttributes="Bold" FontSize="Title"  />
-            <Image Source="undraw_warning_cyit" HorizontalOptions="CenterAndExpand"/>
-            <Label  Text="{Utils:Translate prog_A}"  Margin="20,40,10,0" FontSize="Medium"
+                <Image Source="undraw_warning_cyit" HorizontalOptions="CenterAndExpand"/>
+                <Label  Text="{Utils:Translate prog_A}"  Margin="20,40,10,0" FontSize="Medium"
                    FontAttributes="Bold"/>
-            <Label Text="{Utils:Translate prog_B}"
+                <Label Text="{Utils:Translate prog_B}"
                    Margin="20,15,10,0" FontSize="Medium" FontAttributes="Bold"/>
-
-            <StackLayout Orientation="Horizontal" Margin="0,80">
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="0" VerticalOptions="EndAndExpand">
                 <Button HorizontalOptions="StartAndExpand" Clicked="SkipMove"  Text="{Utils:Translate Skip}"  Opacity="0.6" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="StartAndExpand"/>
                 <Button HorizontalOptions="EndAndExpand"  Text="{Utils:Translate Next}"   Clicked="NextMove"  TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="EndAndExpand"/>
             </StackLayout>
@@ -26,47 +26,50 @@
     </ContentPage>
     <ContentPage>
         <StackLayout Margin="10" Padding="10" Spacing="10">
-            <Label Text="{Utils:Translate How_Use}"   TextTransform="None"
+            <StackLayout Margin="0" Padding="0" Spacing="10">
+                <Label Text="{Utils:Translate How_Use}"   TextTransform="None"
                    TextColor="#DC384D" FontAttributes="Bold" FontSize="Title"  />
-            <Image Source="undraw_My_location_re_r52x" HorizontalOptions="CenterAndExpand"/>
-            <Label Text="{Utils:Translate use_A}" 
-                    Margin="20,15,10,0" FontSize="Medium" FontAttributes="Bold" />
-            <Label Text="{Utils:Translate use_B}" 
+                <Image Source="undraw_My_location_re_r52x" HorizontalOptions="CenterAndExpand"/>
+                <Label Text="{Utils:Translate use_A}" 
+                    Margin="20,40,10,0" FontSize="Medium" FontAttributes="Bold" />
+                <Label Text="{Utils:Translate use_B}" 
                    Margin="20,15,10,0" FontSize="Medium" FontAttributes="Bold"/>
-
-            <StackLayout Orientation="Horizontal" Margin="0,50">
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" Margin="0">
                 <Button HorizontalOptions="StartAndExpand"   Text="{Utils:Translate Skip}"  Clicked="SkipMove"  TextTransform="None" Opacity="0.6" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="StartAndExpand"/>
                 <Button HorizontalOptions="EndAndExpand"  Text="{Utils:Translate Next}" Clicked="NextMove" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="EndAndExpand"/>
 
             </StackLayout>
-
         </StackLayout>
-
     </ContentPage>
     <ContentPage>
         <StackLayout Margin="10" Padding="10" Spacing="10">
-
-            <Label  Text="{Utils:Translate Our_Team}" TextTransform="None" 
+            <StackLayout Margin="0" Padding="0" Spacing="10">
+                <Label  Text="{Utils:Translate Our_Team}" TextTransform="None" 
                    TextColor="#DC384D" FontAttributes="Bold" FontSize="Title"  />
-            <Image Source="undraw_meet_the_team" HorizontalOptions="CenterAndExpand"/>
+                <Image Source="undraw_meet_the_team" HorizontalOptions="CenterAndExpand"/>
 
-            <Label Text="{Utils:Translate quote}"
+                <Label Text="{Utils:Translate quote}"
                     HorizontalOptions="StartAndExpand"  TextTransform="None" TextColor="#DC384D" FontAttributes="Bold" 
                        FontSize="Medium"  Margin="20,40,10,0" VerticalOptions="FillAndExpand" />
 
-            <StackLayout Margin="0" Padding="0" Spacing="5" >
-                <Button ImageSource="email" Text=" Joud  AL-dhadleh" TextColor="Gray" TextTransform="None"  FontSize="Medium"
-                        FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
-                <Button ImageSource="email" Text=" Heba  AL-ahmad" TextColor="Gray" TextTransform="None" FontSize="Medium" 
-                        FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
-                <Button ImageSource="email" Text=" Saja  dahadha" TextColor="Gray" TextTransform="None" FontSize="Medium" 
-                        FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
-                <Button ImageSource="email" Text=" Raghad  AL-khateeb" TextColor="Gray" TextTransform="None" FontSize="Medium" 
-                        FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
+                <StackLayout Margin="0" Padding="0" Spacing="5" >
+                    <Button ImageSource="email" Text="Joud  AL-dhadleh" TextColor="Gray" TextTransform="None"  FontSize="Medium"
+                        FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" 
+                            Command="{Binding OpenEmailMessageCommand}" CommandParameter="alaa.s.jaber.97@gmail.com"/>
+                    <Button ImageSource="email" Text=" Heba  AL-ahmad" TextColor="Gray" TextTransform="None" FontSize="Medium" 
+                        FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent"
+                            Command="{Binding OpenEmailMessageCommand}" CommandParameter="alaa.s.jaber.97@gmail.com"/>
+                    <Button ImageSource="email" Text=" Saja  dahadha" TextColor="Gray" TextTransform="None" FontSize="Medium" 
+                        FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent"
+                            Command="{Binding OpenEmailMessageCommand}" CommandParameter="alaa.s.jaber.97@gmail.com"/>
+                    <Button ImageSource="email" Text=" Raghad  AL-khateeb" TextColor="Gray" TextTransform="None" FontSize="Medium" 
+                        FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" 
+                            Command="{Binding OpenEmailMessageCommand}" CommandParameter="alaa.s.jaber.97@gmail.com"/>
+                </StackLayout>
             </StackLayout>
-            <StackLayout Orientation="Horizontal" Margin="10">
+            <StackLayout Orientation="Horizontal" Margin="0" VerticalOptions="EndAndExpand">
                 <Button HorizontalOptions="EndAndExpand" Clicked="CloseAboutPage" Text="{Utils:Translate Back_Home}" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="19" VerticalOptions="EndAndExpand"/>
-
             </StackLayout>
         </StackLayout>
     </ContentPage>
