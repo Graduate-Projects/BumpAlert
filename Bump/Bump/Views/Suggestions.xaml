@@ -5,6 +5,7 @@
              x:Class="Bump.Views.Suggestions"
              xmlns:ViewModels="clr-namespace:Bump.ViewModels"
              NavigationPage.HasNavigationBar="False"
+             xmlns:Utils="clr-namespace:Bump.Utils"
              XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
     <ContentPage.BindingContext>
         <ViewModels:SuggestionsViewModel/>
@@ -12,10 +13,10 @@
     <ContentPage.Content>
         <StackLayout Margin="20,10" Padding="0" Spacing="10">
             <StackLayout Margin="0" Padding="0" Spacing="10">
-                <Label Text="Suggestions"  TextTransform="None" HorizontalOptions="StartAndExpand"
+                <Label Text="{Utils:Translate Suggestions}"  TextTransform="None" HorizontalOptions="StartAndExpand"
                         TextColor="#DC384D" FontAttributes="Bold" FontSize="Title"  />
                 <Image Source="undraw_good_team" HorizontalOptions="CenterAndExpand"/>
-                <Label Text="You can send any suggestions or feedback to help us begin better."
+                <Label Text="{Utils:Translate suggestions_describe}"
                         Margin="20,15,10,0" FontSize="Large" FontAttributes="Bold"/>
             </StackLayout>
 
@@ -32,8 +33,8 @@
                             Placeholder="Description" PlaceholderColor="Gray" 
                             BackgroundColor="#EAEAEA"/>
                 </StackLayout>
-                
-                <Button Text="Send Suggestions" TextTransform="None" 
+
+                <Button Text="{Utils:Translate Send_Suggestions}" TextTransform="None" 
                         TextColor="White" FontAttributes="Bold" 
                         BackgroundColor="#DC384D" CornerRadius="5" 
                         FontSize="Medium" VerticalOptions="EndAndExpand" />

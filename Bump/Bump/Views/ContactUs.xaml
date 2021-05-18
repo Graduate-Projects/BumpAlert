@@ -3,15 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:XFMaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              x:Class="Bump.Views.ContactUs"
+             xmlns:Utils="clr-namespace:Bump.Utils"
              NavigationPage.HasNavigationBar="False"
              XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
     <ContentPage.Content>
         <StackLayout Margin="10" Spacing="10" Padding="10">
             <StackLayout Margin="0" Spacing="10">
-                <Label Text="Contact Us"  TextTransform="None" HorizontalOptions="StartAndExpand"
+                <Label Text="{Utils:Translate Contact_Us}"  TextTransform="None" 
                    TextColor="#DC384D" FontAttributes="Bold" FontSize="Title"  />
                 <Image Source="undraw_contact_us" HorizontalOptions="CenterAndExpand"/>
-                <Label Text="You can contact us:"
+                <Label Text="{Utils:Translate contact_describe}" 
                    Margin="20,15,10,0" FontSize="Large" FontAttributes="Bold"/>
             </StackLayout>
 
@@ -26,7 +27,7 @@
             </StackLayout>
 
             <StackLayout Spacing="5" Margin="0"  Padding="10">
-                <Label Text="You can follow us:"
+                <Label Text="{Utils:Translate follow}" 
                    FontSize="Large" FontAttributes="Bold"/>
                 <StackLayout Orientation="Horizontal" Spacing="30" HorizontalOptions="CenterAndExpand" Padding="20">
 

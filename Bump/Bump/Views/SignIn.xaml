@@ -5,6 +5,7 @@
              x:Class="Bump.Views.SignIn"
              xmlns:ViewModels="clr-namespace:Bump.ViewModels"
              NavigationPage.HasNavigationBar="False"
+             xmlns:Utils="clr-namespace:Bump.Utils"
              XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
     <ContentPage.BindingContext>
         <ViewModels:SignInViewModel/>
@@ -13,10 +14,10 @@
         <StackLayout  Margin="0" Padding="20" Spacing="20" BackgroundColor="#FFFFFF">
 
             <StackLayout Margin="0" Padding="0" Spacing="20">
-                <Label Text="Log In"  TextTransform="None" HorizontalOptions="StartAndExpand"
+                <Label Text="{Utils:Translate Login }"   TextTransform="None"
                    TextColor="#DC384D" FontAttributes="Bold" FontSize="20" />
                 <Image Source="undraw_navigator" HorizontalOptions="StartAndExpand"/>
-                <Label Text="If you would like to be a builder of our unique team, please do sign up." 
+                <Label Text="{Utils:Translate login_describe }" 
                    TextTransform="None" HorizontalOptions="StartAndExpand"
                    TextColor="Gray" FontAttributes="Bold" FontSize="15" />
             </StackLayout>
@@ -38,10 +39,10 @@
                 <StackLayout Orientation="Horizontal" Margin="0" Padding="0" Spacing="0">
                     <StackLayout Orientation="Horizontal" Margin="0" Padding="0" Spacing="5">
                         <CheckBox IsChecked="{Binding LoginRequest.IsRememberMe}" />
-                        <Label Text="Remember me" FontSize="Small" VerticalTextAlignment="Center"
+                        <Label Text="{Utils:Translate Remember_me}" FontSize="Small" VerticalTextAlignment="Center"
                             TextColor="#DC384D" FontAttributes="Bold" />
                     </StackLayout>
-                    <Button Text="Forget Password?" FontSize="Small"
+                    <Button Text="{Utils:Translate Forget_Password}" FontSize="Small"
                             BackgroundColor="Transparent" TextColor="#DC384D"                                               
                             TextTransform="None" FontAttributes="Bold"
                             HorizontalOptions="EndAndExpand" Command="{Binding OpenForgetPasswordPageCommand}"/>
@@ -49,7 +50,7 @@
             </StackLayout>
 
             <StackLayout Margin="0" Padding="0" Spacing="10">
-                <Button Text="Sign In" TextTransform="None" 
+                <Button Text="{Utils:Translate Sing_in}" TextTransform="None" 
                         TextColor="White" FontAttributes="Bold" 
                         BackgroundColor="#DC384D" CornerRadius="5" 
                         FontSize="Medium" Margin="10,0" Command="{Binding SignInCommand}"/>
@@ -58,9 +59,9 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span  Text="Dont have an account?" />
+                                <Span Text="{Utils:Translate new_account}" />
                                 <Span Text=" "/>
-                                <Span Text="Join Us" TextColor="#DC384D"/>
+                                <Span Text="{Utils:Translate Join_us}" TextColor="#DC384D"/>
                             </FormattedString.Spans>
                         </FormattedString>
                         
@@ -78,8 +79,7 @@
                     <Grid Margin="0" Padding="0" HorizontalOptions="Center">
                         <BoxView HeightRequest="1" Color="White"
                                  VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
-                        <Label Text="     Social Sing in     "
-                               TextColor="#DC384D" FontSize="Small" FontAttributes="Bold"/>
+                        <Label Text="{Utils:Translate Social_Singin}"                               TextColor="#DC384D" FontSize="Small" FontAttributes="Bold"/>
                     </Grid>
                 </Grid>
                 <StackLayout Margin="0" Padding="0" Spacing="0" Orientation="Horizontal">

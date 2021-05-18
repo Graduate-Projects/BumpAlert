@@ -120,7 +120,7 @@
   <data name="About" xml:space="preserve">
     <value>About</value>
   </data>
-  <data name="Back_ Home" xml:space="preserve">
+  <data name="Back_Home" xml:space="preserve">
     <value>Back to Home</value>
   </data>
   <data name="BUMP" xml:space="preserve">
@@ -149,6 +149,9 @@
   </data>
   <data name="First_Name" xml:space="preserve">
     <value>First Name</value>
+  </data>
+  <data name="follow" xml:space="preserve">
+    <value>You can follow us:</value>
   </data>
   <data name="Forget_Password" xml:space="preserve">
     <value>Forget Password ?</value>
@@ -195,8 +198,8 @@
   <data name="notification" xml:space="preserve">
     <value>the bump is 50m from where you are standing</value>
   </data>
-  <data name="Our_ Program" xml:space="preserve">
-    <value>Our_Program</value>
+  <data name="Our_Program" xml:space="preserve">
+    <value>Our Program</value>
   </data>
   <data name="Our_Team" xml:space="preserve">
     <value>Our Team</value>
@@ -212,6 +215,9 @@
   </data>
   <data name="prog_B" xml:space="preserve">
     <value>Through the application, you can determine what matters most to you as a driver on the road, such as a nearby bump, speed radar, or new pits, locating the nearest gas station to avoid running out of fuel at any time.</value>
+  </data>
+  <data name="quote" xml:space="preserve">
+    <value>Alone we can do so little; together we can do so much.</value>
   </data>
   <data name="Raghad" xml:space="preserve">
     <value>Raghad AL-khateeb</value>

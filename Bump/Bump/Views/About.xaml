@@ -2,39 +2,41 @@
 <CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:XFMaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+               xmlns:Utils="clr-namespace:Bump.Utils"
              x:Class="Bump.Views.About"
               xmlns:ViewModels="clr-namespace:Bump.ViewModels"
+          
              NavigationPage.HasNavigationBar="False"
              XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
     <ContentPage>
         <StackLayout Margin="10" Padding="10" Spacing="10">
-            <Label Text="Our Program"  TextTransform="None" HorizontalOptions="StartAndExpand"
+            <Label     Text="{Utils:Translate Our_Program}"   TextTransform="None"
                    TextColor="#DC384D" FontAttributes="Bold" FontSize="Title"  />
             <Image Source="undraw_warning_cyit" HorizontalOptions="CenterAndExpand"/>
-            <Label Text="The goal is  preserving your safety and the safety of the car on the highway." Margin="20,40,10,0" FontSize="Medium"
+            <Label  Text="{Utils:Translate prog_A}"  Margin="20,40,10,0" FontSize="Medium"
                    FontAttributes="Bold"/>
-            <Label Text="Through the application, you can determine what matters most to you as a driver on the road, such as a nearby bump, speed radar, or new pits, locating the nearest gas station to avoid running out of fuel at any time."
+            <Label Text="{Utils:Translate prog_B}"
                    Margin="20,15,10,0" FontSize="Medium" FontAttributes="Bold"/>
 
             <StackLayout Orientation="Horizontal" Margin="0,80">
-                <Button HorizontalOptions="StartAndExpand" Clicked="SkipMove"  Text="Skip" Opacity="0.6" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="StartAndExpand"/>
-                <Button HorizontalOptions="EndAndExpand" Text="Next" Clicked="NextMove"  TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="EndAndExpand"/>
+                <Button HorizontalOptions="StartAndExpand" Clicked="SkipMove"  Text="{Utils:Translate Skip}"  Opacity="0.6" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="StartAndExpand"/>
+                <Button HorizontalOptions="EndAndExpand"  Text="{Utils:Translate Next}"   Clicked="NextMove"  TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="EndAndExpand"/>
             </StackLayout>
         </StackLayout>
     </ContentPage>
     <ContentPage>
         <StackLayout Margin="10" Padding="10" Spacing="10">
-            <Label Text="How to Use"  TextTransform="None" HorizontalOptions="StartAndExpand"
+            <Label Text="{Utils:Translate How_Use}"   TextTransform="None"
                    TextColor="#DC384D" FontAttributes="Bold" FontSize="Title"  />
             <Image Source="undraw_My_location_re_r52x" HorizontalOptions="CenterAndExpand"/>
-            <Label Text="The application gives a distance notice that allows you to take an appropriate measure to protect yourself and your car as well, to do this you should allow the application to access your location and select what you like to detection in your way."
+            <Label Text="{Utils:Translate use_A}" 
                     Margin="20,15,10,0" FontSize="Medium" FontAttributes="Bold" />
-            <Label Text="You can help us and be contribute to search and enter the location of every thing in the way, you should sign up to do this."
+            <Label Text="{Utils:Translate use_B}" 
                    Margin="20,15,10,0" FontSize="Medium" FontAttributes="Bold"/>
 
             <StackLayout Orientation="Horizontal" Margin="0,50">
-                <Button HorizontalOptions="StartAndExpand" Text="Skip" Clicked="SkipMove"  TextTransform="None" Opacity="0.6" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="StartAndExpand"/>
-                <Button HorizontalOptions="EndAndExpand" Text="Next" Clicked="NextMove" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="EndAndExpand"/>
+                <Button HorizontalOptions="StartAndExpand"   Text="{Utils:Translate Skip}"  Clicked="SkipMove"  TextTransform="None" Opacity="0.6" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="StartAndExpand"/>
+                <Button HorizontalOptions="EndAndExpand"  Text="{Utils:Translate Next}" Clicked="NextMove" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="EndAndExpand"/>
 
             </StackLayout>
 
@@ -44,11 +46,11 @@
     <ContentPage>
         <StackLayout Margin="10" Padding="10" Spacing="10">
 
-            <Label Text="Our Team"  TextTransform="None" HorizontalOptions="StartAndExpand"
+            <Label  Text="{Utils:Translate Our_Team}" TextTransform="None" 
                    TextColor="#DC384D" FontAttributes="Bold" FontSize="Title"  />
             <Image Source="undraw_meet_the_team" HorizontalOptions="CenterAndExpand"/>
 
-            <Label Text="Alone we can do so little; together we can do so much."
+            <Label Text="{Utils:Translate quote}"
                     HorizontalOptions="StartAndExpand"  TextTransform="None" TextColor="#DC384D" FontAttributes="Bold" 
                        FontSize="Medium"  Margin="20,40,10,0" VerticalOptions="FillAndExpand" />
 
@@ -63,7 +65,7 @@
                         FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
             </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="10">
-                <Button HorizontalOptions="EndAndExpand" Clicked="CloseAboutPage" Text="Back to Home" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="19" VerticalOptions="EndAndExpand"/>
+                <Button HorizontalOptions="EndAndExpand" Clicked="CloseAboutPage" Text="{Utils:Translate Back_Home}" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="19" VerticalOptions="EndAndExpand"/>
 
             </StackLayout>
         </StackLayout>

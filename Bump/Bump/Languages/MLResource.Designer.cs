@@ -72,9 +72,9 @@ namespace Bump.Languages {
         /// <summary>
         ///   Looks up a localized string similar to Back to Home.
         /// </summary>
-        internal static string Back__Home {
+        internal static string Back_Home {
             get {
-                return ResourceManager.GetString("Back_ Home", resourceCulture);
+                return ResourceManager.GetString("Back_Home", resourceCulture);
             }
         }
         
@@ -156,6 +156,15 @@ namespace Bump.Languages {
         internal static string First_Name {
             get {
                 return ResourceManager.GetString("First_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can follow us:.
+        /// </summary>
+        internal static string follow {
+            get {
+                return ResourceManager.GetString("follow", resourceCulture);
             }
         }
         
@@ -295,11 +304,11 @@ namespace Bump.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Our_Program.
+        ///   Looks up a localized string similar to Our Program.
         /// </summary>
-        internal static string Our__Program {
+        internal static string Our_Program {
             get {
-                return ResourceManager.GetString("Our_ Program", resourceCulture);
+                return ResourceManager.GetString("Our_Program", resourceCulture);
             }
         }
         
@@ -345,6 +354,15 @@ namespace Bump.Languages {
         internal static string prog_B {
             get {
                 return ResourceManager.GetString("prog_B", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alone we can do so little; together we can do so much..
+        /// </summary>
+        internal static string quote {
+            get {
+                return ResourceManager.GetString("quote", resourceCulture);
             }
         }
         

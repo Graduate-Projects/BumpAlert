@@ -24,34 +24,43 @@
                         Command="{Binding ChangeLanguageCommand}" CommandParameter="ar-JO"/>
             </StackLayout>
 
-            <StackLayout Margin="0" Padding="0" Spacing="10">
-                <StackLayout Orientation="Horizontal" Margin="0" Padding="0" Spacing="20">
+            <StackLayout Margin="0" Padding="0" Spacing="20">
+                <StackLayout Orientation="Horizontal" Margin="0" Padding="0" Spacing="10">
                     <Image Source="puzzle" Aspect="AspectFit"/>
                     <Label Text="{Utils:Translate Contribute}" TextColor="White" FontAttributes="Bold" VerticalTextAlignment="Center"/>
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OpenSignInPageCommand}"/>
                     </StackLayout.GestureRecognizers>
                 </StackLayout>
-                <Button ImageSource="customer_service" Text="Contact Us" TextTransform="None"
-                        TextColor="White" FontAttributes="Bold"
-                        ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
-                        BackgroundColor="Transparent" Padding="0"
-                        Command="{Binding OpenContactUsPageCommand}" />
-                <Button ImageSource="suggestions" Text="Suggestions" TextTransform="None"
-                        TextColor="White" FontAttributes="Bold"
-                        ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
-                        BackgroundColor="Transparent" Padding="0" 
-                        Command="{Binding OpenSuggestionPageCommand}"/>
-                <Button ImageSource="invite" Text="Invite a friend" TextTransform="None"
-                        TextColor="White" FontAttributes="Bold"
-                        ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
-                        BackgroundColor="Transparent" Padding="0" 
-                        Command="{Binding InviteOtherPeopleCommand}"/> 
-                <Button ImageSource="help" Text="About" TextTransform="None"
-                        TextColor="White" FontAttributes="Bold"
-                        ContentLayout="Left,60" HorizontalOptions="StartAndExpand"
-                        BackgroundColor="Transparent" Padding="0"
-                        Command="{Binding OpenAboutPageCommand}"/>
+                
+                <StackLayout Orientation="Horizontal" Margin="0" Padding="0" Spacing="20">
+                    <Image Source="customer_service" Aspect="AspectFit"/>
+                    <Label Text="{Utils:Translate Contact_Us}" TextColor="White" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenContactUsPageCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0" Padding="0" Spacing="20">
+                    <Image Source="suggestions" Aspect="AspectFit"/>
+                    <Label Text="{Utils:Translate Suggestions}" TextColor="White" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenSuggestionPageCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0" Padding="0" Spacing="20">
+                    <Image Source="invite" Aspect="AspectFit"/>
+                    <Label Text="{Utils:Translate Invite_friend}" TextColor="White" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding InviteOtherPeopleCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0" Padding="0" Spacing="20">
+                    <Image Source="help" Aspect="AspectFit"/>
+                    <Label Text="{Utils:Translate About}" TextColor="White" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenAboutPageCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
             </StackLayout>
         </StackLayout>
     </Grid>

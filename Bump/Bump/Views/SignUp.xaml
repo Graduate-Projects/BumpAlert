@@ -4,6 +4,7 @@
              xmlns:XFMaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              x:Class="Bump.Views.SignUp"
              xmlns:ViewModels="clr-namespace:Bump.ViewModels"
+               xmlns:Utils="clr-namespace:Bump.Utils"
              NavigationPage.HasNavigationBar="False"
              XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
     <ContentPage.BindingContext>
@@ -12,7 +13,7 @@
     <ContentPage.Content>
         <StackLayout Margin="10" Padding="0" Spacing="50">
             <StackLayout Margin="0" Padding="0" Spacing="20">
-                <Label Text="Sign Up"  TextTransform="None" HorizontalOptions="StartAndExpand"
+                <Label Text="{Utils:Translate Sign_Up}"    TextTransform="None" HorizontalOptions="StartAndExpand"
                    TextColor="#DC384D" FontAttributes="Bold" FontSize="Title" />
             </StackLayout>
             <StackLayout Margin="10" Padding="0" Spacing="10" VerticalOptions="FillAndExpand">
@@ -51,7 +52,7 @@
                         PlaceholderColor="Gray" UnderlineColor="#B00020" TintColor="#B00020"
                         HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Password" />
                     </StackLayout>
-                    <Button Text="Sign Up" TextTransform="None" 
+                    <Button Text="{Utils:Translate Sign_Up}"   TextTransform="None" 
                         TextColor="White" FontAttributes="Bold" 
                         BackgroundColor="#DC384D" CornerRadius="5" 
                         FontSize="Medium" Margin="10,0"
@@ -63,9 +64,9 @@
                         <Label.FormattedText>
                             <FormattedString>
                                 <FormattedString.Spans>
-                                    <Span  Text="Already have account?" />
+                                    <Span Text="{Utils:Translate Have_account}"   />
                                     <Span Text=" "/>
-                                    <Span Text="Sign In" TextColor="#DC384D"/>
+                                    <Span Text="{Utils:Translate Sing_in}"   TextColor="#DC384D"/>
                                 </FormattedString.Spans>
                             </FormattedString>
                         </Label.FormattedText>
