@@ -26,11 +26,12 @@
                     <XFMaterial:MaterialTextField
                        Text="{Binding LoginRequest.Email}"
                        UnderlineColor="#B00020" TintColor="#B00020"
-                       Placeholder="Email/Username" PlaceholderColor="Gray"                       
+                        Placeholder="{Utils:Translate Email_Username}" 
+                        PlaceholderColor="Gray"                       
                        HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Email"/>
 
                     <XFMaterial:MaterialTextField                       
-                       Text="{Binding LoginRequest.Password}" Placeholder="Password"
+                       Text="{Binding LoginRequest.Password}" Placeholder="{Utils:Translate Password}"
                        ErrorIcon="eye_pass" HasError="False"
                        PlaceholderColor="Gray" UnderlineColor="#B00020" TintColor="#B00020"
                        HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Password" />

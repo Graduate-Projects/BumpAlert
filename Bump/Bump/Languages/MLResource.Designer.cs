@@ -144,9 +144,9 @@ namespace Bump.Languages {
         /// <summary>
         ///   Looks up a localized string similar to Email /Username.
         /// </summary>
-        internal static string Email__Username {
+        internal static string Email_Username {
             get {
-                return ResourceManager.GetString("Email_ Username", resourceCulture);
+                return ResourceManager.GetString("Email_Username", resourceCulture);
             }
         }
         

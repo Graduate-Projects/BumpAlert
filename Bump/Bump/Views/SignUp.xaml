@@ -22,11 +22,11 @@
                         <XFMaterial:MaterialTextField 
                             Text="{Binding User.FirstName}" 
                             UnderlineColor="#B00020" TintColor="#B00020" 
-                            Placeholder="First Name" PlaceholderColor="Gray" HeightRequest="40"                      
+                            Placeholder="{Utils:Translate First_Name}"  PlaceholderColor="Gray" HeightRequest="40"                      
                             BackgroundColor="#EAEAEA" InputType="Text" HorizontalOptions="FillAndExpand" />
 
                         <XFMaterial:MaterialTextField  
-                            Text="{Binding User.LastName}" Placeholder="Last Name"    
+                            Text="{Binding User.LastName}" Placeholder="{Utils:Translate Last_Name}"    
                             PlaceholderColor="Gray" UnderlineColor="#B00020" TintColor="#B00020"
                             BackgroundColor="#EAEAEA" InputType="Text" HorizontalOptions="FillAndExpand" />
                     </StackLayout>
@@ -34,20 +34,21 @@
                         <XFMaterial:MaterialTextField 
                         Text="{Binding User.PhoneNumber}" 
                         UnderlineColor="#B00020" TintColor="#B00020"
-                        Placeholder="Mobile Number" PlaceholderColor="Gray"                       
+                        Placeholder="{Utils:Translate Mobile_Number}" PlaceholderColor="Gray"                       
                         HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Telephone"/>
                         <XFMaterial:MaterialTextField 
                         Text="{Binding User.Email}" 
                         UnderlineColor="#B00020" TintColor="#B00020"
-                        Placeholder="Email" PlaceholderColor="Gray"                       
+                        Placeholder="{Utils:Translate Email}" PlaceholderColor="Gray"                       
                         HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Email"/>
                         <XFMaterial:MaterialTextField  
-                        Text="{Binding User.Password}" Placeholder="Password"
+                        Text="{Binding User.Password}" Placeholder="{Utils:Translate Password}"
                         ErrorIcon="eye_pass" HasError="False"
                         PlaceholderColor="Gray" UnderlineColor="#B00020" TintColor="#B00020"
                         HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Password" />
                         <XFMaterial:MaterialTextField  
-                        Text="{Binding PasswordConfirm}" Placeholder="Confirm Password"
+                        Text="{Binding PasswordConfirm}" 
+                            Placeholder="{Utils:Translate Confirm_Password}"
                         ErrorIcon="eye_pass" HasError="False"
                         PlaceholderColor="Gray" UnderlineColor="#B00020" TintColor="#B00020"
                         HeightRequest="40"  BackgroundColor="#EAEAEA" InputType="Password" />
