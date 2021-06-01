@@ -1,26 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
-    <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Bump.Views.MainPageContribute.ContributeDetail"
-             xmlns:XamainMap="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
-             Title="Detail"
-             xmlns:XFMaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
-             NavigationPage.HasNavigationBar="False"
-             XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
-    
-    <Grid>
-        <XamainMap:Map x:Name="MyMap" IsShowingUser="true" Padding="0" />
-        <StackLayout Spacing="40" VerticalOptions="Center" HorizontalOptions="End"  >
-            <Button Image="speed_radar" BackgroundColor="White" CornerRadius="30" BorderColor="Black" BorderWidth="1"/>
-            <Button Image="bump1" BackgroundColor="White" CornerRadius="30" Padding="0" BorderColor="Black" BorderWidth="1"/>
-            <Button Image="digger" BackgroundColor="White" CornerRadius="30" Padding="0" BorderColor="Black" BorderWidth="1"/>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"                
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="Bump.Views.MainPageContribute.ContributeDetail"
+            xmlns:XamainMap="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+            Title="Detail"
+            xmlns:XFMaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+            NavigationPage.HasNavigationBar="False"
+            XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
+    <Grid Margin="0" Padding="0">
+        <XamainMap:Map x:Name="GoogleMap"/>
+        <StackLayout Margin="0" Padding="10" Spacing="10" 
+                     VerticalOptions="Center" HorizontalOptions="End">
+            <Button Image="speed_radar" BackgroundColor="White"
+                    HeightRequest="60" WidthRequest="60" 
+                    VerticalOptions="Start" HorizontalOptions="Start"
+                    CornerRadius="30" BorderColor="Black" BorderWidth="1"/>
+            <Button Image="bump1" BackgroundColor="White"
+                    HeightRequest="60" WidthRequest="60" 
+                    VerticalOptions="Start" HorizontalOptions="Start"
+                    CornerRadius="30" Padding="0" BorderColor="Black" BorderWidth="1"/>
+            <Button Image="digger" BackgroundColor="White"
+                    HeightRequest="60" WidthRequest="60" 
+                    VerticalOptions="Start" HorizontalOptions="Start"
+                    CornerRadius="30" Padding="0" BorderColor="Black" BorderWidth="1"/>
         </StackLayout>
-
     </Grid>
-    
-
 </ContentPage>
 
     
