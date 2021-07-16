@@ -18,11 +18,24 @@ namespace Bump.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
+            global::Xamarin.Auth.Presenters.XamarinAndroid.AuthenticationConfiguration.Init(this, savedInstanceState);
+            Xamarin.Auth.CustomTabsConfiguration.CustomTabsClosingMessage = null;
+            Xamarin.Auth.CustomTabsConfiguration.IsActionButtonUsed = false;
+            Xamarin.Auth.CustomTabsConfiguration.IsActionBarToolbarIconUsed = false;
+            Xamarin.Auth.CustomTabsConfiguration.IsCloseButtonIconUsed = false;
+            Xamarin.Auth.CustomTabsConfiguration.IsShowTitleUsed = false;
+            Xamarin.Auth.CustomTabsConfiguration.IsDefaultShareMenuItemUsed = false;
+            Xamarin.Auth.CustomTabsConfiguration.IsPrefetchUsed = false;
+            Xamarin.Auth.CustomTabsConfiguration.IsUrlBarHidingUsed = false;
+            Xamarin.Auth.CustomTabsConfiguration.IsWarmUpUsed = false;
+            Xamarin.Auth.CustomTabsConfiguration.MenuItemTitle = null;
+
             Xamarin.FormsGoogleMaps.Init(this, savedInstanceState);
             XF.Material.Droid.Material.Init(this, savedInstanceState);
 
             LoadApplication(new App()); 
         }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);

@@ -6,7 +6,7 @@ namespace BLL.Settings
 {
     public static class Connections
     {
-        public static readonly BLL.Enums.DevServer Server = BLL.Enums.DevServer.Raghad;
+        public static readonly BLL.Enums.DevServer Server = BLL.Enums.DevServer.Local;
         public static string GetServerAddress()
         {
             switch (Server)
