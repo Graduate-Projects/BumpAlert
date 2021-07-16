@@ -14,8 +14,6 @@ namespace API.Services
         private readonly IConfiguration _configuration;
         private readonly UserManager<BLL.Models.User> _userManager;
 
-        private string AppId = "814293879114232";
-        private string AppSecret = "f9f2412a01807c6888875afe3da69fc5";
         public FacebookAuthService(IConfiguration configuration, UserManager<BLL.Models.User> userManager)
         {
             _userManager = userManager;
@@ -25,7 +23,7 @@ namespace API.Services
         public async Task<BLL.Models.User> Authenticate(BLL.Models.UserToken token)
         {
             //NB: These config files are loaded from the user secrets.
-            var appToken = await GenerateAppAccessToken(AppId, AppSecret);
+            var appToken = await GenerateAppAccessToken(BLL.Utils.FacebookConfig.AppId, BLL.Utils.FacebookConfig.AppSecret);
             var isValid = await DebugUserAccessToken(appToken, token.TokenId);
 
             if (isValid)

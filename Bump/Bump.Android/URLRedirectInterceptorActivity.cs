@@ -17,7 +17,7 @@ namespace Bump.Droid
     [IntentFilter(
        new[] { Intent.ActionView },
        Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
-       DataSchemes = new[] {"com.googleusercontent.apps.29...-7aecvn..." },
+       DataSchemes = new[] {"com.googleusercontent.apps.676373510849-52ueeeg45fs3sao5g8h5lab0f23gvdu0" },
        DataPath = "/oauth2redirect")]
     public class URLRedirectInterceptorActivity : Activity
     {
@@ -31,9 +31,9 @@ namespace Bump.Droid
             // Load redirectUrl page
             AuthenticationState.Authenticator.OnPageLoading(uri);
 
-            //var intent = new Intent(this, typeof(MainActivity));
-            //intent.SetFlags(ActivityFlags.ClearTop | ActivityFlags.SingleTop);
-            //StartActivity(intent);
+            var intent = new Intent(this, typeof(URLRedirectInterceptorActivity));
+            intent.SetFlags(ActivityFlags.ClearTop | ActivityFlags.SingleTop);
+            StartActivity(intent);
 
             Finish();
         }

@@ -21,7 +21,6 @@ namespace Bump.ViewModels
         public ICommand LoginUsingGoogle { get; set; }
 
         private OAuth2Authenticator _authenticator;
-        const string ClientId = "...-...apps.googleusercontent.com";
         public SignInViewModel()
         {
             OpenForgetPasswordPageCommand = new Command(OpenForgetPasswordPage);
@@ -75,7 +74,7 @@ namespace Bump.ViewModels
 
         private async Task PerformLoginUsingFacebook()
         {
-            var facebookAppId = "814293879114232";
+            var facebookAppId = BLL.Utils.FacebookConfig.AppId;
             _authenticator = new OAuth2Authenticator(facebookAppId,"email",
                 authorizeUrl: new Uri("https://www.facebook.com/dialog/oauth/"),
                 redirectUrl: new Uri("https://hucoinapi.azurewebsites.net/page/privacypolicy"));
@@ -88,11 +87,11 @@ namespace Bump.ViewModels
         private async Task PerformLoginUsingGoogle()
         {
             _authenticator = new OAuth2Authenticator(
-               clientId: ClientId,
-               clientSecret: "",
+               clientId: BLL.Utils.GoogleConfig.ClientID,
+               clientSecret: BLL.Utils.GoogleConfig.ClientSecret,
                scope: "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile",
                authorizeUrl: new Uri("https://accounts.google.com/o/oauth2/auth"),
-               redirectUrl: new Uri("com.googleusercontent.apps....-...:/oauth2redirect"),
+               redirectUrl: new Uri($"com.googleusercontent.apps.{BLL.Utils.GoogleConfig.ClientID}:/oauth2redirect"),
                accessTokenUrl: new Uri("https://www.googleapis.com/oauth2/v4/token"),
                isUsingNativeUI: true
            );
