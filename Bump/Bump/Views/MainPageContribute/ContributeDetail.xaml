@@ -12,7 +12,7 @@
         <XamainMap:Map x:Name="GoogleMap"/>
         <StackLayout Margin="0" Padding="10" Spacing="10" 
                      VerticalOptions="Center" HorizontalOptions="End">
-            <Button Image="speed_radar" BackgroundColor="White"
+            <Button Image="speed" BackgroundColor="White"
                     HeightRequest="60" WidthRequest="60" 
                     VerticalOptions="Start" HorizontalOptions="Start"
                     CornerRadius="30" BorderColor="Black" BorderWidth="1"/>
