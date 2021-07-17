@@ -13,5 +13,6 @@ namespace BLL.Models
         public string LastName { get; set; }
         [NotMapped]
         public string Password { get; set; }
+        public string OAuthIssuer { get; set; }
     }
 }
