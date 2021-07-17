@@ -54,8 +54,8 @@ namespace API.Services
         {
             using var httpClient = new HttpClient();
             var json = await httpClient.GetStringAsync($@"https://graph.facebook.com/debug_token?input_token={userAccessToken}&access_token={appAccessToken}");
-            var obj = JsonConvert.DeserializeAnonymousType(json, new { data = new { app_id = "", isvalid = false } });
-            return obj.data.isvalid;
+            var obj = JsonConvert.DeserializeAnonymousType(json, new { data = new { app_id = "", is_valid = false } });
+            return obj.data.is_valid;
         }
     }
 }

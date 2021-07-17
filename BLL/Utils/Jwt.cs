@@ -10,7 +10,7 @@ namespace BLL.Utils
 {
     public static class JwtConfig
     {
-        public static string JwtKey => "B#mpM0bile.99";
+        public static string JwtKey => "SOME_RANDOM_KEY_DO_NOT_SHARE";//"B#mpM0bile.99";
         public static string JwtIssuer => "http://localhost:52600";
         public static int JwtExpireDays => 30;
     }

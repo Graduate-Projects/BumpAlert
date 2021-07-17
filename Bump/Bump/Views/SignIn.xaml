@@ -84,9 +84,9 @@
                 </Grid>
                 <StackLayout Margin="0" Padding="0" Spacing="0" Orientation="Horizontal">
                     <ImageButton Source="facebook" BackgroundColor="#3C5A9A" CornerRadius="5" 
-                                 Padding="70,10,70,10" Margin="10,0"/>
+                                 Padding="70,10,70,10" Margin="10,0" Command="{Binding LoginUsingFacebook}"/>
                     <ImageButton Source="google" BackgroundColor="white" CornerRadius="5" 
-                                 Padding="70,10,70,10" Margin="10,0"
+                                 Padding="70,10,70,10" Margin="10,0" Command="{Binding LoginUsingGoogle}"
                                  BorderColor="#5FC4C4C4" BorderWidth="1"/>
                 </StackLayout>
             </StackLayout>

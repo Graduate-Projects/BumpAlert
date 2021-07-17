@@ -34,6 +34,7 @@ namespace Bump.ViewModels
                         var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/account/register", User);
                         if (response.IsSuccessStatusCode)
                         {
+                            var token = await response.Content.ReadAsStringAsync();
                             OpenPage(new Views.MainPageContribute.Contribute());
                         }
                         else
