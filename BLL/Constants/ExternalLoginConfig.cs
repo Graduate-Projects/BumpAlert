@@ -11,6 +11,7 @@ namespace BLL.Constants
     }
     public static class Google
     {
-
+        public readonly static string ClientId = "676373510849-52ueeeg45fs3sao5g8h5lab0f23gvdu0";
+        public readonly static string ClientSecret = null;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bump.Utils;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -29,8 +30,56 @@ namespace Bump.ViewModels
             OpenSignUpPageCommand = new Command(OpenSignUpPage);
             LoginRequest = new BLL.Models.LoginRequest();
             LoginUsingFacebook = new Command(async () => await PreformLoginUsingFacebook());
+            LoginUsingGoogle = new Command(async () => await PreformLoginUsingGoogle());
         }
 
+        private async Task PreformLoginUsingGoogle()
+        {
+            _authenticator = new OAuth2Authenticator(
+                BLL.Constants.Google.ClientId, 
+                BLL.Constants.Google.ClientSecret, 
+                scope: "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile",
+                authorizeUrl: new Uri("https://accounts.google.com/o/oauth2/auth"),
+                redirectUrl: new Uri($"com.googleusercontent.apps.{BLL.Constants.Google.ClientId}:/oauth2redirect"),
+                accessTokenUrl: new Uri("https://www.googleapis.com/oauth2/v4/token"),
+                isUsingNativeUI: true);
+
+            _authenticator.Completed += Authenticator_Google_Completed;
+            _authenticator.Error += Authenticator_Error;
+            AuthenticationState.Authenticator = _authenticator;
+            var presenter = new Xamarin.Auth.Presenters.OAuthLoginPresenter();
+            presenter.Login(_authenticator);
+        }
+        private async void Authenticator_Google_Completed(object sender, AuthenticatorCompletedEventArgs e)
+        {
+            try
+            {
+                _authenticator.Completed -= Authenticator_Google_Completed;
+                if (e.IsAuthenticated)
+                {
+                    var userToken = await GetGoogleProfile(e.Account);
+                    await ExternalLogin(userToken, BLL.Enums.AuthProvider.Google);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
+        }
+        public async Task<BLL.Models.Identity.SocialToken> GetGoogleProfile(Account account)
+        {
+            var request = new OAuth2Request("GET", new Uri("https://www.googleapis.com/oauth2/v2/userinfo"), null, account);
+            var response = await request.GetResponseAsync();
+
+            if(response != null)
+            {
+                string userJson = await response.GetResponseTextAsync();
+                var user = System.Text.Json.JsonSerializer.Deserialize<BLL.Models.Identity.SocialToken>(userJson);
+                user.TokenId = account.Properties["id_token"];
+                return user;
+            }
+            throw new Exception("Could not get user");
+        }
         private async Task PreformLoginUsingFacebook()
         {
             _authenticator = new OAuth2Authenticator(BLL.Constants.Facebook.AppId, "email",
@@ -39,6 +88,7 @@ namespace Bump.ViewModels
 
             _authenticator.Completed += Authenticator_Facebook_Completed;
             _authenticator.Error += Authenticator_Error;
+            AuthenticationState.Authenticator = _authenticator;
             var presenter = new Xamarin.Auth.Presenters.OAuthLoginPresenter();
             presenter.Login(_authenticator);
         }
@@ -53,8 +103,8 @@ namespace Bump.ViewModels
                     TokenId = e.Account.Properties["access_token"],
                     Email = user.Email,
                     FamilyName = user.FirstName,
-                    GivenName = user.LastName,
-                };
+                GivenName = user.LastName,
+            };
                 await ExternalLogin(userToken, BLL.Enums.AuthProvider.Facebook);
             }
         }

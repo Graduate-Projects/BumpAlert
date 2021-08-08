@@ -73,6 +73,7 @@ namespace API
                 };
             });
             services.AddScoped<API.Services.FacebookAuthService>();
+            services.AddScoped<API.Services.GoogleAuthService>();
 
             services.AddSwaggerGen(c =>
             {

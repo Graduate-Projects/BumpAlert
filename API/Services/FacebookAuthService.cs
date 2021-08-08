@@ -34,11 +34,11 @@ namespace API.Services
 
             var appUser = new BLL.Models.User
             {
-                FirstName = userToken.Name,
+                FirstName = userToken.GivenName,
                 LastName = userToken.FamilyName,
                 Email = userToken.Email,
                 OAuthIssuer = "facebook",
-                UserName = userToken.FamilyName + " " + userToken.GivenName
+                UserName = userToken.Email
             };
             await userManager.CreateAsync(appUser);
             return appUser;

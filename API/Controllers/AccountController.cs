@@ -16,11 +16,13 @@ namespace API.Controllers
         private readonly SignInManager<BLL.Models.User> signInManager;
         private readonly UserManager<BLL.Models.User> userManager;
         private readonly API.Services.FacebookAuthService facebookAuthService;
-        public AccountController(SignInManager<BLL.Models.User> _signInManager, UserManager<BLL.Models.User> _userManager, API.Services.FacebookAuthService _facebookAuthService) 
+        private readonly API.Services.GoogleAuthService googleAuthService;
+        public AccountController(SignInManager<BLL.Models.User> _signInManager, UserManager<BLL.Models.User> _userManager, API.Services.FacebookAuthService _facebookAuthService, API.Services.GoogleAuthService _googleAuthService) 
         {
             this.signInManager = _signInManager;
             this.userManager = _userManager;
             this.facebookAuthService = _facebookAuthService;
+            this.googleAuthService = _googleAuthService;
         }
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] BLL.Models.LoginRequest loginRequest)
@@ -59,6 +61,21 @@ namespace API.Controllers
             try
             {
                 var user = await facebookAuthService.Authenticate(userToken);
+                await signInManager.SignInAsync(user, true);
+                return Ok(BLL.Utils.Jwt.GenerateJwtToken(userToken.Email, user));
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPost("Google")]
+        public async Task<IActionResult> Google([FromBody] BLL.Models.Identity.SocialToken userToken)
+        {
+            try
+            {
+                var user = await googleAuthService.Authenticate(userToken);
                 await signInManager.SignInAsync(user, true);
                 return Ok(BLL.Utils.Jwt.GenerateJwtToken(userToken.Email, user));
             }
