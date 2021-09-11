@@ -32,12 +32,15 @@
                 <StackLayout Orientation="Horizontal" Spacing="30" HorizontalOptions="CenterAndExpand" Padding="20">
 
                     <ImageButton Source="facebook" BackgroundColor="#DC384D" CornerRadius="50" 
-                                 Padding="21,15,21,15" Margin="10,0"/>
+                                 Padding="21,15,21,15" Margin="10,0"
+                                 Clicked="FacebookPage"/>
                     <ImageButton Source="twitter" BackgroundColor="#DC384D" CornerRadius="50" 
-                                 Padding="15,15,15,15" Margin="10,0"/>
+                                 Padding="15,15,15,15" Margin="10,0"
+                                 Clicked="TwitterPage"/>
 
                     <ImageButton Source="linkedin" BackgroundColor="#DC384D" CornerRadius="50" 
-                                 Padding="17,17,17,17" Margin="10,0"/>
+                                 Padding="17,17,17,17" Margin="10,0"
+                                 Clicked="LinkedinPage"/>
 
 
                 </StackLayout>
