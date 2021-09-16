@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:XFMaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+               xmlns:Utils="clr-namespace:Bump.Utils"
+             x:Class="Bump.Views.WorkThrough"
+              xmlns:ViewModels="clr-namespace:Bump.ViewModels"          
+             NavigationPage.HasNavigationBar="False"
+             XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
+    <ContentPage>
+        <StackLayout Margin="10" Padding="10" Spacing="10">
+            <StackLayout Margin="0" Padding="0" Spacing="10">
+                
+                <Image Source="undraw_m" HorizontalOptions="CenterAndExpand"/>
+                <Label  Text="Welcome to the Bump application"  Margin="20,40,10,0" FontSize="Large" TextColor="#DC384D"
+                   FontAttributes="Bold"/>
+                <Label Text="The application alerts you when approaching any bump, radar or pit, you only have to determine your location by pressing"
+                   Margin="20,15,10,0" FontSize="Medium" FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="0" VerticalOptions="EndAndExpand">
+                <Button HorizontalOptions="StartAndExpand" Clicked="SkipMove"  Text="Skip"  Opacity="0.6" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="StartAndExpand"/>
+                <Button HorizontalOptions="EndAndExpand"  Text="Next"   Clicked="NextMove"  TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="EndAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage>
+        <StackLayout Margin="20,30" Padding="10" Spacing="20">
+            <StackLayout Margin="0" Padding="0" Spacing="10">
+
+                <Image Source="undraw_Destination" HorizontalOptions="CenterAndExpand"/>
+                <Label Text="If you want to contribute with us in
+                        determining the location of bumps, radars and pits, press on, then press on (contribute) , then sign in /sign up" 
+                    Margin="20,50,10,0" FontSize="Medium" FontAttributes="Bold" />
+                <Label Text="You will receive alerts previously entered by contributors anyway 
+                        Happy trip" 
+                   Margin="20,15,10,0" FontSize="Medium" FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" Margin="0">
+                <Button HorizontalOptions="StartAndExpand"   Text="Skip"  Clicked="SkipMove"  TextTransform="None" Opacity="0.6" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="StartAndExpand"/>
+                <Button HorizontalOptions="EndAndExpand"  Text="Next" Clicked="NextMove" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="Medium" VerticalOptions="EndAndExpand"/>
+
+            </StackLayout>
+        </StackLayout>
+       </ContentPage>
+    
+    
+    
+    
+    
+    <ContentPage>
+        <StackLayout Margin="10" Padding="10" Spacing="10">
+            <StackLayout Margin="0" Padding="0" Spacing="10">
+                <Label  Text="Contribute buttons" TextTransform="None" 
+                   TextColor="#DC384D" FontAttributes="Bold" FontSize="Title"  />
+                
+                
+                <StackLayout Margin="0" Padding="0" Spacing="20" >
+                    <StackLayout >
+                        <Button ImageSource="speed" Text="Radar"  TextColor="#DC384D" TextTransform="None"  FontSize="Large"
+                        FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" 
+                           />
+                        <Label Text="When you click on the button, your current location will be taken, then you must choose the speed for the radar."
+                           FontSize="Medium" FontAttributes="Bold"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Button ImageSource="bump" Text="Bump" TextColor="#DC384D" TextTransform="None" FontSize="Large" 
+                        FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent"
+                            />
+                    <Label Text="When clicking on the button, your current location will be taken."
+                           FontSize="Medium" FontAttributes="Bold"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Button ImageSource="digger" Text="Pit" TextColor="#DC384D" TextTransform="None" FontSize="Large" 
+                        FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent"
+                            />
+                    <Label Text="When clicking on the button, your current location will be taken."
+                           FontSize="Medium" FontAttributes="Bold"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Button ImageSource="cancel" Text="Delete" TextColor="#DC384D" TextTransform="None" FontSize="Large" 
+                        FontAttributes="Bold" ContentLayout="left,10" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" 
+                            />
+                    <Label Text="When you click the bottom that mean its a wrong alert, but for us to  be more sure 3 users should click the bottom to delete it."
+                           FontSize="Medium" FontAttributes="Bold"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="0" VerticalOptions="EndAndExpand">
+                <Button HorizontalOptions="EndAndExpand" Clicked="CloseAboutPage" Text="Back Home" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="19" VerticalOptions="EndAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage>
+    
+    
+    
+</CarouselPage>
+
