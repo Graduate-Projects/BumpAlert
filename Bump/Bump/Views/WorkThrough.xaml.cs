@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using localizer = Bump.Utils.LocalizationResourceManager;
 
 namespace Bump.Views
 {
@@ -29,9 +30,11 @@ namespace Bump.Views
             this.CurrentPage = GetPageByIndex(indexCurrentPageSelected + 1);
         }
 
-        private void CloseAboutPage(object sender, EventArgs e)
+        private void ClosePage(object sender, EventArgs e)
         {
-            App.Current.MainPage.Navigation.PopToRootAsync();
+            var page = new Views.MainPageView.MainPage();
+            page.SetBinding(VisualElement.FlowDirectionProperty, new Binding(nameof(localizer.FlowDirection), source: localizer.Instance));
+            Application.Current.MainPage = new NavigationPage(page);
         }
     }
 }

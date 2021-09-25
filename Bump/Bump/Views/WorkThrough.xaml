@@ -81,7 +81,9 @@
                 </StackLayout>
             </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="0" VerticalOptions="EndAndExpand">
-                <Button HorizontalOptions="EndAndExpand" Clicked="CloseAboutPage" Text="Back Home" TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" FontSize="19" VerticalOptions="EndAndExpand"/>
+                <Button HorizontalOptions="EndAndExpand" Clicked="ClosePage" Text="Let's GO" 
+                        TextTransform="None" TextColor="#DC384D" BackgroundColor="Transparent" 
+                        FontSize="19" VerticalOptions="EndAndExpand"/>
             </StackLayout>
         </StackLayout>
     </ContentPage>

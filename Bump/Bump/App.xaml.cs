@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.Material.Forms.UI;
@@ -13,9 +14,29 @@ namespace Bump
             InitializeComponent();
             XF.Material.Forms.Material.Init(this);
             localizer.Initialization();
+            StartPage().ConfigureAwait(false);
+            
+        }
 
-            MainPage = new Bump.Views.WorkThrough();
-            var page = new Views.MainPageView.MainPage();
+        private async Task StartPage()
+        {
+            Page page = new Views.MainPageView.MainPage();
+            if(await Xamarin.Essentials.SecureStorage.GetAsync("IsNotFirstRun") == null)
+            {
+                //this is first time run this application
+                page = new Views.WorkThrough();
+                await Xamarin.Essentials.SecureStorage.SetAsync("IsNotFirstRun", "true");
+            }
+            else
+            {
+                var token = await Xamarin.Essentials.SecureStorage.GetAsync("Auth.Key");
+                if (!string.IsNullOrEmpty(token))
+                {
+                    page = new Views.MainPageContribute.Contribute();
+                    AppStatic.AuthToken = token;
+                }
+            }
+
             page.SetBinding(VisualElement.FlowDirectionProperty, new Binding(nameof(localizer.FlowDirection), source: localizer.Instance));
             MainPage = new NavigationPage(page);
         }
