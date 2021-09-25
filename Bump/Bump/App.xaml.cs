@@ -10,15 +10,14 @@ namespace Bump
     {
         public App()
         {
-              InitializeComponent();
-           // XF.Material.Forms.Material.Init(this);
-           // localizer.Initialization();
+            InitializeComponent();
+            XF.Material.Forms.Material.Init(this);
+            localizer.Initialization();
 
             MainPage = new Bump.Views.WorkThrough();
-             //var page = new Views.MainPageView.MainPage();
-             //page.SetBinding(VisualElement.FlowDirectionProperty, new Binding(nameof(localizer.FlowDirection), source: localizer.Instance));
-             //MainPage = new NavigationPage(page);
-
+            var page = new Views.MainPageView.MainPage();
+            page.SetBinding(VisualElement.FlowDirectionProperty, new Binding(nameof(localizer.FlowDirection), source: localizer.Instance));
+            MainPage = new NavigationPage(page);
         }
 
         protected override void OnStart()

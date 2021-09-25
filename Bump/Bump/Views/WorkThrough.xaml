@@ -41,12 +41,7 @@
 
             </StackLayout>
         </StackLayout>
-       </ContentPage>
-    
-    
-    
-    
-    
+    </ContentPage>
     <ContentPage>
         <StackLayout Margin="10" Padding="10" Spacing="10">
             <StackLayout Margin="0" Padding="0" Spacing="10">
