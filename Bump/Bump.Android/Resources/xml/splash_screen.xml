@@ -10,6 +10,6 @@
     </shape>
   </item>
   <item>
-    <bitmap android:src="@drawable/logo" android:gravity="center"/>
+    <bitmap android:src="@drawable/splaash" android:gravity="center"/>
   </item>
 </layer-list>

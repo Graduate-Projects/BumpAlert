@@ -31,8 +31,7 @@
                 <Label Text="If you want to contribute with us in
                         determining the location of bumps, radars and pits, press on, then press on (contribute) , then sign in /sign up" 
                     Margin="20,50,10,0" FontSize="Medium" FontAttributes="Bold" />
-                <Label Text="You will receive alerts previously entered by contributors anyway 
-                        Happy trip" 
+                <Label Text="You will receive alerts previously entered by contributors anyway Happy trip" 
                    Margin="20,15,10,0" FontSize="Medium" FontAttributes="Bold"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" Margin="0">
