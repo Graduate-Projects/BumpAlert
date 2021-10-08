@@ -147,6 +147,9 @@
   <data name="Email_Username" xml:space="preserve">
     <value>Email /Username</value>
   </data>
+  <data name="FailedSetDanger" xml:space="preserve">
+    <value>Something went wrong, please later</value>
+  </data>
   <data name="First_Name" xml:space="preserve">
     <value>First Name</value>
   </data>
@@ -251,6 +254,9 @@
   </data>
   <data name="Subject" xml:space="preserve">
     <value>Subject</value>
+  </data>
+  <data name="SuccessedSetDanger" xml:space="preserve">
+    <value>The danger site has been saved successfully, thank you</value>
   </data>
   <data name="Suggestions" xml:space="preserve">
     <value>Suggestions</value>

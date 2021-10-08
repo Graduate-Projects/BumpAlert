@@ -9,6 +9,7 @@ namespace API.Data
 {
     public class APIContext : IdentityDbContext<BLL.Models.User>
     {
+        public DbSet<BLL.Models.Danger> Dangers { get; set; }
         public DbSet<BLL.Models.Suggestion> Suggestions { get; set; }
         public APIContext(DbContextOptions options):base(options)
         {

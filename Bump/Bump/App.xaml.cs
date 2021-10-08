@@ -32,7 +32,6 @@ namespace Bump
                 var token = await Xamarin.Essentials.SecureStorage.GetAsync("Auth.Key");
                 if (!string.IsNullOrEmpty(token))
                 {
-                    page = new Views.MainPageContribute.Contribute();
                     AppStatic.AuthToken = token;
                 }
             }

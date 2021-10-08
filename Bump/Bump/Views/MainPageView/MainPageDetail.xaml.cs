@@ -27,7 +27,7 @@ namespace Bump.Views.MainPageView
                     MyLocationEnabled = true,
                 };
                 GoogleMap.UiSettings.MyLocationButtonEnabled = true;
-                this.Content = GoogleMap;
+                MapGoogle.Children.Add(GoogleMap);
             }
         }
     }

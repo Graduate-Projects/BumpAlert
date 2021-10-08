@@ -151,6 +151,15 @@ namespace Bump.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Something went wrong, please later.
+        /// </summary>
+        internal static string FailedSetDanger {
+            get {
+                return ResourceManager.GetString("FailedSetDanger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to First Name.
         /// </summary>
         internal static string First_Name {
@@ -462,6 +471,15 @@ namespace Bump.Languages {
         internal static string Subject {
             get {
                 return ResourceManager.GetString("Subject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The danger site has been saved successfully, thank you.
+        /// </summary>
+        internal static string SuccessedSetDanger {
+            get {
+                return ResourceManager.GetString("SuccessedSetDanger", resourceCulture);
             }
         }
         
