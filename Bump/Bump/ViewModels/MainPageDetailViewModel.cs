@@ -13,7 +13,7 @@ namespace Bump.ViewModels
 {
     public class MainPageDetailViewModel : BaseViewModel
     {
-        public bool IsAuthentication => !string.IsNullOrEmpty(AppStatic.AuthToken);
+        public bool IsAuthentication { get => !string.IsNullOrEmpty(AppStatic.AuthToken); set { var val = value; } }
         public ICommand ReportDangerCommand { get; set; }
         public MainPageDetailViewModel()
         {

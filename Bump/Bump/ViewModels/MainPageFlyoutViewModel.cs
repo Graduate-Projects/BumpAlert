@@ -8,6 +8,7 @@ namespace Bump.ViewModels
 {
     public class MainPageFlyoutViewModel : BaseViewModel
     {
+        public bool IsAuthentication { get => !string.IsNullOrEmpty(AppStatic.AuthToken); set { var val = value; } }
         public ICommand OpenAboutPageCommand { get; set; }
         public ICommand OpenSignInPageCommand { get; set; }
         public ICommand OpenContactUsPageCommand { get; set; }

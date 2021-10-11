@@ -35,7 +35,8 @@ namespace Bump.ViewModels
                         if (response.IsSuccessStatusCode)
                         {
                             var token = await response.Content.ReadAsStringAsync();
-                            OpenPage(new Views.MainPageContribute.Contribute());
+                            OpenPageAsMainPage(new Views.MainPageView.MainPage());
+                            //OpenPage(new Views.MainPageContribute.Contribute());
                         }
                         else
                         {
