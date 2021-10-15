@@ -37,7 +37,8 @@
                 <Button Text="{Utils:Translate Send_Suggestions}" TextTransform="None" 
                         TextColor="White" FontAttributes="Bold" 
                         BackgroundColor="#DC384D" CornerRadius="5" 
-                        FontSize="Medium" VerticalOptions="EndAndExpand" />
+                        FontSize="Medium" VerticalOptions="EndAndExpand"
+                        Command="{Binding SubmitSuggestionCommand}"/>
 
             </StackLayout>
         </StackLayout>

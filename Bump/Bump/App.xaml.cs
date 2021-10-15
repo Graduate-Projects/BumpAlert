@@ -20,7 +20,7 @@ namespace Bump
 
         private async Task StartPage()
         {
-            Page page = new Views.MainPageView.MainPage();
+            Page page;
             if(await Xamarin.Essentials.SecureStorage.GetAsync("IsNotFirstRun") == null)
             {
                 //this is first time run this application
@@ -34,6 +34,7 @@ namespace Bump
                 {
                     AppStatic.AuthToken = token;
                 }
+                page = new Views.MainPageView.MainPage();
             }
 
             page.SetBinding(VisualElement.FlowDirectionProperty, new Binding(nameof(localizer.FlowDirection), source: localizer.Instance));

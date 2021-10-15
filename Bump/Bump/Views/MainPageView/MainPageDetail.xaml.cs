@@ -29,6 +29,7 @@ namespace Bump.Views.MainPageView
                 GoogleMap.UiSettings.MyLocationButtonEnabled = true;
                 MapGoogle.Children.Add(GoogleMap);
             }
+            DangerButtons.IsVisible = !string.IsNullOrEmpty(AppStatic.AuthToken);
         }
     }
 }

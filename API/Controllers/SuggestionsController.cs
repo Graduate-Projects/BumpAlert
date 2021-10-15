@@ -28,7 +28,7 @@ namespace API.Controllers
             _context.Suggestions.Add(suggestion);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetSuggestion", new { id = suggestion.ID }, suggestion);
+            return Ok(suggestion);
         }
     }
 }

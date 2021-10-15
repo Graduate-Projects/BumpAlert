@@ -130,6 +130,7 @@ namespace Bump.ViewModels
             {
                 var token = await response.Content.ReadAsStringAsync();
                 await Xamarin.Essentials.SecureStorage.SetAsync("Auth.Key", token);
+                AppStatic.AuthToken = token;
                 OpenPageAsMainPage(new Views.MainPageView.MainPage());
             }
             else
@@ -163,6 +164,7 @@ namespace Bump.ViewModels
                         {
                             var token = await response.Content.ReadAsStringAsync();
                             await Xamarin.Essentials.SecureStorage.SetAsync("Auth.Key", token);
+                            AppStatic.AuthToken = token;
                             OpenPageAsMainPage(new Views.MainPageView.MainPage());
                         }
                         else

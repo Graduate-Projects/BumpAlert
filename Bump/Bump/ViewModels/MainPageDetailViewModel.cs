@@ -13,7 +13,6 @@ namespace Bump.ViewModels
 {
     public class MainPageDetailViewModel : BaseViewModel
     {
-        public bool IsAuthentication { get => !string.IsNullOrEmpty(AppStatic.AuthToken); set { var val = value; } }
         public ICommand ReportDangerCommand { get; set; }
         public MainPageDetailViewModel()
         {
@@ -33,7 +32,7 @@ namespace Bump.ViewModels
                     Latitude = location.Latitude,
                     Longitude = location.Longitude,
                 };
-                var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/marker/setdanger", DangerModel);
+                var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/marker", DangerModel);
                 if (response.IsSuccessStatusCode)
                 {
                     await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.SuccessedSetDanger, MaterialSnackbar.DurationLong);

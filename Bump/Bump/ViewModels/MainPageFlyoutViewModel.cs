@@ -8,7 +8,7 @@ namespace Bump.ViewModels
 {
     public class MainPageFlyoutViewModel : BaseViewModel
     {
-        public bool IsAuthentication { get => !string.IsNullOrEmpty(AppStatic.AuthToken); set { var val = value; } }
+        public bool IsAuthentication { get; set; }
         public ICommand OpenAboutPageCommand { get; set; }
         public ICommand OpenSignInPageCommand { get; set; }
         public ICommand OpenContactUsPageCommand { get; set; }
@@ -21,6 +21,8 @@ namespace Bump.ViewModels
             OpenContactUsPageCommand = new Command(OpenContactUsPage);
             OpenSuggestionPageCommand = new Command(OpenSuggestionPage);
             InviteOtherPeopleCommand = new Command(InviteOtherPeople);
+            IsAuthentication = !string.IsNullOrEmpty(AppStatic.AuthToken);
+            OnPropertyChanged(nameof(OnPropertyChanged));
         }
         private void OpenAboutPage()
         {
