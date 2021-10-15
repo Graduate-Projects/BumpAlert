@@ -66,6 +66,20 @@
                         <TapGestureRecognizer Command="{Binding OpenAboutPageCommand}"/>
                     </StackLayout.GestureRecognizers>
                 </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Margin="0" Padding="0" Spacing="20">
+                    <Image Source="logout" Aspect="AspectFit"/>
+                    <Label Text="{Utils:Translate Log_out}" TextColor="White" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenMainPageCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout.Triggers>
+                        <DataTrigger TargetType="StackLayout" Binding="{Binding IsAuthentication_2}"  Value="True">
+                            <Setter Property="IsVisible" Value="False"/>
+                        </DataTrigger>
+                    </StackLayout.Triggers>
+                </StackLayout>
+                
             </StackLayout>
         </StackLayout>
     </Grid>

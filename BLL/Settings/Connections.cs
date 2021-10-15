@@ -20,7 +20,7 @@ namespace BLL.Settings
                 case Enums.DevServer.Saja:
                     return "http://192.168.1.250:5000";
                 case Enums.DevServer.Heba:
-                    return "http://192.168.1.254:5000";
+                    return "http://192.168.1.250:5000";
                 default:
                     throw new NotImplementedException();
             }
