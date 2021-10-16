@@ -74,8 +74,8 @@
                         <TapGestureRecognizer Command="{Binding OpenMainPageCommand}"/>
                     </StackLayout.GestureRecognizers>
                     <StackLayout.Triggers>
-                        <DataTrigger TargetType="StackLayout" Binding="{Binding IsAuthentication_2}"  Value="True">
-                            <Setter Property="IsVisible" Value="False"/>
+                        <DataTrigger TargetType="StackLayout" Binding="{Binding IsAuthentication}"  Value="False">
+                            <Setter Property="IsVisible" Value="True"/>
                         </DataTrigger>
                     </StackLayout.Triggers>
                 </StackLayout>

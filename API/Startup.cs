@@ -10,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Text;
+using Microsoft.AspNetCore.SignalR;
 
 namespace API
 {
@@ -69,6 +70,8 @@ namespace API
             services.AddScoped<API.Services.FacebookAuthService>();
             services.AddScoped<API.Services.GoogleAuthService>();
 
+            services.AddSignalR();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
@@ -92,6 +95,7 @@ namespace API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<Hubs.LocationHub>("/hub/location");
             });
         }
     }

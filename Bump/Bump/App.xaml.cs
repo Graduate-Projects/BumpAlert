@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.SignalR.Client;
+using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -9,13 +10,15 @@ namespace Bump
 {
     public partial class App : Application
     {
+        public static HubConnection _hubConnection;
         public App()
         {
             InitializeComponent();
             XF.Material.Forms.Material.Init(this);
             localizer.Initialization();
             StartPage().ConfigureAwait(false);
-            
+            _hubConnection = new HubConnectionBuilder().WithUrl($"{BLL.Settings.Connections.GetServerAddress()}/hub/location").WithAutomaticReconnect().Build();
+            ConnectWithHub().ConfigureAwait(false);
         }
 
         private async Task StartPage()
@@ -40,17 +43,27 @@ namespace Bump
             page.SetBinding(VisualElement.FlowDirectionProperty, new Binding(nameof(localizer.FlowDirection), source: localizer.Instance));
             MainPage = new NavigationPage(page);
         }
-
+        public static async Task ConnectWithHub()
+        {
+            if(_hubConnection.State != HubConnectionState.Connected)
+            await _hubConnection.StartAsync();
+        }
+        public static async Task StoptWithHub()
+        {
+            await _hubConnection.StopAsync();
+        }
         protected override void OnStart()
         {
         }
 
         protected override void OnSleep()
         {
+            StoptWithHub().ConfigureAwait(false);
         }
 
         protected override void OnResume()
         {
+            ConnectWithHub().ConfigureAwait(false);
         }
     }
 }
