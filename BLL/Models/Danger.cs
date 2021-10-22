@@ -10,5 +10,7 @@ namespace BLL.Models
         public double Longitude { get; set; }
         public double Latitude { get; set; }
         public Enums.DangerType DangerType { get; set; }
+        public string CreateBy { get; set; }
+        public DateTime CreateAt { get; set; }
     }
 }

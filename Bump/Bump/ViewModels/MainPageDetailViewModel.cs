@@ -34,6 +34,7 @@ namespace Bump.ViewModels
                     DangerType = type,
                     Latitude = location.Latitude,
                     Longitude = location.Longitude,
+                    CreateBy = AppStatic.Username
                 };
                 var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/marker", DangerModel);
                 if (response.IsSuccessStatusCode)

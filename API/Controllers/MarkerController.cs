@@ -24,6 +24,7 @@ namespace API.Controllers
         {
             try
             {
+                Danger.CreateAt = DateTime.Now;
                 _context.Dangers.Add(Danger);
                 var result = await _context.SaveChangesAsync();
 
