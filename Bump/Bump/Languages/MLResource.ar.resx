@@ -126,6 +126,9 @@
   <data name="BUMP" xml:space="preserve">
     <value>مطب</value>
   </data>
+  <data name="BumpAlert" xml:space="preserve">
+    <value>إنتبه، أمامك مَطَبْ على بعد نصف كيلو متر</value>
+  </data>
   <data name="Confirm_Password" xml:space="preserve">
     <value>تأكيد كلمة المرور</value>
   </data>
@@ -213,6 +216,9 @@
   <data name="password_describe" xml:space="preserve">
     <value>أدخل البريد الإلكتروني الخاص بك ,  وسنرسل بريدًا إلكترونيًا يحتوي على تعليمات لإعادة تعيين كلمة المرور الخاصة بك.</value>
   </data>
+  <data name="PitAlert" xml:space="preserve">
+    <value>كن حذرًا ، هناك أعمال انشائية أمامك على بعد نصف كيلومتر</value>
+  </data>
   <data name="prog_A" xml:space="preserve">
     <value>الهدف هو الحفاظ على سلامتك وسلامة السيارة على الطريق .</value>
   </data>
@@ -251,6 +257,9 @@
   </data>
   <data name="Social_Singin" xml:space="preserve">
     <value>تسجيل الدخول بواسطة مواقع التواصل الاجتماعي </value>
+  </data>
+  <data name="SpeedAlert" xml:space="preserve">
+    <value>قم بتخفيض سرعتك الان، امامك رادار على بعد نصف كيلو متر</value>
   </data>
   <data name="Subject" xml:space="preserve">
     <value>الموضوع</value>

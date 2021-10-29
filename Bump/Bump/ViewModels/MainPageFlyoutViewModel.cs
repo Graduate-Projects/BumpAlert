@@ -34,10 +34,12 @@ namespace Bump.ViewModels
         }       
         private void OpenAboutPage()
         {
+            App.SpeakNow("Hello My Friend");
             OpenPage(new Views.About());
         }
         private void OpenSignInPage()
         {
+            App.SpeakNow("مرحباً اصدقائي");
             OpenPage(new Views.SignIn());
         }
         private void OpenContactUsPage()

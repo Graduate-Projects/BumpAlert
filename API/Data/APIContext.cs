@@ -11,6 +11,10 @@ namespace API.Data
     {
         public DbSet<BLL.Models.Danger> Dangers { get; set; }
         public DbSet<BLL.Models.Suggestion> Suggestions { get; set; }
+        public APIContext() : base()
+        {
+
+        }
         public APIContext(DbContextOptions options):base(options)
         {
                 

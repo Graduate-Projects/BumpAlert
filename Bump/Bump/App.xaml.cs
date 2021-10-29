@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
 using System;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.Material.Forms.UI;
+using XF.Material.Forms.UI.Dialogs;
 using localizer = Bump.Utils.LocalizationResourceManager;
 
 namespace Bump
@@ -46,13 +48,34 @@ namespace Bump
         }
         public static async Task ConnectWithHub()
         {
-            if(_hubConnection.State != HubConnectionState.Connected)
-            await _hubConnection.StartAsync();
+            if (_hubConnection.State != HubConnectionState.Connected)
+            {
+                _hubConnection.On<BLL.Enums.DangerType>("DetectDanger", async(DangerType) => {
+                    string Message = string.Empty;
+                    Message = DangerType switch
+                    {
+                        BLL.Enums.DangerType.RADAR => Languages.MLResource.SpeedAlert,
+                        BLL.Enums.DangerType.BUMP => Languages.MLResource.BumpAlert,
+                        BLL.Enums.DangerType.PIT => Languages.MLResource.PitAlert,
+                        _ => "BeCarful",
+                    };
+                    await MaterialDialog.Instance.SnackbarAsync(Message, MaterialSnackbar.DurationLong);
+                    await SpeakNow(Message).ConfigureAwait(false);
+                });
+                await _hubConnection.StartAsync();
+            }
         }
         public static async Task StoptWithHub()
         {
             await _hubConnection.StopAsync();
         }
+
+        public static async Task SpeakNow(string Message)
+        {
+            var settings = new SpeechOptions() { Volume = .75f, Pitch = 1.0f };
+            await TextToSpeech.SpeakAsync(Message, settings);
+        }
+
         protected override void OnStart()
         {
         }

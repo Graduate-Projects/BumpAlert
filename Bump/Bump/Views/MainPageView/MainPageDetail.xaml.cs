@@ -16,19 +16,25 @@ namespace Bump.Views.MainPageView
     public partial class MainPageDetail : ContentPage
     {
         public bool RunTimer = false;
+        private System.Timers.Timer timer;
         public Location CurrentPosition { get; set; }
         public MainPageDetail()
         {
             InitializeComponent();
-            Position = new Location[2];
             PrepareGoogleMap().ConfigureAwait(false);
+            timer = new System.Timers.Timer();
+            timer.AutoReset = true;
+            timer.Interval = TimeSpan.FromSeconds(30).TotalSeconds;
+            timer.Elapsed += new System.Timers.ElapsedEventHandler(SetCurrentPosition);
+            timer.Start();
+            Console.ReadLine();
         }
         private async Task PrepareGoogleMap()
         {
             try
             {
-                var LocationWhenInUsePermission = await Xamarin.Essentials.Permissions.RequestAsync<Xamarin.Essentials.Permissions.LocationWhenInUse>();
-                if (LocationWhenInUsePermission == Xamarin.Essentials.PermissionStatus.Granted)
+                var LocationWhenInUsePermission = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+                if (LocationWhenInUsePermission == PermissionStatus.Granted)
                 {
                     RunTimer = true;
                     var location = await Utils.Location.GetCurrentLocation(new CancellationTokenSource());
@@ -41,13 +47,13 @@ namespace Bump.Views.MainPageView
                     MapGoogle.Children.Add(GoogleMap);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
             DangerButtons.IsVisible = !string.IsNullOrEmpty(AppStatic.AuthToken);
         }
-        private async Task SetCurrentPosition()
+        private async void SetCurrentPosition(object sender, System.Timers.ElapsedEventArgs e)
         {
             if (!RunTimer) return;
             try
@@ -55,14 +61,8 @@ namespace Bump.Views.MainPageView
                 var EndLocation = await Utils.Location.GetCurrentLocation(new CancellationTokenSource());
                 if (Location.CalculateDistance(CurrentPosition, EndLocation, DistanceUnits.Kilometers) >= 0.500)
                 {
-                    if (App._hubConnection.State == HubConnectionState.Connected)
-                    {
-                        await App._hubConnection.InvokeAsync("CheckDangers", EndLocation.Latitude, EndLocation.Longitude);
-                    }
-                    else
-                    {
-                        await App.ConnectWithHub();
-                    }
+                    await App.ConnectWithHub();
+                    await App._hubConnection.InvokeAsync("CheckDangers", EndLocation.Latitude, EndLocation.Longitude);
                 }
                 CurrentPosition = EndLocation;
             }

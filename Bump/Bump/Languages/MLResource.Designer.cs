@@ -88,6 +88,15 @@ namespace Bump.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Be Careful, there&apos;s a bump in front of you half a kilometer away.
+        /// </summary>
+        internal static string BumpAlert {
+            get {
+                return ResourceManager.GetString("BumpAlert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm Password.
         /// </summary>
         internal static string Confirm_Password {
@@ -349,6 +358,15 @@ namespace Bump.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Be careful, there is construction in front of you half a kilometer.
+        /// </summary>
+        internal static string PitAlert {
+            get {
+                return ResourceManager.GetString("PitAlert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The goal is  preserving your safety and the safety of the car on the highway..
         /// </summary>
         internal static string prog_A {
@@ -462,6 +480,15 @@ namespace Bump.Languages {
         internal static string Social_Singin {
             get {
                 return ResourceManager.GetString("Social_Singin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reduce your speed now, you have a radar half a kilometer away.
+        /// </summary>
+        internal static string SpeedAlert {
+            get {
+                return ResourceManager.GetString("SpeedAlert", resourceCulture);
             }
         }
         
