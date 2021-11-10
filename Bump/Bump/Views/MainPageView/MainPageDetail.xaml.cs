@@ -24,10 +24,9 @@ namespace Bump.Views.MainPageView
             PrepareGoogleMap().ConfigureAwait(false);
             timer = new System.Timers.Timer();
             timer.AutoReset = true;
-            timer.Interval = TimeSpan.FromSeconds(30).TotalSeconds;
+            timer.Interval = TimeSpan.FromSeconds(30).TotalMilliseconds;
             timer.Elapsed += new System.Timers.ElapsedEventHandler(SetCurrentPosition);
             timer.Start();
-            Console.ReadLine();
         }
         private async Task PrepareGoogleMap()
         {
@@ -37,13 +36,13 @@ namespace Bump.Views.MainPageView
                 if (LocationWhenInUsePermission == PermissionStatus.Granted)
                 {
                     RunTimer = true;
-                    var location = await Utils.Location.GetCurrentLocation(new CancellationTokenSource());
+                    CurrentPosition = await Utils.Location.GetCurrentLocation(new CancellationTokenSource());
                     var GoogleMap = new Xamarin.Forms.GoogleMaps.Map()
                     {
                         MyLocationEnabled = true,
                     };
                     GoogleMap.UiSettings.MyLocationButtonEnabled = true;
-                    GoogleMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(location.Latitude, location.Longitude), Distance.FromMiles(1)));
+                    GoogleMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(CurrentPosition.Latitude, CurrentPosition.Longitude), Distance.FromMiles(1)));
                     MapGoogle.Children.Add(GoogleMap);
                 }
             }
