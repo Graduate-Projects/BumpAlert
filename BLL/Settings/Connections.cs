@@ -21,6 +21,8 @@ namespace BLL.Settings
                     return "http://192.168.1.250:5000";
                 case Enums.DevServer.Heba:
                     return "http://192.168.1.250:5000";
+                case Enums.DevServer.Publich:
+                    return "http://bump.azurewebsites.net";
                 default:
                     throw new NotImplementedException();
             }

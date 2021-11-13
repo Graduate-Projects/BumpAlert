@@ -18,7 +18,10 @@ namespace API
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+                            .AddJsonFile("appsettings.local_secrets.json", optional: false, reloadOnChange: true)
+                            .AddEnvironmentVariables();
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -26,7 +29,8 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllersWithViews()
+                    .AddJsonOptions(option => option.JsonSerializerOptions.PropertyNamingPolicy = null);
 
             services.AddDefaultIdentity<BLL.Models.User>(options=>
             {
@@ -70,6 +74,10 @@ namespace API
             services.AddScoped<API.Services.FacebookAuthService>();
             services.AddScoped<API.Services.GoogleAuthService>();
 
+            var emailConfig = Configuration.GetSection("EmailConfiguration").Get<Services.EmailConfiguration>();
+            services.AddSingleton(emailConfig);
+            services.AddScoped(typeof(Services.EmailSender));
+
             services.AddSignalR();
 
             services.AddSwaggerGen(c =>
@@ -88,6 +96,7 @@ namespace API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             }
 
+            app.UseStaticFiles();
             app.UseRouting();
 
             app.UseAuthorization();

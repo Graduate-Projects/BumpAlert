@@ -124,23 +124,25 @@ namespace Bump.ViewModels
         }
         private async Task ExternalLogin(BLL.Models.Identity.SocialToken userToken, BLL.Enums.AuthProvider authProvider)
         {
-            using var httpClient = new HttpClient();
-            var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/account/{authProvider}", userToken);
-            if (response.IsSuccessStatusCode)
+            using (var loading = new Components.LoadingView())
             {
-                var token = await response.Content.ReadAsStringAsync();
-                await Xamarin.Essentials.SecureStorage.SetAsync("Auth.Username", userToken.Email);
-                AppStatic.Username = userToken.Email;
-                await Xamarin.Essentials.SecureStorage.SetAsync("Auth.Key", token);
-                AppStatic.AuthToken = token;
-                OpenPageAsMainPage(new Views.MainPageView.MainPage());
+                using var httpClient = new HttpClient();
+                var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/account/{authProvider}", userToken);
+                if (response.IsSuccessStatusCode)
+                {
+                    var token = await response.Content.ReadAsStringAsync();
+                    await Xamarin.Essentials.SecureStorage.SetAsync("Auth.Username", userToken.Email);
+                    AppStatic.Username = userToken.Email;
+                    await Xamarin.Essentials.SecureStorage.SetAsync("Auth.Key", token);
+                    AppStatic.AuthToken = token;
+                    OpenPageAsMainPage(new Views.MainPageView.MainPage());
+                }
+                else
+                {
+                    var result = await response.Content.ReadAsStringAsync();
+                    DisplayAlert("Can't SignIn", result, "Okay");
+                }
             }
-            else
-            {
-                var result = await response.Content.ReadAsStringAsync();
-                DisplayAlert("Can't SignIn", result, "Okay");
-            }
-
         }
 
         private void OpenForgetPasswordPage()
@@ -159,22 +161,26 @@ namespace Bump.ViewModels
             {
                 try
                 {
-                    using (var httpClient = new HttpClient())
+                    using (var loading = new Components.LoadingView())
                     {
-                        var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/account/login", LoginRequest);
-                        if (response.IsSuccessStatusCode)
+
+                        using (var httpClient = new HttpClient())
                         {
-                            var token = await response.Content.ReadAsStringAsync();
-                            await Xamarin.Essentials.SecureStorage.SetAsync("Auth.Username", LoginRequest.Email);
-                            await Xamarin.Essentials.SecureStorage.SetAsync("Auth.Key", token);
-                            AppStatic.Username = LoginRequest.Email;
-                            AppStatic.AuthToken = token;
-                            OpenPageAsMainPage(new Views.MainPageView.MainPage());
-                        }
-                        else
-                        {
-                            var result = await response.Content.ReadAsStringAsync();
-                            DisplayAlert("Can't SignIn", result, "Okay");
+                            var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/account/login", LoginRequest);
+                            if (response.IsSuccessStatusCode)
+                            {
+                                var token = await response.Content.ReadAsStringAsync();
+                                await Xamarin.Essentials.SecureStorage.SetAsync("Auth.Username", LoginRequest.Email);
+                                await Xamarin.Essentials.SecureStorage.SetAsync("Auth.Key", token);
+                                AppStatic.Username = LoginRequest.Email;
+                                AppStatic.AuthToken = token;
+                                OpenPageAsMainPage(new Views.MainPageView.MainPage());
+                            }
+                            else
+                            {
+                                var result = await response.Content.ReadAsStringAsync();
+                                DisplayAlert("Can't SignIn", result, "Okay");
+                            }
                         }
                     }
                 }

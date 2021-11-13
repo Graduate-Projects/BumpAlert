@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,18 +12,20 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AccountController : ControllerBase
+    public class AccountController : Controller
     {
         private readonly SignInManager<BLL.Models.User> signInManager;
         private readonly UserManager<BLL.Models.User> userManager;
+        private readonly API.Services.EmailSender emailSender;
         private readonly API.Services.FacebookAuthService facebookAuthService;
         private readonly API.Services.GoogleAuthService googleAuthService;
-        public AccountController(SignInManager<BLL.Models.User> _signInManager, UserManager<BLL.Models.User> _userManager, API.Services.FacebookAuthService _facebookAuthService, API.Services.GoogleAuthService _googleAuthService) 
+        public AccountController(SignInManager<BLL.Models.User> _signInManager, UserManager<BLL.Models.User> _userManager, API.Services.FacebookAuthService _facebookAuthService, API.Services.GoogleAuthService _googleAuthService, API.Services.EmailSender _emailSender) 
         {
             this.signInManager = _signInManager;
             this.userManager = _userManager;
             this.facebookAuthService = _facebookAuthService;
             this.googleAuthService = _googleAuthService;
+            this.emailSender = _emailSender;
         }
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] BLL.Models.LoginRequest loginRequest)
@@ -86,5 +89,82 @@ namespace API.Controllers
             }
         }
 
+        //controller to open forget password page
+        [AllowAnonymous]
+        [HttpGet("ForgotPassword")]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        //action to send token to this email
+        [AllowAnonymous]
+        [HttpPost("ForgotPassword")]
+        public async Task<IActionResult> ForgotPassword(BLL.Models.ForgotPassword forgotPassword)
+        {
+            var user = await userManager.FindByEmailAsync(forgotPassword.Email);
+            if (user == null) return RedirectToAction(nameof(ForgotPasswordFailed));
+
+            var token = await userManager.GeneratePasswordResetTokenAsync(user);
+
+            var callback = $"{BLL.Settings.Connections.GetServerAddress()}/{Url.Action(nameof(ResetPassword), "Account", new { token, email = user.Email })}";
+            var message = new Services.Message(user.Email, "Reset Password", callback);
+            await emailSender.SendEmailAsync(message);
+
+            return RedirectToAction(nameof(ForgotPasswordConfirmation));
+        }
+        //--- confrmation
+        [AllowAnonymous]
+        [HttpGet("ForgotPasswordConfirmation")]
+        public IActionResult ForgotPasswordConfirmation()
+        {
+            return View();
+        }
+        //--- failed
+        [AllowAnonymous]
+        [HttpGet("ForgotPasswordFailed")]
+        public IActionResult ForgotPasswordFailed()
+        {
+            return View();
+        }
+        //controller to open reset password page
+        [AllowAnonymous]
+        [HttpGet("ResetPassword")]
+        public IActionResult ResetPassword(string token, string email)
+        {
+            return View();
+        }
+        //action provide process to reset password
+        [AllowAnonymous]
+        [HttpPost("ResetPassword")]
+        public async Task<IActionResult> ResetPassword([FromForm] BLL.Models.ResetPassword resetPassword)
+        {
+            var user = await userManager.FindByEmailAsync(resetPassword.Email);
+            if (user == null) return RedirectToAction(nameof(ResetPasswordFailed));
+
+            var result = await userManager.ResetPasswordAsync(user, resetPassword.Token, resetPassword.Password);
+            if (result.Succeeded) return RedirectToAction(nameof(ResetPasswordConfirmation));
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.TryAddModelError(error.Code, error.Description);
+
+            }
+            return View();
+        }
+        //--- confrmation
+        [AllowAnonymous]
+        [HttpGet("ResetPasswordConfirmation")]
+        public IActionResult ResetPasswordConfirmation()
+        {
+            return View();
+        }
+        //--- failed
+        [AllowAnonymous]
+        [HttpGet("ResetPasswordFailed")]
+        public IActionResult ResetPasswordFailed()
+        {
+            return View();
+        }
     }
 }

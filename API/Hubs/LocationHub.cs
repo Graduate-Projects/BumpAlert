@@ -12,13 +12,22 @@ namespace API.Hubs
         {
             var UserPosition = new Location(Latitude, Longitude);
             using var DbContext = new Data.APIContext();
-            var Dangers = DbContext.Dangers.ToList();
-            foreach (var Danger in Dangers)
+            var ListOfDangers = DbContext.Dangers.ToList();
+            var DangerClosets = ListOfDangers.OrderByDescending(danger => Location.CalculateDistance(UserPosition, new Location(danger.Latitude, danger.Longitude))).Take(3);
+            foreach (var Danger in DangerClosets)
             {
                 var DangerLocation = new Location(Danger.Latitude, Danger.Longitude);
-                if (Location.CalculateDistance(UserPosition, DangerLocation) <= 0.500) //0.5 Km
+                switch (Danger.DangerType)
                 {
-                    await Clients.Caller.SendAsync("DetectDanger", Danger.DangerType);
+                    case BLL.Enums.DangerType.RADAR:
+                        if (Location.CalculateDistance(UserPosition, DangerLocation) <= 0.500) //0.5 Km
+                            await Clients.Caller.SendAsync("DetectDanger", Danger.ID, Danger.DangerType);
+                        break;
+                    case BLL.Enums.DangerType.BUMP:
+                    case BLL.Enums.DangerType.PIT:
+                        if (Location.CalculateDistance(UserPosition, DangerLocation) <= 0.050) //0.05 Km
+                            await Clients.Caller.SendAsync("DetectDanger", Danger.ID, Danger.DangerType);
+                        break;
                 }
             }
         }

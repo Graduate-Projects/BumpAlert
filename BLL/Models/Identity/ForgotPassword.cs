@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BLL.Models
 {
-    public class ForgetPass
+    public class ForgotPassword
     {
         public string Email { get; set; }
     }

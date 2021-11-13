@@ -160,6 +160,24 @@ namespace Bump.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The message has been sent successfully, please check your email.
+        /// </summary>
+        internal static string EmailSend {
+            get {
+                return ResourceManager.GetString("EmailSend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong, please try again later.
+        /// </summary>
+        internal static string ErrorOccure {
+            get {
+                return ResourceManager.GetString("ErrorOccure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Something went wrong, please later.
         /// </summary>
         internal static string FailedSetDanger {
@@ -228,6 +246,15 @@ namespace Bump.Languages {
         internal static string Invite_friend {
             get {
                 return ResourceManager.GetString("Invite_friend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is still exists?.
+        /// </summary>
+        internal static string IsStillExists {
+            get {
+                return ResourceManager.GetString("IsStillExists", resourceCulture);
             }
         }
         
@@ -412,6 +439,15 @@ namespace Bump.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove.
+        /// </summary>
+        internal static string Remove {
+            get {
+                return ResourceManager.GetString("Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reset Password.
         /// </summary>
         internal static string Reset_Password {
@@ -502,6 +538,15 @@ namespace Bump.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Successed Removed Danger.
+        /// </summary>
+        internal static string SuccessedRemovedDanger {
+            get {
+                return ResourceManager.GetString("SuccessedRemovedDanger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The danger site has been saved successfully, thank you.
         /// </summary>
         internal static string SuccessedSetDanger {
@@ -543,6 +588,15 @@ namespace Bump.Languages {
         internal static string use_B {
             get {
                 return ResourceManager.GetString("use_B", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

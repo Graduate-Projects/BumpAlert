@@ -11,5 +11,6 @@ namespace BLL.Enums
         Raghad,
         Heba,
         Saja,
+        Publich,
     }
 }

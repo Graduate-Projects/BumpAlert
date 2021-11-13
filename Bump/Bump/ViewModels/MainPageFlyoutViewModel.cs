@@ -30,6 +30,8 @@ namespace Bump.ViewModels
         {
             AppStatic.AuthToken = string.Empty;
             Xamarin.Essentials.SecureStorage.Remove("Auth.Key");
+            IsAuthentication = false;
+            OnPropertyChanged(nameof(IsAuthentication));
             OpenPageAsMainPage(new Views.MainPageView.MainPage());
         }       
         private void OpenAboutPage()

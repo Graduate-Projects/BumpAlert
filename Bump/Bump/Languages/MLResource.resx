@@ -147,8 +147,14 @@
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
+  <data name="EmailSend" xml:space="preserve">
+    <value>The message has been sent successfully, please check your email</value>
+  </data>
   <data name="Email_Username" xml:space="preserve">
     <value>Email /Username</value>
+  </data>
+  <data name="ErrorOccure" xml:space="preserve">
+    <value>Something went wrong, please try again later</value>
   </data>
   <data name="FailedSetDanger" xml:space="preserve">
     <value>Something went wrong, please later</value>
@@ -173,6 +179,9 @@
   </data>
   <data name="Invite_friend" xml:space="preserve">
     <value>Invite a friend</value>
+  </data>
+  <data name="IsStillExists" xml:space="preserve">
+    <value>Is still exists?</value>
   </data>
   <data name="Join_us" xml:space="preserve">
     <value>Join us</value>
@@ -234,6 +243,9 @@
   <data name="Remember_me" xml:space="preserve">
     <value>Remember me</value>
   </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
   <data name="Reset_Password" xml:space="preserve">
     <value>Reset Password</value>
   </data>
@@ -264,6 +276,9 @@
   <data name="Subject" xml:space="preserve">
     <value>Subject</value>
   </data>
+  <data name="SuccessedRemovedDanger" xml:space="preserve">
+    <value>Successed Removed Danger</value>
+  </data>
   <data name="SuccessedSetDanger" xml:space="preserve">
     <value>The danger site has been saved successfully, thank you</value>
   </data>
@@ -278,5 +293,8 @@
   </data>
   <data name="use_B" xml:space="preserve">
     <value>You can help us and be contribute to search and enter the location of every thing in the way, you should sign up to do this.</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
 </root>

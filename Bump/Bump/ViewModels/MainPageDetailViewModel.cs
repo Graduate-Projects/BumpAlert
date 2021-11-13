@@ -25,25 +25,29 @@ namespace Bump.ViewModels
         {
             try
             {
-                using var httpClient = new HttpClient();
+                using (var loading = new Components.LoadingView())
+                {
 
-                var location = await Utils.Location.GetCurrentLocation(new CancellationTokenSource());
-                var DangerModel = new BLL.Models.Danger
-                {
-                    ID = Guid.NewGuid(),
-                    DangerType = type,
-                    Latitude = location.Latitude,
-                    Longitude = location.Longitude,
-                    CreateBy = AppStatic.Username
-                };
-                var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/marker", DangerModel);
-                if (response.IsSuccessStatusCode)
-                {
-                    await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.SuccessedSetDanger, MaterialSnackbar.DurationLong);
-                }
-                else
-                {
-                    await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.FailedSetDanger, MaterialSnackbar.DurationLong);
+                    using var httpClient = new HttpClient();
+
+                    var location = await Utils.Location.GetCurrentLocation(new CancellationTokenSource());
+                    var DangerModel = new BLL.Models.Danger
+                    {
+                        ID = Guid.NewGuid(),
+                        DangerType = type,
+                        Latitude = location.Latitude,
+                        Longitude = location.Longitude,
+                        CreateBy = AppStatic.Username
+                    };
+                    var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/marker", DangerModel);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.SuccessedSetDanger, MaterialSnackbar.DurationLong);
+                    }
+                    else
+                    {
+                        await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.FailedSetDanger, MaterialSnackbar.DurationLong);
+                    }
                 }
             }
             catch (Exception)

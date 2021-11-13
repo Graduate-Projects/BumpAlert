@@ -21,17 +21,20 @@ namespace Bump.ViewModels
 
         private async Task SubmitSuggestion()
         {
-            using var httpClient = new HttpClient();
-            var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/Suggestions", Suggestion);
-            if (response.IsSuccessStatusCode)
+            using (var loading = new Components.LoadingView())
             {
-                DisplayAlert(string.Empty, "We have received your suggestion and it has been submitted to the competent authorities and working on it\nThank you", "Ok");
-                BackPage();
-            }
-            else
-            {
-                var error = await response.Content.ReadAsStringAsync();
-                DisplayAlert("An occured error", error, "Ok");
+                using var httpClient = new HttpClient();
+                var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/Suggestions", Suggestion);
+                if (response.IsSuccessStatusCode)
+                {
+                    DisplayAlert(string.Empty, "We have received your suggestion and it has been submitted to the competent authorities and working on it\nThank you", "Ok");
+                    BackPage();
+                }
+                else
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    DisplayAlert("An occured error", error, "Ok");
+                }
             }
         }
     }

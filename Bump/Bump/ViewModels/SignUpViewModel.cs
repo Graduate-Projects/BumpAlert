@@ -29,19 +29,22 @@ namespace Bump.ViewModels
             {
                 try
                 {
-                    using (var httpClient = new HttpClient())
+                    using (var loading = new Components.LoadingView())
                     {
-                        var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/account/register", User);
-                        if (response.IsSuccessStatusCode)
+                        using (var httpClient = new HttpClient())
                         {
-                            var token = await response.Content.ReadAsStringAsync();
-                            OpenPageAsMainPage(new Views.MainPageView.MainPage());
-                            //OpenPage(new Views.MainPageContribute.Contribute());
-                        }
-                        else
-                        {
-                            var result = await response.Content.ReadAsStringAsync();
-                            DisplayAlert("Can't SignUp", result, "Okay");
+                            var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/account/register", User);
+                            if (response.IsSuccessStatusCode)
+                            {
+                                var token = await response.Content.ReadAsStringAsync();
+                                OpenPageAsMainPage(new Views.MainPageView.MainPage());
+                                //OpenPage(new Views.MainPageContribute.Contribute());
+                            }
+                            else
+                            {
+                                var result = await response.Content.ReadAsStringAsync();
+                                DisplayAlert("Can't SignUp", result, "Okay");
+                            }
                         }
                     }
                 }
