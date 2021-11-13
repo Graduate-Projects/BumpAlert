@@ -11,7 +11,7 @@
     <Grid Margin="0" Padding="0">
         <Image Source="way_4" Aspect="AspectFill"/>
         <StackLayout Margin="0" Padding="10" Spacing="30" BackgroundColor="#CAB44C5A">
-            <Image Source="undraw_dropdown_menu"/>
+            <Image Source="undraw_features"/>
             <StackLayout Orientation="Horizontal" Margin="10,0" Padding="0" Spacing="0"
                      HorizontalOptions="FillAndExpand">
                 <Button Text="English" TextTransform="None" TextColor="#FFFFFF"

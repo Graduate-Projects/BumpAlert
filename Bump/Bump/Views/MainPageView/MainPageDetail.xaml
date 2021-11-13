@@ -28,7 +28,7 @@
             
             <StackLayout Grid.Row="1" Grid.Column="0" Margin="0" Padding="10" Spacing="10" 
                          x:Name="DangerButtons" VerticalOptions="Center" HorizontalOptions="Start">
-                <Button Image="speed" BackgroundColor="White"
+                <Button Image="radr" BackgroundColor="White"
                         HeightRequest="60" WidthRequest="60" 
                         VerticalOptions="Start" HorizontalOptions="Start"
                         CornerRadius="30" BorderColor="Black" BorderWidth="1"

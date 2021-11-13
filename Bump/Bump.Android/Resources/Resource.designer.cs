@@ -23395,7 +23395,8 @@ namespace Bump.Droid
 			public const int undraw_Destination = 2131165393;
 			
 			// aapt resource value: 0x7F0700D2
-			public const int undraw_dropdown_menu = 2131165394;
+			public const int undraw_dropdown_menu = 2131175394;
+			public const int undraw_features = 2131165394;
 			
 			// aapt resource value: 0x7F0700D3
 			public const int undraw_forgot_password_gi2d = 2131165395;
