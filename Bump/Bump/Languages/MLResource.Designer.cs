@@ -430,6 +430,15 @@ namespace Bump.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rigister.
+        /// </summary>
+        internal static string Register {
+            get {
+                return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remember me.
         /// </summary>
         internal static string Remember_me {
