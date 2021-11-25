@@ -29,18 +29,18 @@ namespace API.Controllers
                 return Problem(ex.ToString(), "CreateDB");
             }
         }
-        [HttpGet("Delete")]
-        public IActionResult DeleteDB()
-        {
-            try
-            {
-                _context.Database.EnsureDeleted();
-                return Ok("Successed Deleted Database");
-            }
-            catch (Exception ex)
-            {
-                return Problem(ex.ToString(), "DeleteDB");
-            }
-        }
+        //[HttpGet("Delete")]
+        //public IActionResult DeleteDB()
+        //{
+        //    try
+        //    {
+        //        _context.Database.EnsureDeleted();
+        //        return Ok("Successed Deleted Database");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return Problem(ex.ToString(), "DeleteDB");
+        //    }
+        //}
     }
 }

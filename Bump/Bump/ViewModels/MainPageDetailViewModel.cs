@@ -9,6 +9,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using XF.Material.Forms.UI.Dialogs;
 using Microsoft.AspNetCore.SignalR.Client;
+using Microsoft.AppCenter;
 
 namespace Bump.ViewModels
 {
@@ -17,8 +18,8 @@ namespace Bump.ViewModels
         public ICommand ReportDangerCommand { get; set; }
         public MainPageDetailViewModel()
         {
+            AppCenter.SetUserId(AppStatic.Username);
             ReportDangerCommand = new Command<BLL.Enums.DangerType>((type)=> ReportDanger(type).ConfigureAwait(false));
-
         }
 
         private async Task ReportDanger(BLL.Enums.DangerType type)
@@ -39,7 +40,7 @@ namespace Bump.ViewModels
                         Longitude = location.Longitude,
                         CreateBy = AppStatic.Username
                     };
-                    var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/marker", DangerModel);
+                    var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/marker/setdanger", DangerModel);
                     if (response.IsSuccessStatusCode)
                     {
                         await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.SuccessedSetDanger, MaterialSnackbar.DurationLong);

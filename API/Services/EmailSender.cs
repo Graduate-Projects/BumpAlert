@@ -36,16 +36,17 @@ namespace API.Services
             
             try
             {
-                using var client = new SmtpClient
+                using (SmtpClient client = new SmtpClient())
                 {
-                    Host = _emailConfig.SmtpServer,
-                    Port = _emailConfig.Port,
-                    EnableSsl = true,
-                    DeliveryMethod = SmtpDeliveryMethod.Network,
-                    Credentials = new NetworkCredential(_emailConfig.UserName, _emailConfig.Password),
-                    Timeout = 20000
-                };
-                await client.SendMailAsync(mailMessage);
+                    client.EnableSsl = true;
+                    client.UseDefaultCredentials = false;
+                    client.Credentials = new NetworkCredential(_emailConfig.UserName, _emailConfig.Password);
+                    client.Host = _emailConfig.SmtpServer;
+                    client.Port = _emailConfig.Port;
+                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+
+                    client.Send(mailMessage);
+                }
             }
             catch (Exception ex)
             {

@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.SignalR.Client;
+﻿using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AspNetCore.SignalR.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,16 +18,19 @@ namespace Bump.Views.MainPageView
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPageDetail : ContentPage
     {
-        public bool RunTimer = false;
+        public bool IsAllowedPermission = false;
         private System.Timers.Timer timer;
         public Location CurrentPosition { get; set; }
+        public double IntervalCheck { get; set; }
         public MainPageDetail()
         {
             InitializeComponent();
             PrepareGoogleMap().ConfigureAwait(false);
+            IntervalCheck = TimeSpan.FromMinutes(5).TotalSeconds;
+
             timer = new System.Timers.Timer();
             timer.AutoReset = true;
-            timer.Interval = TimeSpan.FromSeconds(30).TotalMilliseconds;
+            timer.Interval = IntervalCheck * 1000;
             timer.Elapsed += new System.Timers.ElapsedEventHandler(SetCurrentPosition);
             timer.Start();
         }
@@ -35,7 +41,7 @@ namespace Bump.Views.MainPageView
                 var LocationWhenInUsePermission = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
                 if (LocationWhenInUsePermission == PermissionStatus.Granted)
                 {
-                    RunTimer = true;
+                    IsAllowedPermission = true;
                     CurrentPosition = await Utils.Location.GetCurrentLocation(new CancellationTokenSource());
                     var GoogleMap = new Xamarin.Forms.GoogleMaps.Map()
                     {
@@ -54,20 +60,38 @@ namespace Bump.Views.MainPageView
         }
         private async void SetCurrentPosition(object sender, System.Timers.ElapsedEventArgs e)
         {
-            if (!RunTimer) return;
+            if (!IsAllowedPermission) return;
             try
             {
                 var EndLocation = await Utils.Location.GetCurrentLocation(new CancellationTokenSource());
-                if (Location.CalculateDistance(CurrentPosition, EndLocation, DistanceUnits.Kilometers) >= 0.500)
+                var Distance = Location.CalculateDistance(CurrentPosition, EndLocation, DistanceUnits.Kilometers);
+                var Speed = Distance / IntervalCheck;
+
+                if (Distance >= 0.005) // 5 metear
                 {
                     await App.ConnectWithHub();
                     await App._hubConnection.InvokeAsync("CheckDangers", EndLocation.Latitude, EndLocation.Longitude);
+                    Analytics.TrackEvent("Check Current Position", new Dictionary<string, string> {
+                        { "User", AppStatic.Username},
+                        { "Speed", Speed.ToString()},
+                        { "Location", EndLocation.ToString()},
+                        { "Distance From Old Distance", Distance.ToString() }
+                    });
                 }
+                Analytics.TrackEvent("Check Current Position - Not Work", new Dictionary<string, string> {
+                        { "User", AppStatic.Username},
+                        { "Speed", Speed.ToString()},
+                        { "Location", EndLocation.ToString()},
+                        { "Distance From Old Distance", Distance.ToString() }
+                });
                 CurrentPosition = EndLocation;
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-
+                var properties = new Dictionary<string, string> {
+                    { "Email", AppStatic.Username }
+                };
+                Crashes.TrackError(exception, properties);
             }
         }
 

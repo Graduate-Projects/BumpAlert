@@ -41,7 +41,7 @@ namespace API
             .AddDefaultTokenProviders();
 
             services.AddDbContext<API.Data.APIContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("LocalDatabase")));
+            options.UseSqlServer(Configuration.GetConnectionString("PublishDatabase")));
 
             services.Configure<IdentityOptions>(options => {
                 options.Password.RequireDigit = false;
@@ -63,7 +63,7 @@ namespace API
             {
                 config.RequireHttpsMetadata = false;
                 config.SaveToken = true;
-                config.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                config.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidIssuer = BLL.Utils.JwtConfig.JwtIssuer,
                     ValidAudience = BLL.Utils.JwtConfig.JwtIssuer,
@@ -89,12 +89,11 @@ namespace API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
-            }
+
+            app.UseDeveloperExceptionPage();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
 
             app.UseStaticFiles();
             app.UseRouting();

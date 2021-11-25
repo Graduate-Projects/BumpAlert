@@ -1,5 +1,9 @@
-﻿using Microsoft.AspNetCore.SignalR.Client;
+﻿using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AspNetCore.SignalR.Client;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading;
@@ -19,6 +23,7 @@ namespace Bump
         public App()
         {
             InitializeComponent();
+            AppCenter.Start("android=bc7986fd-c07b-4ca1-a276-783ea913d014", typeof(Analytics), typeof(Crashes));
             XF.Material.Forms.Material.Init(this);
             localizer.Initialization();
             StartPage().ConfigureAwait(false);
@@ -54,6 +59,13 @@ namespace Bump
             if (_hubConnection.State != HubConnectionState.Connected)
             {
                 _hubConnection.On<Guid,BLL.Enums.DangerType>("DetectDanger", async(DangerID, DangerType) => {
+
+                    Analytics.TrackEvent("Received Dangar", new Dictionary<string, string> {
+                        { "User", AppStatic.Username},
+                        { "DangerID", DangerID.ToString()},
+                        { "DangerType", DangerType.ToString() }
+                    });
+
                     string Message = string.Empty;
                     Message = DangerType switch
                     {

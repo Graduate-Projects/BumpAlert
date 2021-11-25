@@ -23356,98 +23356,103 @@ namespace Bump.Droid
 			public const int puzzle = 2131165380;
 			
 			// aapt resource value: 0x7F0700C5
-			public const int research = 2131165381;
+			public const int radr = 2131165381;
 			
 			// aapt resource value: 0x7F0700C6
-			public const int speed = 2131165382;
+			public const int research = 2131165382;
 			
 			// aapt resource value: 0x7F0700C7
-			public const int speed_radar = 2131165383;
+			public const int speed = 2131165383;
 			
 			// aapt resource value: 0x7F0700C8
-			public const int splaash = 2131165384;
+			public const int speed_radar = 2131165384;
 			
 			// aapt resource value: 0x7F0700C9
-			public const int splash = 2131165385;
+			public const int splaash = 2131165385;
 			
 			// aapt resource value: 0x7F0700CA
-			public const int suggestions = 2131165386;
+			public const int splash = 2131165386;
 			
 			// aapt resource value: 0x7F0700CB
-			public const int target = 2131165387;
+			public const int suggestions = 2131165387;
 			
 			// aapt resource value: 0x7F0700CC
-			public const int test_custom_background = 2131165388;
+			public const int target = 2131165388;
 			
 			// aapt resource value: 0x7F0700CD
-			public const int tooltip_frame_dark = 2131165389;
+			public const int test_custom_background = 2131165389;
 			
 			// aapt resource value: 0x7F0700CE
-			public const int tooltip_frame_light = 2131165390;
+			public const int tooltip_frame_dark = 2131165390;
 			
 			// aapt resource value: 0x7F0700CF
-			public const int twitter = 2131165391;
+			public const int tooltip_frame_light = 2131165391;
 			
 			// aapt resource value: 0x7F0700D0
-			public const int undraw_contact_us = 2131165392;
+			public const int twitter = 2131165392;
 			
 			// aapt resource value: 0x7F0700D1
-			public const int undraw_Destination = 2131165393;
+			public const int undraw_contact_us = 2131165393;
 			
 			// aapt resource value: 0x7F0700D2
-			public const int undraw_dropdown_menu = 2131175394;
-			public const int undraw_features = 2131165394;
+			public const int undraw_Destination = 2131165394;
 			
 			// aapt resource value: 0x7F0700D3
-			public const int undraw_forgot_password_gi2d = 2131165395;
+			public const int undraw_dropdown_menu = 2131165395;
 			
 			// aapt resource value: 0x7F0700D4
-			public const int undraw_good_team = 2131165396;
+			public const int undraw_features = 2131165396;
 			
 			// aapt resource value: 0x7F0700D5
-			public const int undraw_m = 2131165397;
+			public const int undraw_forgot_password_gi2d = 2131165397;
 			
 			// aapt resource value: 0x7F0700D6
-			public const int undraw_meet_the_team = 2131165398;
+			public const int undraw_good_team = 2131165398;
 			
 			// aapt resource value: 0x7F0700D7
-			public const int undraw_My_location_re_r52x = 2131165399;
+			public const int undraw_m = 2131165399;
 			
 			// aapt resource value: 0x7F0700D8
-			public const int undraw_navigator = 2131165400;
+			public const int undraw_meet_the_team = 2131165400;
 			
 			// aapt resource value: 0x7F0700D9
-			public const int undraw_warning_cyit = 2131165401;
+			public const int undraw_My_location_re_r52x = 2131165401;
 			
 			// aapt resource value: 0x7F0700DA
-			public const int way_4 = 2131165402;
+			public const int undraw_navigator = 2131165402;
 			
 			// aapt resource value: 0x7F0700DB
-			public const int xf_arrow_dropdown = 2131165403;
+			public const int undraw_warning_cyit = 2131165403;
 			
 			// aapt resource value: 0x7F0700DC
-			public const int xf_arrow_right = 2131165404;
+			public const int way_4 = 2131165404;
 			
 			// aapt resource value: 0x7F0700DD
-			public const int xf_check = 2131165405;
+			public const int xf_arrow_dropdown = 2131165405;
 			
 			// aapt resource value: 0x7F0700DE
-			public const int xf_checkbox_selected = 2131165406;
+			public const int xf_arrow_right = 2131165406;
 			
 			// aapt resource value: 0x7F0700DF
-			public const int xf_checkbox_unselected = 2131165407;
+			public const int xf_check = 2131165407;
 			
 			// aapt resource value: 0x7F0700E0
-			public const int xf_clear = 2131165408;
+			public const int xf_checkbox_selected = 2131165408;
 			
 			// aapt resource value: 0x7F0700E1
-			public const int xf_error = 2131165409;
+			public const int xf_checkbox_unselected = 2131165409;
 			
 			// aapt resource value: 0x7F0700E2
-			public const int xf_radio_button_selected = 2131165410;
+			public const int xf_clear = 2131165410;
 			
 			// aapt resource value: 0x7F0700E3
-			public const int xf_radio_button_unselected = 2131165411;
+			public const int xf_error = 2131165411;
+			
+			// aapt resource value: 0x7F0700E4
+			public const int xf_radio_button_selected = 2131165412;
+			
+			// aapt resource value: 0x7F0700E5
+			public const int xf_radio_button_unselected = 2131165413;
 			
 			static Drawable()
 			{

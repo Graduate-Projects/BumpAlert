@@ -27,6 +27,7 @@ namespace API.Controllers
             this.googleAuthService = _googleAuthService;
             this.emailSender = _emailSender;
         }
+
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] BLL.Models.LoginRequest loginRequest)
         {
