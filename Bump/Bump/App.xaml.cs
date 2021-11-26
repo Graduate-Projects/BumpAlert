@@ -29,6 +29,7 @@ namespace Bump
             StartPage().ConfigureAwait(false);
             _hubConnection = new HubConnectionBuilder().WithUrl($"{BLL.Settings.Connections.GetServerAddress()}/hub/location").WithAutomaticReconnect().Build();
             ConnectWithHub().ConfigureAwait(false);
+            
         }
 
         private async Task StartPage()
@@ -74,8 +75,8 @@ namespace Bump
                         BLL.Enums.DangerType.PIT => Languages.MLResource.PitAlert,
                         _ => "BeCarful",
                     };
-                    await MaterialDialog.Instance.SnackbarAsync(Message, MaterialSnackbar.DurationLong);
-                    await SpeakNow(Message).ConfigureAwait(false);
+                    await MaterialDialog.Instance.SnackbarAsync(Message, (int)TimeSpan.FromSeconds(10).TotalMilliseconds).ConfigureAwait(false);
+                    await SpeakNow(Message);
 
                     var result = await MaterialDialog.Instance.ConfirmAsync(Message, Languages.MLResource.IsStillExists, Languages.MLResource.Yes, Languages.MLResource.Remove);
                     if (!result.Value)
@@ -107,7 +108,6 @@ namespace Bump
         {
             await _hubConnection.StopAsync();
         }
-
         public static async Task SpeakNow(string Message)
         {
             var settings = new SpeechOptions() { Volume = .75f, Pitch = 1.0f };

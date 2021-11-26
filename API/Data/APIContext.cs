@@ -15,9 +15,13 @@ namespace API.Data
         {
 
         }
-        public APIContext(DbContextOptions options):base(options)
+        public APIContext(DbContextOptions<APIContext> options):base(options)
         {
                 
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
         }
     }
 }

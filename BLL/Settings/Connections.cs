@@ -12,7 +12,7 @@ namespace BLL.Settings
             switch (Server)
             {
                 case Enums.DevServer.Local:
-                    return "http://192.168.0.105:5000";
+                    return "http://192.168.135.128:5000";
                 case Enums.DevServer.Jood:
                     return "http://192.168.1.15:5000";
                 case Enums.DevServer.Raghad:

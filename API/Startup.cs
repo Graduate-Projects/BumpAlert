@@ -11,6 +11,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Text;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.AspNetCore.Http;
 
 namespace API
 {
@@ -41,7 +42,9 @@ namespace API
             .AddDefaultTokenProviders();
 
             services.AddDbContext<API.Data.APIContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("PublishDatabase")));
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("PublishDatabase"));
+            });
 
             services.Configure<IdentityOptions>(options => {
                 options.Password.RequireDigit = false;
@@ -73,6 +76,8 @@ namespace API
             });
             services.AddScoped<API.Services.FacebookAuthService>();
             services.AddScoped<API.Services.GoogleAuthService>();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             var emailConfig = Configuration.GetSection("EmailConfiguration").Get<Services.EmailConfiguration>();
             services.AddSingleton(emailConfig);

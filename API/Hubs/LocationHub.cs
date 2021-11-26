@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using API.Data;
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,12 +11,17 @@ namespace API.Hubs
 {
     public class LocationHub : Hub
     {
+        private readonly APIContext _context;
+        public LocationHub(APIContext context)
+        {
+            _context = context;
+        }
+
         public async Task CheckDangers(double Latitude, double Longitude)
         {
             var UserPosition = new Location(Latitude, Longitude);
-            using var DbContext = new Data.APIContext();
-            var ListOfDangers = DbContext.Dangers.ToList();
-            var DangerClosets = ListOfDangers.OrderByDescending(danger => Location.CalculateDistance(UserPosition, new Location(danger.Latitude, danger.Longitude))).Take(3);
+            var ListOfDangers = _context.Dangers.ToList();
+            var DangerClosets = ListOfDangers.OrderByDescending(danger => Location.CalculateDistance(UserPosition, new Location(danger.Latitude, danger.Longitude))).Take(1);
             foreach (var Danger in DangerClosets)
             {
                 var DangerLocation = new Location(Danger.Latitude, Danger.Longitude);
@@ -25,7 +33,7 @@ namespace API.Hubs
                         break;
                     case BLL.Enums.DangerType.BUMP:
                     case BLL.Enums.DangerType.PIT:
-                        if (Location.CalculateDistance(UserPosition, DangerLocation) <= 0.010) //0.05 Km = 50 m
+                        if (Location.CalculateDistance(UserPosition, DangerLocation) <= 0.050) //0.05 Km = 50 m
                             await Clients.Caller.SendAsync("DetectDanger", Danger.ID, Danger.DangerType);
                         break;
                 }

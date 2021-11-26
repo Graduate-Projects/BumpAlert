@@ -12,6 +12,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.GoogleMaps;
 using Xamarin.Forms.Xaml;
+using XF.Material.Forms.UI.Dialogs;
 
 namespace Bump.Views.MainPageView
 {
@@ -34,6 +35,7 @@ namespace Bump.Views.MainPageView
             timer.Elapsed += new System.Timers.ElapsedEventHandler(SetCurrentPosition);
             timer.Start();
         }
+
         private async Task PrepareGoogleMap()
         {
             try
@@ -65,12 +67,13 @@ namespace Bump.Views.MainPageView
             {
                 var EndLocation = await Utils.Location.GetCurrentLocation(new CancellationTokenSource());
                 var Distance = Location.CalculateDistance(CurrentPosition, EndLocation, DistanceUnits.Kilometers);
+                CurrentPosition = EndLocation;
                 var Speed = Distance / IntervalCheck;
 
                 if (Distance >= 0.005) // 5 metear
                 {
                     await App.ConnectWithHub();
-                    await App._hubConnection.InvokeAsync("CheckDangers", EndLocation.Latitude, EndLocation.Longitude);
+                    await App._hubConnection.InvokeAsync("CheckDangers", EndLocation.Latitude, EndLocation.Longitude).ConfigureAwait(false);
                     Analytics.TrackEvent("Check Current Position", new Dictionary<string, string> {
                         { "User", AppStatic.Username},
                         { "Speed", Speed.ToString()},
@@ -78,13 +81,15 @@ namespace Bump.Views.MainPageView
                         { "Distance From Old Distance", Distance.ToString() }
                     });
                 }
-                Analytics.TrackEvent("Check Current Position - Not Work", new Dictionary<string, string> {
+                else
+                {
+                    Analytics.TrackEvent("Check Current Position - Not Work", new Dictionary<string, string> {
                         { "User", AppStatic.Username},
                         { "Speed", Speed.ToString()},
                         { "Location", EndLocation.ToString()},
                         { "Distance From Old Distance", Distance.ToString() }
-                });
-                CurrentPosition = EndLocation;
+                    });
+                }
             }
             catch (Exception exception)
             {
@@ -95,5 +100,21 @@ namespace Bump.Views.MainPageView
             }
         }
 
+        private async void ReconnectSignalR(object sender, EventArgs e)
+        {
+            try
+            {
+                this.SignalRButtons.IsVisible = false;
+                await App.ConnectWithHub();
+
+                this.SignalRButtons.IsVisible = App._hubConnection.State != HubConnectionState.Connected;
+            }
+            catch (Exception exception)
+            {
+                await MaterialDialog.Instance.SnackbarAsync(exception.Message, 2750).ConfigureAwait(false);
+                Crashes.TrackError(exception);
+                this.SignalRButtons.IsVisible = true;
+            }
+        }
     }
 }
