@@ -38,18 +38,18 @@ namespace Bump.ViewModels
                             var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/account/forgotpassword", ForgetPass);
                             if (response.IsSuccessStatusCode)
                             {
-                                await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.EmailSend, MaterialSnackbar.DurationLong);
+                                await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.EmailSend, MaterialSnackbar.DurationLong, Constants.MaterialConfiguration.SnackbarConfiguration);
                             }
                             else
                             {
-                                await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.ErrorOccure, MaterialSnackbar.DurationLong);
+                                await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.ErrorOccure, MaterialSnackbar.DurationLong, Constants.MaterialConfiguration.SnackbarConfiguration);
                             }
                         }
                     }
                 }
                 catch (Exception)
                 {
-                    await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.ErrorOccure, MaterialSnackbar.DurationLong);
+                    await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.ErrorOccure, MaterialSnackbar.DurationLong, Constants.MaterialConfiguration.SnackbarConfiguration);
                 }
             }
 

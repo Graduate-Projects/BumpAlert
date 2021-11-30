@@ -43,17 +43,17 @@ namespace Bump.ViewModels
                     var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/marker/setdanger", DangerModel);
                     if (response.IsSuccessStatusCode)
                     {
-                        await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.SuccessedSetDanger, MaterialSnackbar.DurationLong);
+                        await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.SuccessedSetDanger, MaterialSnackbar.DurationLong, Constants.MaterialConfiguration.SnackbarConfiguration);
                     }
                     else
                     {
-                        await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.FailedSetDanger, MaterialSnackbar.DurationLong);
+                        await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.FailedSetDanger, MaterialSnackbar.DurationLong, Constants.MaterialConfiguration.SnackbarConfiguration);
                     }
                 }
             }
             catch (Exception)
             {
-                await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.FailedSetDanger, MaterialSnackbar.DurationLong);
+                await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.FailedSetDanger, MaterialSnackbar.DurationLong, Constants.MaterialConfiguration.SnackbarConfiguration);
             }
         }
     }

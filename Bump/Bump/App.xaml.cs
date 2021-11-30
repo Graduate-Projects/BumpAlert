@@ -11,8 +11,10 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XF.Material.Forms.Resources;
 using XF.Material.Forms.UI;
 using XF.Material.Forms.UI.Dialogs;
+using XF.Material.Forms.UI.Dialogs.Configurations;
 using localizer = Bump.Utils.LocalizationResourceManager;
 
 namespace Bump
@@ -22,12 +24,13 @@ namespace Bump
         public static HubConnection _hubConnection;
         public App()
         {
+            
             InitializeComponent();
             AppCenter.Start("android=bc7986fd-c07b-4ca1-a276-783ea913d014", typeof(Analytics), typeof(Crashes));
             XF.Material.Forms.Material.Init(this);
             localizer.Initialization();
             StartPage().ConfigureAwait(false);
-            _hubConnection = new HubConnectionBuilder().WithUrl($"{BLL.Settings.Connections.GetServerAddress()}/hub/location").WithAutomaticReconnect().Build();
+            _hubConnection = new HubConnectionBuilder().WithUrl($"{BLL.Settings.Connections.GetServerAddress()}/hublocation").WithAutomaticReconnect().Build();
             ConnectWithHub().ConfigureAwait(false);
             
         }
@@ -75,7 +78,7 @@ namespace Bump
                         BLL.Enums.DangerType.PIT => Languages.MLResource.PitAlert,
                         _ => "BeCarful",
                     };
-                    await MaterialDialog.Instance.SnackbarAsync(Message, (int)TimeSpan.FromSeconds(10).TotalMilliseconds).ConfigureAwait(false);
+                    await MaterialDialog.Instance.SnackbarAsync(Message, (int)TimeSpan.FromSeconds(10).TotalMilliseconds, Constants.MaterialConfiguration.SnackbarConfiguration).ConfigureAwait(false);
                     await SpeakNow(Message);
 
                     var result = await MaterialDialog.Instance.ConfirmAsync(Message, Languages.MLResource.IsStillExists, Languages.MLResource.Yes, Languages.MLResource.Remove);
@@ -92,16 +95,26 @@ namespace Bump
                                 var DangerModel = new BLL.Models.Danger { ID = DangerID };
                                 var response = await httpClient.PostAsJsonAsync($"{BLL.Settings.Connections.GetServerAddress()}/api/marker", DangerModel);
 
-                                await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.SuccessedRemovedDanger, MaterialSnackbar.DurationLong);
+                                await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.SuccessedRemovedDanger, MaterialSnackbar.DurationLong, Constants.MaterialConfiguration.SnackbarConfiguration);
                             }
                         }
                         catch (Exception)
                         {
-                            await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.FailedSetDanger, MaterialSnackbar.DurationLong);
+                            await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.FailedSetDanger, MaterialSnackbar.DurationLong, Constants.MaterialConfiguration.SnackbarConfiguration);
                         }
                     }
                 });
-                await _hubConnection.StartAsync();
+                try
+                {
+                    await _hubConnection.StartAsync();
+                    string MessageConnectedCheck = _hubConnection.State != HubConnectionState.Connected ? "sorry, you are not connected!!" : "you are now connected!";
+                    await MaterialDialog.Instance.SnackbarAsync(MessageConnectedCheck, (int)TimeSpan.FromSeconds(10).TotalMilliseconds, Constants.MaterialConfiguration.SnackbarConfiguration).ConfigureAwait(false);
+                }
+                catch (Exception)
+                {
+                    await MaterialDialog.Instance.SnackbarAsync("sorry, there are issue with connected!!", (int)TimeSpan.FromSeconds(10).TotalMilliseconds, Constants.MaterialConfiguration.SnackbarConfiguration).ConfigureAwait(false);
+                }
+
             }
         }
         public static async Task StoptWithHub()

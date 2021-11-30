@@ -108,7 +108,7 @@ namespace API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<Hubs.LocationHub>("/hub/location");
+                endpoints.MapHub<Hubs.LocationHub>("/hublocation");
             });
         }
     }

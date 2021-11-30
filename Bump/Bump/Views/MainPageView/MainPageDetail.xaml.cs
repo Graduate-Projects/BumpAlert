@@ -99,22 +99,5 @@ namespace Bump.Views.MainPageView
                 Crashes.TrackError(exception, properties);
             }
         }
-
-        private async void ReconnectSignalR(object sender, EventArgs e)
-        {
-            try
-            {
-                this.SignalRButtons.IsVisible = false;
-                await App.ConnectWithHub();
-
-                this.SignalRButtons.IsVisible = App._hubConnection.State != HubConnectionState.Connected;
-            }
-            catch (Exception exception)
-            {
-                await MaterialDialog.Instance.SnackbarAsync(exception.Message, 2750).ConfigureAwait(false);
-                Crashes.TrackError(exception);
-                this.SignalRButtons.IsVisible = true;
-            }
-        }
     }
 }
