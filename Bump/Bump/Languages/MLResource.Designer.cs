@@ -430,7 +430,7 @@ namespace Bump.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rigister.
+        ///   Looks up a localized string similar to Register.
         /// </summary>
         internal static string Register {
             get {
