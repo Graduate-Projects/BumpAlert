@@ -8,6 +8,7 @@ namespace BLL.Enums
     {
         RADAR,
         BUMP,
-        PIT
+        PIT,
+        SAFE
     }
 }

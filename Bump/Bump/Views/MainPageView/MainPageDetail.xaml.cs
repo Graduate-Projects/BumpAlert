@@ -27,7 +27,7 @@ namespace Bump.Views.MainPageView
         {
             InitializeComponent();
             PrepareGoogleMap().ConfigureAwait(false);
-            IntervalCheck = TimeSpan.FromMinutes(5).TotalSeconds;
+            IntervalCheck = TimeSpan.FromSeconds(30).TotalSeconds;
 
             timer = new System.Timers.Timer();
             timer.AutoReset = true;
@@ -67,19 +67,21 @@ namespace Bump.Views.MainPageView
             {
                 var EndLocation = await Utils.Location.GetCurrentLocation(new CancellationTokenSource());
                 var Distance = Location.CalculateDistance(CurrentPosition, EndLocation, DistanceUnits.Kilometers);
-                CurrentPosition = EndLocation;
                 var Speed = Distance / IntervalCheck;
-
-                if (Distance >= 0.005) // 5 metear
+                if (Distance >= 0.005)
                 {
+                    CurrentPosition = EndLocation;
                     await App.ConnectWithHub();
-                    await App._hubConnection.InvokeAsync("CheckDangers", EndLocation.Latitude, EndLocation.Longitude).ConfigureAwait(false);
-                    Analytics.TrackEvent("Check Current Position", new Dictionary<string, string> {
-                        { "User", AppStatic.Username},
-                        { "Speed", Speed.ToString()},
-                        { "Location", EndLocation.ToString()},
-                        { "Distance From Old Distance", Distance.ToString() }
-                    });
+                    if (App._hubConnection.State == HubConnectionState.Connected)
+                    {
+                        await App._hubConnection.InvokeAsync("CheckDangers", EndLocation.Latitude, EndLocation.Longitude).ConfigureAwait(false);
+                        Analytics.TrackEvent("Check Current Position", new Dictionary<string, string> {
+                            { "User", AppStatic.Username},
+                            { "Speed", Speed.ToString()},
+                            { "Location", EndLocation.ToString()},
+                            { "Distance From Old Distance", Distance.ToString() }
+                        });
+                    }
                 }
                 else
                 {

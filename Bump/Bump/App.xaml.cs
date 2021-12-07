@@ -107,7 +107,7 @@ namespace Bump
                 try
                 {
                     await _hubConnection.StartAsync();
-                    string MessageConnectedCheck = _hubConnection.State != HubConnectionState.Connected ? "sorry, you are not connected!!" : "you are now connected!";
+                    string MessageConnectedCheck = _hubConnection.State != HubConnectionState.Connected ? "sorry, you are disconnect!!" : "you are now connected!";
                     await MaterialDialog.Instance.SnackbarAsync(MessageConnectedCheck, (int)TimeSpan.FromSeconds(10).TotalMilliseconds, Constants.MaterialConfiguration.SnackbarConfiguration).ConfigureAwait(false);
                 }
                 catch (Exception)
