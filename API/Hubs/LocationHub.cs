@@ -34,7 +34,7 @@ namespace API.Hubs
                 switch (DangerClosets.DangerType)
                 {
                     case BLL.Enums.DangerType.RADAR:
-                        if (Location.CalculateDistance(UserPosition, DangerLocation) <= 0.500) //0.5 Km = 500m
+                        if (Location.CalculateDistance(UserPosition, DangerLocation) <= 0.300) //0.5 Km = 500m
                             await Clients.Caller.SendAsync("DetectDanger", DangerClosets.ID, DangerClosets.DangerType);
                         else
                             await Clients.Caller.SendAsync("DetectDanger", Guid.NewGuid(), DangerType.SAFE);

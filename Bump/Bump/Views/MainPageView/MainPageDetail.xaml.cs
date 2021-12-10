@@ -68,7 +68,7 @@ namespace Bump.Views.MainPageView
                 var EndLocation = await Utils.Location.GetCurrentLocation(new CancellationTokenSource());
                 var Distance = Location.CalculateDistance(CurrentPosition, EndLocation, DistanceUnits.Kilometers);
                 var Speed = Distance / IntervalCheck;
-                if (Distance >= 0.005)
+                if (Distance >= 0.035)
                 {
                     CurrentPosition = EndLocation;
                     await App.ConnectWithHub();
