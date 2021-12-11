@@ -34,17 +34,17 @@ namespace API.Hubs
                 switch (DangerClosets.DangerType)
                 {
                     case BLL.Enums.DangerType.RADAR:
-                        if (Location.CalculateDistance(UserPosition, DangerLocation) <= 0.300) //0.5 Km = 500m
+                        if (Location.CalculateDistance(UserPosition, DangerLocation) <= 3 ) //0.5 Km = 500m
                             await Clients.Caller.SendAsync("DetectDanger", DangerClosets.ID, DangerClosets.DangerType);
-                        else
-                            await Clients.Caller.SendAsync("DetectDanger", Guid.NewGuid(), DangerType.SAFE);
+                        //else
+                        //    await Clients.Caller.SendAsync("DetectDanger", Guid.NewGuid(), DangerType.SAFE);
                         break;
                     case BLL.Enums.DangerType.BUMP:
                     case BLL.Enums.DangerType.PIT:
-                        if (Location.CalculateDistance(UserPosition, DangerLocation) <= 0.050) //0.05 Km = 50 m
+                        if (Location.CalculateDistance(UserPosition, DangerLocation) <= 3 ) //0.05 Km = 50 m
                             await Clients.Caller.SendAsync("DetectDanger", DangerClosets.ID, DangerClosets.DangerType);
-                        else
-                            await Clients.Caller.SendAsync("DetectDanger", Guid.NewGuid(), DangerType.SAFE);
+                        //else
+                        //    await Clients.Caller.SendAsync("DetectDanger", Guid.NewGuid(), DangerType.SAFE);
                         break;
                 }
             }
