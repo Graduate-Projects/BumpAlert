@@ -34,14 +34,14 @@ namespace API.Hubs
                 switch (DangerClosets.DangerType)
                 {
                     case BLL.Enums.DangerType.RADAR:
-                        if (Location.CalculateDistance(UserPosition, DangerLocation) <= 3 ) //0.5 Km = 500m
+                        if (Location.CalculateDistance(UserPosition, DangerLocation) <= 300 )
                             await Clients.Caller.SendAsync("DetectDanger", DangerClosets.ID, DangerClosets.DangerType);
                         //else
                         //    await Clients.Caller.SendAsync("DetectDanger", Guid.NewGuid(), DangerType.SAFE);
                         break;
                     case BLL.Enums.DangerType.BUMP:
                     case BLL.Enums.DangerType.PIT:
-                        if (Location.CalculateDistance(UserPosition, DangerLocation) <= 3 ) //0.05 Km = 50 m
+                        if (Location.CalculateDistance(UserPosition, DangerLocation) <= 300 )
                             await Clients.Caller.SendAsync("DetectDanger", DangerClosets.ID, DangerClosets.DangerType);
                         //else
                         //    await Clients.Caller.SendAsync("DetectDanger", Guid.NewGuid(), DangerType.SAFE);
@@ -75,13 +75,22 @@ namespace API.Hubs
                 this.Latitude = Latitude;
                 this.Longitude = Longitude;
             }
-            public static double CalculateDistance(Location StartLocation, Location EndLocation)
-            {
-                var DeltaLongitude = EndLocation.Longitude - StartLocation.Longitude;
-                var DeltaLatitude = EndLocation.Latitude - StartLocation.Latitude;
 
-                var Distance = Math.Sqrt(Math.Pow(DeltaLongitude,2) + Math.Pow(DeltaLatitude, 2));
-                return Distance;
+            /// <summary>
+            /// methods to find the distance between 2 coordinates in meter unit
+            /// </summary>
+            /// <param name="point1">first point location</param>
+            /// <param name="point2">second point location</param>
+            /// <returns>distance between this points in meter</returns>
+            public static double CalculateDistance(Location point1, Location point2)
+            {
+                var d1 = point1.Latitude * (Math.PI / 180.0);
+                var num1 = point1.Longitude * (Math.PI / 180.0);
+                var d2 = point2.Latitude * (Math.PI / 180.0);
+                var num2 = point2.Longitude * (Math.PI / 180.0) - num1;
+                var d3 = Math.Pow(Math.Sin((d2 - d1) / 2.0), 2.0) +
+                         Math.Cos(d1) * Math.Cos(d2) * Math.Pow(Math.Sin(num2 / 2.0), 2.0);
+                return 6376500.0 * (2.0 * Math.Atan2(Math.Sqrt(d3), Math.Sqrt(1.0 - d3)));
             }
         }
     }
