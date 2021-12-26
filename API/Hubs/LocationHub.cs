@@ -27,22 +27,23 @@ namespace API.Hubs
 
                 var UserPosition = new Location(Latitude, Longitude);
                 var ListOfDangers = _context.Dangers.ToList();
-                var DangerClosets = ListOfDangers.OrderByDescending(danger => Location.CalculateDistance(UserPosition, new Location(danger.Latitude, danger.Longitude))).FirstOrDefault();
+                var DangerClosets = ListOfDangers.OrderBy(danger => Location.CalculateDistance(UserPosition, new Location(danger.Latitude, danger.Longitude))).FirstOrDefault();
                 if (DangerClosets == null) return;
 
                 var DangerLocation = new Location(DangerClosets.Latitude, DangerClosets.Longitude);
+                var Distance = (int)Location.CalculateDistance(UserPosition, DangerLocation);
                 switch (DangerClosets.DangerType)
                 {
                     case BLL.Enums.DangerType.RADAR:
-                        if (Location.CalculateDistance(UserPosition, DangerLocation) <= 300 )
-                            await Clients.Caller.SendAsync("DetectDanger", DangerClosets.ID, DangerClosets.DangerType);
+                        if (Distance <= 300 )
+                            await Clients.Caller.SendAsync("DetectDanger", DangerClosets.ID, DangerClosets.DangerType, Distance);
                         //else
                         //    await Clients.Caller.SendAsync("DetectDanger", Guid.NewGuid(), DangerType.SAFE);
                         break;
                     case BLL.Enums.DangerType.BUMP:
                     case BLL.Enums.DangerType.PIT:
-                        if (Location.CalculateDistance(UserPosition, DangerLocation) <= 300 )
-                            await Clients.Caller.SendAsync("DetectDanger", DangerClosets.ID, DangerClosets.DangerType);
+                       if (Distance <= 300 )
+                            await Clients.Caller.SendAsync("DetectDanger", DangerClosets.ID, DangerClosets.DangerType, Distance);
                         //else
                         //    await Clients.Caller.SendAsync("DetectDanger", Guid.NewGuid(), DangerType.SAFE);
                         break;

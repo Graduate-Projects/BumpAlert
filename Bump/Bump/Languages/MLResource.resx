@@ -127,7 +127,7 @@
     <value>BUMP</value>
   </data>
   <data name="BumpAlert" xml:space="preserve">
-    <value>Be Careful, there's a bump in front of you half a kilometer away</value>
+    <value>Be Careful, there's a bump in front of you after {0} meters away</value>
   </data>
   <data name="Confirm_Password" xml:space="preserve">
     <value>Confirm Password</value>
@@ -226,7 +226,7 @@
     <value>Enter the email associated with your account and we'll send an email with instruction to reset your password.</value>
   </data>
   <data name="PitAlert" xml:space="preserve">
-    <value>Be careful, there is construction in front of you half a kilometer</value>
+    <value>Be careful, there is construction in front of you after {0} meters away</value>
   </data>
   <data name="prog_A" xml:space="preserve">
     <value>The goal is  preserving your safety and the safety of the car on the highway.</value>
@@ -274,7 +274,7 @@
     <value>Social Sing in</value>
   </data>
   <data name="SpeedAlert" xml:space="preserve">
-    <value>Reduce your speed now, you have a radar half a kilometer away</value>
+    <value>Reduce your speed now, you have a radar after {0} meters</value>
   </data>
   <data name="Subject" xml:space="preserve">
     <value>Subject</value>

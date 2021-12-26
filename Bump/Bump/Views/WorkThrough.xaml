@@ -2,11 +2,11 @@
 <CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:XFMaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D"
                xmlns:Utils="clr-namespace:Bump.Utils"
              x:Class="Bump.Views.WorkThrough"
               xmlns:ViewModels="clr-namespace:Bump.ViewModels"          
-             NavigationPage.HasNavigationBar="False"
-             XFMaterial:MaterialNavigationPage.StatusBarColor="#DC384D">
+             NavigationPage.HasNavigationBar="False">
     <ContentPage>
         <StackLayout Margin="10" Padding="10" Spacing="10">
             <StackLayout Margin="0" Padding="0" Spacing="10">

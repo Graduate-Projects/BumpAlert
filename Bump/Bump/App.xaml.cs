@@ -62,7 +62,7 @@ namespace Bump
         {
             if (_hubConnection.State != HubConnectionState.Connected)
             {
-                _hubConnection.On<Guid,BLL.Enums.DangerType>("DetectDanger", async(DangerID, DangerType) => {
+                _hubConnection.On<Guid,BLL.Enums.DangerType,int>("DetectDanger", async(DangerID, DangerType, Distance) => {
 
                     Analytics.TrackEvent("Received Dangar", new Dictionary<string, string> {
                         { "User", AppStatic.Username},
@@ -78,6 +78,7 @@ namespace Bump
                         BLL.Enums.DangerType.PIT => Languages.MLResource.PitAlert,
                         _ => "BeCarful",
                     };
+                    Message = string.Format(Message, Distance);
                     await MaterialDialog.Instance.SnackbarAsync(Message, (int)TimeSpan.FromSeconds(10).TotalMilliseconds, Constants.MaterialConfiguration.SnackbarConfiguration).ConfigureAwait(false);
                     await SpeakNow(Message);
 

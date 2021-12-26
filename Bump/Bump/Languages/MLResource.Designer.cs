@@ -88,7 +88,7 @@ namespace Bump.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Be Careful, there&apos;s a bump in front of you half a kilometer away.
+        ///   Looks up a localized string similar to Be Careful, there&apos;s a bump in front of you after {0} meters away.
         /// </summary>
         internal static string BumpAlert {
             get {
@@ -385,7 +385,7 @@ namespace Bump.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Be careful, there is construction in front of you half a kilometer.
+        ///   Looks up a localized string similar to Be careful, there is construction in front of you after {0} meters away.
         /// </summary>
         internal static string PitAlert {
             get {
@@ -529,7 +529,7 @@ namespace Bump.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reduce your speed now, you have a radar half a kilometer away.
+        ///   Looks up a localized string similar to Reduce your speed now, you have a radar after {0} meters.
         /// </summary>
         internal static string SpeedAlert {
             get {
