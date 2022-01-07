@@ -19,12 +19,10 @@ namespace API.Hubs
             _context = context;
         }
 
-        public async Task CheckDangers(double Latitude, double Longitude)
+        public async Task CheckDangers(double Latitude, double Longitude, double DistanceClosestDanger)
         {
             try
             {
-                //await Clients.Caller.SendAsync("DetectDanger", Guid.NewGuid(), DangerType.SAFE);
-
                 var UserPosition = new Location(Latitude, Longitude);
                 var ListOfDangers = _context.Dangers.ToList();
                 var DangerClosets = ListOfDangers.OrderBy(danger => Location.CalculateDistance(UserPosition, new Location(danger.Latitude, danger.Longitude))).FirstOrDefault();
@@ -35,17 +33,13 @@ namespace API.Hubs
                 switch (DangerClosets.DangerType)
                 {
                     case BLL.Enums.DangerType.RADAR:
-                        if (Distance <= 300 )
+                        if (Distance <= DistanceClosestDanger)
                             await Clients.Caller.SendAsync("DetectDanger", DangerClosets.ID, DangerClosets.DangerType, Distance);
-                        //else
-                        //    await Clients.Caller.SendAsync("DetectDanger", Guid.NewGuid(), DangerType.SAFE);
                         break;
                     case BLL.Enums.DangerType.BUMP:
                     case BLL.Enums.DangerType.PIT:
-                       if (Distance <= 300 )
+                       if (Distance <= DistanceClosestDanger)
                             await Clients.Caller.SendAsync("DetectDanger", DangerClosets.ID, DangerClosets.DangerType, Distance);
-                        //else
-                        //    await Clients.Caller.SendAsync("DetectDanger", Guid.NewGuid(), DangerType.SAFE);
                         break;
                 }
             }

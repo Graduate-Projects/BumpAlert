@@ -17,7 +17,6 @@ namespace API
 {
     public class Startup
     {
-        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             var builder = new ConfigurationBuilder()
@@ -31,15 +30,6 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy(name: MyAllowSpecificOrigins,
-            //                      builder =>
-            //                      {
-            //                          builder.WithOrigins("https://fiddle.jshell.net", "http://www.contoso.com");
-            //                      });
-            //});
 
             services.AddControllersWithViews()
                     .AddJsonOptions(option => option.JsonSerializerOptions.PropertyNamingPolicy = null);
@@ -113,8 +103,6 @@ namespace API
 
             app.UseStaticFiles();
             app.UseRouting();
-
-            //app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthorization();
 

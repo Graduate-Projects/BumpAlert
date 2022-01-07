@@ -21,7 +21,7 @@ namespace Bump.Views.MainPageView
     {
         public bool IsAllowedPermission = false;
         private System.Timers.Timer timer;
-        public Location CurrentPosition { get; set; }
+        public Location LastPosition { get; set; }
         public double IntervalCheck { get; set; }
         public MainPageDetail()
         {
@@ -44,13 +44,13 @@ namespace Bump.Views.MainPageView
                 if (LocationWhenInUsePermission == PermissionStatus.Granted)
                 {
                     IsAllowedPermission = true;
-                    CurrentPosition = await Utils.Location.GetCurrentLocation(new CancellationTokenSource());
+                    LastPosition = await Utils.Location.GetCurrentLocation(new CancellationTokenSource());
                     var GoogleMap = new Xamarin.Forms.GoogleMaps.Map()
                     {
                         MyLocationEnabled = true,
                     };
                     GoogleMap.UiSettings.MyLocationButtonEnabled = true;
-                    GoogleMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(CurrentPosition.Latitude, CurrentPosition.Longitude), Distance.FromMiles(1)));
+                    GoogleMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(LastPosition.Latitude, LastPosition.Longitude), Distance.FromMiles(1)));
                     MapGoogle.Children.Add(GoogleMap);
                 }
             }
@@ -65,32 +65,16 @@ namespace Bump.Views.MainPageView
             if (!IsAllowedPermission) return;
             try
             {
-                var EndLocation = await Utils.Location.GetCurrentLocation(new CancellationTokenSource());
-                var Distance = Location.CalculateDistance(CurrentPosition, EndLocation, DistanceUnits.Kilometers);
-                var Speed = Distance / IntervalCheck;
-                if (Distance >= 0.035)
+                var CurrentLocation = await Utils.Location.GetCurrentLocation(new CancellationTokenSource());
+                var Distance = Location.CalculateDistance(LastPosition, CurrentLocation, DistanceUnits.Kilometers) * 1000; //calculate distance between last position and current poistion in meters
+                if (Distance >= 35)
                 {
-                    CurrentPosition = EndLocation;
+                    LastPosition = CurrentLocation;
                     await App.ConnectWithHub();
                     if (App._hubConnection.State == HubConnectionState.Connected)
                     {
-                        await App._hubConnection.InvokeAsync("CheckDangers", EndLocation.Latitude, EndLocation.Longitude).ConfigureAwait(false);
-                        Analytics.TrackEvent("Check Current Position", new Dictionary<string, string> {
-                            { "User", AppStatic.Username},
-                            { "Speed", Speed.ToString()},
-                            { "Location", EndLocation.ToString()},
-                            { "Distance From Old Distance", Distance.ToString() }
-                        });
+                        await App._hubConnection.InvokeAsync("CheckDangers", CurrentLocation.Latitude, CurrentLocation.Longitude, Distance).ConfigureAwait(false);
                     }
-                }
-                else
-                {
-                    Analytics.TrackEvent("Check Current Position - Not Work", new Dictionary<string, string> {
-                        { "User", AppStatic.Username},
-                        { "Speed", Speed.ToString()},
-                        { "Location", EndLocation.ToString()},
-                        { "Distance From Old Distance", Distance.ToString() }
-                    });
                 }
             }
             catch (Exception exception)
