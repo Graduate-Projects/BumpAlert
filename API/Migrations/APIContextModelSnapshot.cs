@@ -34,6 +34,9 @@ namespace API.Migrations
                     b.Property<int>("DangerType")
                         .HasColumnType("int");
 
+                    b.Property<int>("ForwordBackword")
+                        .HasColumnType("int");
+
                     b.Property<double>("Latitude")
                         .HasColumnType("float");
 

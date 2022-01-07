@@ -25,7 +25,11 @@ namespace API.Hubs
             {
                 var UserPosition = new Location(Latitude, Longitude);
                 var ListOfDangers = _context.Dangers.ToList();
-                var DangerClosets = ListOfDangers.OrderBy(danger => Location.CalculateDistance(UserPosition, new Location(danger.Latitude, danger.Longitude))).FirstOrDefault();
+                var DangerClosets = ListOfDangers
+                    .Where(danger=> danger.ForwordBackword == Math.Sign((danger.Longitude - UserPosition.Longitude)+(danger.Latitude-danger.Longitude)))
+                    .OrderBy(danger => Location.CalculateDistance(UserPosition, new Location(danger.Latitude, danger.Longitude)))
+                    .FirstOrDefault();
+
                 if (DangerClosets == null) return;
 
                 var DangerLocation = new Location(DangerClosets.Latitude, DangerClosets.Longitude);

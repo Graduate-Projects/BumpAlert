@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(APIContext))]
-    [Migration("20211203194607_db_first_time")]
-    partial class db_first_time
+    [Migration("20220107210835_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,6 +34,9 @@ namespace API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("DangerType")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ForwordBackword")
                         .HasColumnType("int");
 
                     b.Property<double>("Latitude")

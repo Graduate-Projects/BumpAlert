@@ -21,8 +21,8 @@ namespace Bump.Views.MainPageView
     {
         public bool IsAllowedPermission = false;
         private System.Timers.Timer timer;
-        public Location LastPosition { get; set; }
         public double IntervalCheck { get; set; }
+        public Location LastPosition { get; set; }
         public MainPageDetail()
         {
             InitializeComponent();
