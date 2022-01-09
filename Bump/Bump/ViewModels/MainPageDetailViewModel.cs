@@ -11,6 +11,7 @@ using XF.Material.Forms.UI.Dialogs;
 using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.AppCenter;
 using Xamarin.Essentials;
+using Microsoft.AppCenter.Crashes;
 
 namespace Bump.ViewModels
 {
@@ -55,7 +56,7 @@ namespace Bump.ViewModels
                     using var httpClient = new HttpClient();
 
                     var location = await Utils.Location.GetCurrentLocation(new CancellationTokenSource());
-                    var SignWay = Math.Sign((location.Longitude - LastPosition.Longitude) + (location.Latitude - LastPosition.Latitude));
+                    var SignWay = LastPosition != null ? Math.Sign((location.Longitude - LastPosition.Longitude) + (location.Latitude - LastPosition.Latitude)) : -1;
                     var DangerModel = new BLL.Models.Danger
                     {
                         ID = Guid.NewGuid(),
@@ -73,12 +74,21 @@ namespace Bump.ViewModels
                     else
                     {
                         await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.FailedSetDanger, MaterialSnackbar.DurationLong, Constants.MaterialConfiguration.SnackbarConfiguration);
+                        var content = await response.Content.ReadAsStringAsync();
+                        var properties = new Dictionary<string, string> { { "Email", AppStatic.Username }, { "Erorr_Message", content } };
+                        Crashes.TrackError(new Exception(content), properties);
+
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception exception)
             {
                 await MaterialDialog.Instance.SnackbarAsync(Languages.MLResource.FailedSetDanger, MaterialSnackbar.DurationLong, Constants.MaterialConfiguration.SnackbarConfiguration);
+
+                var properties = new Dictionary<string, string> {
+                    { "Email", AppStatic.Username }
+                };
+                Crashes.TrackError(exception, properties);
             }
         }
     }
